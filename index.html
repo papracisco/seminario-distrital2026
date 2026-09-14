@@ -818,6 +818,7 @@
       padding: 0.26rem 0.65rem;
       border-radius: 8px;
       line-height: 1.2;
+      white-space: nowrap;
       transition: all 0.25s ease;
     }
 
@@ -1548,12 +1549,12 @@
                 </svg>
                 <span>Sede en incógnita</span>
               </span>
-              <span class="meta-tag meta-tag-gold">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <span class="meta-tag meta-tag-gold" id="miniCountdownTag" title="Sincronizado con la cuenta regresiva oficial">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
                   <circle cx="12" cy="12" r="10"></circle>
                   <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                <span>Desbloqueo en 00:00:00</span>
+                <span>Desbloqueo en <strong id="miniCountdownValue" style="font-variant-numeric: tabular-nums; font-family: inherit; font-weight: 700;">00:00:00</strong></span>
               </span>
             </div>
 
@@ -1730,6 +1731,8 @@
       var countdownGridEl = document.getElementById('countdownGrid');
       var saleActivePanelEl = document.getElementById('saleActivePanel');
       var btnBuyNowEl = document.getElementById('btnBuyNow');
+      var miniCountdownValueEl = document.getElementById('miniCountdownValue');
+      var miniCountdownTagEl = document.getElementById('miniCountdownTag');
 
       // 3. Fecha objetivo: Martes 15 de Septiembre de 2026 a las 8:00 PM (20:00:00 hora local)
       var targetDate = new Date(2026, 8, 15, 20, 0, 0); // Mes 8 = Septiembre (base 0)
@@ -1757,16 +1760,28 @@
         var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        // Actualización en pantalla
+        // Actualización en pantalla del cronómetro principal
         if (daysEl) daysEl.textContent = padZero(days);
         if (hoursEl) hoursEl.textContent = padZero(hours);
         if (minutesEl) minutesEl.textContent = padZero(minutes);
         if (secondsEl) secondsEl.textContent = padZero(seconds);
+
+        // Sincronización en tiempo real del minicronómetro (Tarjeta Destino Sorpresa)
+        if (miniCountdownValueEl) {
+          if (days > 0) {
+            miniCountdownValueEl.textContent = padZero(days) + 'd ' + padZero(hours) + ':' + padZero(minutes) + ':' + padZero(seconds);
+          } else {
+            miniCountdownValueEl.textContent = padZero(hours) + ':' + padZero(minutes) + ':' + padZero(seconds);
+          }
+        }
       }
 
       function showSaleOpen() {
         if (countdownGridEl) countdownGridEl.style.display = 'none';
         if (saleActivePanelEl) saleActivePanelEl.style.display = 'block';
+        if (miniCountdownTagEl) {
+          miniCountdownTagEl.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span>¡Sede desbloqueada!</span>';
+        }
       }
 
       // Iniciar el ciclo del reloj
