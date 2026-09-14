@@ -8,6 +8,9 @@
   <meta property="og:title" content="Seminario de Aprendizaje Distrital 2026 • Preventa Exclusiva" />
   <meta property="og:description" content="Cuenta regresiva oficial para la apertura de la preventa de los cupos del Seminario de Aprendizaje Distrital 2026. Organizado por Rotaract Distrito 4370." />
   <meta property="og:type" content="website" />
+
+  <!-- Favicon Oficial: Engranaje / Rueda de Rotary (Rotaract) en color fucsia (#D91B5C) mediante SVG Data URI -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='275 5 100 100'><path d='M 322.25,14.04 L 323.23,7.05 L 326.77,7.05 L 327.75,14.04 L 332.37,14.65 L 335.21,8.08 L 338.63,9.00 L 338.00,16.03 L 342.34,17.76 L 346.68,12.23 L 349.75,14.00 L 347.16,20.59 L 351.04,23.19 L 356.57,18.86 L 359.08,21.36 L 354.75,26.89 L 357.34,30.77 L 363.93,28.18 L 365.71,31.25 L 360.17,35.59 L 361.90,39.93 L 368.94,39.30 L 369.86,42.72 L 363.28,45.56 L 363.90,50.18 L 370.89,51.17 L 370.89,54.70 L 363.90,55.69 L 363.28,60.31 L 369.86,63.15 L 368.94,66.57 L 361.90,65.94 L 360.17,70.28 L 365.71,74.61 L 363.93,77.69 L 357.34,75.10 L 354.75,78.98 L 359.08,84.51 L 356.57,87.01 L 351.04,82.68 L 347.16,85.28 L 349.75,91.87 L 346.68,93.64 L 342.34,88.11 L 338.00,89.84 L 338.63,96.87 L 335.21,97.79 L 332.37,91.22 L 327.75,91.83 L 326.77,98.82 L 323.23,98.82 L 322.25,91.83 L 317.63,91.22 L 314.79,97.79 L 311.37,96.87 L 312.00,89.84 L 307.66,88.11 L 303.32,93.64 L 300.25,91.87 L 302.84,85.28 L 298.96,82.68 L 293.43,87.01 L 290.92,84.51 L 295.25,78.98 L 292.66,75.10 L 286.07,77.69 L 284.29,74.61 L 289.83,70.28 L 288.10,65.94 L 281.06,66.57 L 280.14,63.15 L 286.72,60.31 L 286.10,55.69 L 279.11,54.70 L 279.11,51.17 L 286.10,50.18 L 286.72,45.56 L 280.14,42.72 L 281.06,39.30 L 288.10,39.93 L 289.83,35.59 L 284.29,31.25 L 286.07,28.18 L 292.66,30.77 L 295.25,26.89 L 290.92,21.36 L 293.43,18.86 L 298.96,23.19 L 302.84,20.59 L 300.25,14.00 L 303.32,12.23 L 307.66,17.76 L 312.00,16.03 L 311.37,9.00 L 314.79,8.08 L 317.63,14.65 Z' fill='%23D91B5C'/><circle cx='325' cy='55' r='41' fill='%23D91B5C'/><circle cx='325' cy='55' r='28.5' fill='%23ffffff'/><polygon points='328.69,41 329.4,26 320.6,26 321.31,41' fill='%23D91B5C'/><polygon points='338.97,51.04 352.34,43.91 347.94,36.29 335.16,44.45' fill='%23D91B5C'/><polygon points='335.16,65.55 347.94,73.71 352.34,66.09 338.97,58.96' fill='%23D91B5C'/><polygon points='321.31,69 320.6,84 329.4,84 328.69,69' fill='%23D91B5C'/><polygon points='311.03,58.96 297.66,66.09 302.06,73.71 314.84,65.55' fill='%23D91B5C'/><polygon points='314.84,44.45 302.06,36.29 297.66,43.91 311.03,51.04' fill='%23D91B5C'/><circle cx='325' cy='55' r='14' fill='%23D91B5C'/><circle cx='325' cy='55' r='7.2' fill='%23ffffff'/><rect x='323.8' y='45.6' width='2.4' height='3.2' fill='%23ffffff'/><circle cx='325' cy='55' r='4.32' fill='%23D91B5C'/></svg>" />
   
   <!-- Tipografía exclusiva: Open Sans (Google Fonts 300, 400, 600, 700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -594,12 +597,13 @@
     }
 
     /* ==========================================================================
-       SECCIÓN DE EXPECTATIVA & PISTAS (3 TARJETAS BLANCAS CON COLORES RESALTADOS)
+       SECCIÓN DE EXPECTATIVA & PISTAS (3 TARJETAS DINÁMICAS & DECORADAS)
        ========================================================================== */
     .features-section {
       width: 100%;
-      max-width: 1000px;
-      margin-bottom: 4rem;
+      max-width: 1020px;
+      margin-bottom: 3.5rem;
+      position: relative;
     }
 
     .features-grid {
@@ -611,53 +615,168 @@
 
     .feature-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: 20px;
-      padding: 2.25rem 1.85rem;
-      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border: 1.5px solid var(--border-card);
+      border-radius: 22px;
+      padding: 2.15rem 1.85rem 1.85rem;
+      transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       position: relative;
-      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      box-shadow: 0 6px 20px -3px rgba(11, 37, 69, 0.05), 0 2px 6px -1px rgba(11, 37, 69, 0.03);
     }
 
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-card-hover);
-      box-shadow: var(--card-shadow-hover);
+    /* Barra superior con gradiente de color institucional */
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4.5px;
+      transition: height 0.3s ease;
+      z-index: 3;
+    }
+
+    /* Resplandor ambiental de color en la esquina superior */
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      filter: blur(28px);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.55;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    /* Identidad visual por tarjeta */
+    .feature-card-gold::before {
+      background: linear-gradient(90deg, #F39200, #FFB100, #F39200);
+    }
+    .feature-card-gold::after {
+      background: rgba(243, 146, 0, 0.25);
+    }
+    .feature-card-gold:hover {
+      border-color: rgba(243, 146, 0, 0.5);
+      box-shadow: 0 16px 36px -6px rgba(243, 146, 0, 0.22), 0 6px 16px -2px rgba(11, 37, 69, 0.06);
+      transform: translateY(-5px);
+    }
+
+    .feature-card-green::before {
+      background: linear-gradient(90deg, #009640, #10B981, #009640);
+    }
+    .feature-card-green::after {
+      background: rgba(0, 150, 64, 0.25);
+    }
+    .feature-card-green:hover {
+      border-color: rgba(0, 150, 64, 0.5);
+      box-shadow: 0 16px 36px -6px rgba(0, 150, 64, 0.22), 0 6px 16px -2px rgba(11, 37, 69, 0.06);
+      transform: translateY(-5px);
+    }
+
+    .feature-card-magenta::before {
+      background: linear-gradient(90deg, #D91B5C, #F43F5E, #D91B5C);
+    }
+    .feature-card-magenta::after {
+      background: rgba(217, 27, 92, 0.25);
+    }
+    .feature-card-magenta:hover {
+      border-color: rgba(217, 27, 92, 0.5);
+      box-shadow: 0 16px 36px -6px rgba(217, 27, 92, 0.24), 0 6px 16px -2px rgba(11, 37, 69, 0.06);
+      transform: translateY(-5px);
+    }
+
+    .feature-card:hover::before {
+      height: 6px;
+    }
+    .feature-card:hover::after {
+      opacity: 0.95;
+      transform: scale(1.18);
+    }
+
+    /* Fila de encabezado interno (Icono + Badge decorativa) */
+    .feature-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 2;
     }
 
     .feature-icon-wrapper {
-      width: 52px;
-      height: 52px;
+      width: 50px;
+      height: 50px;
       border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.35rem;
-      transition: transform 0.3s ease;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      z-index: 2;
     }
 
     .feature-card:hover .feature-icon-wrapper {
-      transform: scale(1.1);
+      transform: scale(1.12) rotate(3deg);
     }
 
     .icon-gold {
-      background: var(--color-gold-light);
-      color: var(--color-gold-dark);
+      background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+      color: #D97706;
       border: 1.5px solid rgba(243, 146, 0, 0.35);
+      box-shadow: 0 4px 12px rgba(243, 146, 0, 0.15);
     }
 
     .icon-green {
-      background: var(--color-green-light);
-      color: var(--color-green-dark);
+      background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+      color: #00875A;
       border: 1.5px solid rgba(0, 150, 64, 0.35);
+      box-shadow: 0 4px 12px rgba(0, 150, 64, 0.15);
     }
 
     .icon-magenta {
-      background: var(--color-magenta-light);
-      color: var(--color-magenta);
+      background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
+      color: #D91B5C;
       border: 1.5px solid rgba(217, 27, 92, 0.35);
+      box-shadow: 0 4px 12px rgba(217, 27, 92, 0.15);
+    }
+
+    /* Badges de estado superior en cada tarjeta */
+    .feature-badge {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.65rem;
+      border-radius: 100px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-gold {
+      background: #FEF3C7;
+      color: #B45309;
+      border: 1px solid rgba(243, 146, 0, 0.28);
+    }
+
+    .badge-green {
+      background: #DCFCE7;
+      color: #047857;
+      border: 1px solid rgba(0, 150, 64, 0.28);
+    }
+
+    .badge-magenta {
+      background: #FCE7F3;
+      color: #BE185D;
+      border: 1px solid rgba(217, 27, 92, 0.28);
     }
 
     .feature-title {
@@ -665,13 +784,163 @@
       font-weight: 700;
       color: var(--color-text-title);
       margin-bottom: 0.65rem;
-      line-height: 1.35;
+      line-height: 1.32;
+      position: relative;
+      z-index: 2;
     }
 
     .feature-desc {
-      font-size: 0.925rem;
+      font-size: 0.915rem;
       color: var(--color-text-body);
       line-height: 1.6;
+      margin-bottom: 1.15rem;
+      position: relative;
+      z-index: 2;
+      flex-grow: 1;
+    }
+
+    /* Tags dinámicos con micro-iconos dentro de cada tarjeta */
+    .feature-meta-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.15rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.26rem 0.65rem;
+      border-radius: 8px;
+      line-height: 1.2;
+      transition: all 0.25s ease;
+    }
+
+    .meta-tag-gold {
+      background: rgba(243, 146, 0, 0.08);
+      color: #B45309;
+      border: 1px solid rgba(243, 146, 0, 0.2);
+    }
+    .feature-card:hover .meta-tag-gold {
+      background: rgba(243, 146, 0, 0.14);
+      border-color: rgba(243, 146, 0, 0.32);
+    }
+
+    .meta-tag-green {
+      background: rgba(0, 150, 64, 0.08);
+      color: #047857;
+      border: 1px solid rgba(0, 150, 64, 0.2);
+    }
+    .feature-card:hover .meta-tag-green {
+      background: rgba(0, 150, 64, 0.14);
+      border-color: rgba(0, 150, 64, 0.32);
+    }
+
+    .meta-tag-magenta {
+      background: rgba(217, 27, 92, 0.08);
+      color: #BE185D;
+      border: 1px solid rgba(217, 27, 92, 0.2);
+    }
+    .feature-card:hover .meta-tag-magenta {
+      background: rgba(217, 27, 92, 0.14);
+      border-color: rgba(217, 27, 92, 0.32);
+    }
+
+    /* Barra de estado inferior con indicador animado */
+    .card-footer-status {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed rgba(11, 37, 69, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .dot-gold {
+      background: #F39200;
+      box-shadow: 0 0 6px rgba(243, 146, 0, 0.65);
+      animation: pulseGold 2.2s infinite ease-in-out;
+    }
+
+    .dot-green {
+      background: #009640;
+      box-shadow: 0 0 6px rgba(0, 150, 64, 0.65);
+      animation: pulseGreen 2.2s infinite ease-in-out 0.4s;
+    }
+
+    .dot-magenta {
+      background: #D91B5C;
+      box-shadow: 0 0 6px rgba(217, 27, 92, 0.65);
+      animation: pulseMagenta 2.2s infinite ease-in-out 0.8s;
+    }
+
+    @keyframes pulseGold {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.55; }
+    }
+    @keyframes pulseGreen {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.55; }
+    }
+    @keyframes pulseMagenta {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.55; }
+    }
+
+    .status-text {
+      font-size: 0.735rem;
+      font-weight: 600;
+      color: var(--color-navy-soft);
+      letter-spacing: 0.02em;
+    }
+
+    /* Marca de agua vectorial de fondo en cada tarjeta */
+    .card-watermark {
+      position: absolute;
+      right: -10px;
+      bottom: -12px;
+      width: 105px;
+      height: 105px;
+      opacity: 0.065;
+      pointer-events: none;
+      z-index: 1;
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .feature-card:hover .card-watermark {
+      opacity: 0.14;
+      transform: scale(1.1) rotate(-6deg);
+    }
+
+    /* Cinta divisora decorativa dinámica debajo de las tarjetas (Resaltada en la imagen enviada por el usuario) */
+    .features-connector-ribbon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2.25rem auto 0;
+      width: 100%;
+      max-width: 650px;
+      position: relative;
+    }
+
+    .ribbon-svg {
+      width: 100%;
+      height: 32px;
+      overflow: visible;
     }
 
     /* ==========================================================================
@@ -869,6 +1138,54 @@
 
       .features-section {
         margin-bottom: 2.25rem;
+      }
+
+      .feature-card {
+        padding: 1.45rem 1.25rem 1.35rem;
+        border-radius: 18px;
+      }
+
+      .feature-card-header {
+        margin-bottom: 0.95rem;
+      }
+
+      .feature-icon-wrapper {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+      }
+
+      .feature-title {
+        font-size: 1.15rem;
+        margin-bottom: 0.45rem;
+      }
+
+      .feature-desc {
+        font-size: 0.86rem;
+        line-height: 1.5;
+        margin-bottom: 0.95rem;
+      }
+
+      .feature-meta-list {
+        margin-bottom: 0.85rem;
+        gap: 0.35rem;
+      }
+
+      .meta-tag {
+        font-size: 0.68rem;
+        padding: 0.22rem 0.55rem;
+      }
+
+      .card-footer-status {
+        padding-top: 0.75rem;
+      }
+
+      .status-text {
+        font-size: 0.69rem;
+      }
+
+      .features-connector-ribbon {
+        margin: 1.5rem auto 0;
       }
 
       .quote-section {
@@ -1194,51 +1511,178 @@
         </div>
       </section>
 
-      <!-- 4. Sección de Expectativa / Pistas del Destino (Grid 3 Puntos Clave) -->
+      <!-- 4. Sección de Expectativa / Pistas del Destino (Grid 3 Tarjetas Dinámicas & Decoradas) -->
       <section class="features-section" data-aos="fade-up" data-aos-duration="850" data-aos-delay="350" aria-label="Detalles del evento">
         <div class="features-grid">
-          <!-- Punto 1: Destino Secreto / Pistas de Montaña y Tradición -->
-          <div class="feature-card">
-            <div class="feature-icon-wrapper icon-gold" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polygon points="12 6 12 12 16 14"></polygon>
-              </svg>
+          <!-- Punto 1: Destino Sorpresa (Dorado / Sol Naciente) -->
+          <article class="feature-card feature-card-gold">
+            <!-- Marca de agua vectorial decorativa en la esquina -->
+            <svg class="card-watermark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <circle cx="50" cy="50" r="42" stroke="#F39200" stroke-width="1.5" stroke-dasharray="4 4" />
+              <polygon points="50,14 59,41 86,50 59,59 50,86 41,59 14,50 41,41" fill="#F39200" opacity="0.4" />
+              <circle cx="50" cy="50" r="6" fill="#F39200" />
+            </svg>
+
+            <!-- Cabecera de la tarjeta: Icono temático + Badge de estado -->
+            <div class="feature-card-header">
+              <div class="feature-icon-wrapper icon-gold" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="rgba(243, 146, 0, 0.2)"></polygon>
+                </svg>
+              </div>
+              <span class="feature-badge badge-gold">✦ Revelación Sorpresa</span>
             </div>
+
             <h3 class="feature-title">Destino Sorpresa</h3>
             <p class="feature-desc">
               Un lugar preparado especialmente para reencontrarnos, inspirarnos y vivir una experiencia única. La sede oficial y la información general se revelarán al culminar la cuenta regresiva.
             </p>
-          </div>
 
-          <!-- Punto 2: Formación & Liderazgo -->
-          <div class="feature-card">
-            <div class="feature-icon-wrapper icon-green" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
+            <!-- Mini etiquetas dinámicas -->
+            <div class="feature-meta-list">
+              <span class="meta-tag meta-tag-gold">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Sede en incógnita</span>
+              </span>
+              <span class="meta-tag meta-tag-gold">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Desbloqueo en 00:00:00</span>
+              </span>
             </div>
+
+            <!-- Indicador activo inferior -->
+            <div class="card-footer-status">
+              <span class="status-dot dot-gold"></span>
+              <span class="status-text">Pistas y misterio activos</span>
+            </div>
+          </article>
+
+          <!-- Punto 2: Formación & Liderazgo (Verde Esmeralda / Montañas) -->
+          <article class="feature-card feature-card-green">
+            <!-- Marca de agua vectorial decorativa en la esquina -->
+            <svg class="card-watermark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <path d="M15 80 L45 30 L65 60 L85 25 L95 80 Z" stroke="#009640" stroke-width="1.8" stroke-linejoin="round" opacity="0.5" />
+              <circle cx="45" cy="30" r="4" fill="#009640" />
+              <circle cx="85" cy="25" r="4" fill="#009640" />
+              <circle cx="65" cy="60" r="3" fill="#009640" />
+            </svg>
+
+            <!-- Cabecera de la tarjeta: Icono temático + Badge de estado -->
+            <div class="feature-card-header">
+              <div class="feature-icon-wrapper icon-green" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <span class="feature-badge badge-green">★ Pilar Distrital</span>
+            </div>
+
             <h3 class="feature-title">Formación & Liderazgo</h3>
             <p class="feature-desc">
               Talleres de gestión de proyectos, dinámicas de trabajo en equipo, conferencias inspiradoras y alianzas estratégicas distritales.
             </p>
-          </div>
 
-          <!-- Punto 3: Experiencia Exclusiva -->
-          <div class="feature-card">
-            <div class="feature-icon-wrapper icon-magenta" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-              </svg>
+            <!-- Mini etiquetas dinámicas -->
+            <div class="feature-meta-list">
+              <span class="meta-tag meta-tag-green">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="8.5" cy="7" r="4"></circle>
+                </svg>
+                <span>Trabajo en equipo</span>
+              </span>
+              <span class="meta-tag meta-tag-green">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span>Talleres & conferencias</span>
+              </span>
             </div>
+
+            <!-- Indicador activo inferior -->
+            <div class="card-footer-status">
+              <span class="status-dot dot-green"></span>
+              <span class="status-text">Capacitación distrital</span>
+            </div>
+          </article>
+
+          <!-- Punto 3: Experiencia Exclusiva (Magenta Fucsia / Arquitectura & Celebración) -->
+          <article class="feature-card feature-card-magenta">
+            <!-- Marca de agua vectorial decorativa en la esquina -->
+            <svg class="card-watermark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <polygon points="50,10 61,35 88,38 68,57 74,84 50,70 26,84 32,57 12,38 39,35" stroke="#D91B5C" stroke-width="1.6" opacity="0.4" />
+              <circle cx="50" cy="50" r="5" fill="#D91B5C" />
+            </svg>
+
+            <!-- Cabecera de la tarjeta: Icono temático + Badge de estado -->
+            <div class="feature-card-header">
+              <div class="feature-icon-wrapper icon-magenta" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="rgba(217, 27, 92, 0.2)"></polygon>
+                </svg>
+              </div>
+              <span class="feature-badge badge-magenta">✦ Preventa Exclusiva</span>
+            </div>
+
             <h3 class="feature-title">Experiencia Exclusiva</h3>
             <p class="feature-desc">
               Noche cultural, dinámicas especiales, recorridos por lugares emblemáticos y beneficios reservados para la preventa.
             </p>
-          </div>
+
+            <!-- Mini etiquetas dinámicas -->
+            <div class="feature-meta-list">
+              <span class="meta-tag meta-tag-magenta">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span>Noche cultural</span>
+              </span>
+              <span class="meta-tag meta-tag-magenta">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                  <line x1="7" y1="8" x2="17" y2="8"></line>
+                  <line x1="7" y1="12" x2="17" y2="12"></line>
+                </svg>
+                <span>Beneficios preventa</span>
+              </span>
+            </div>
+
+            <!-- Indicador activo inferior -->
+            <div class="card-footer-status">
+              <span class="status-dot dot-magenta"></span>
+              <span class="status-text">Beneficios por tiempo limitado</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Cinta divisora decorativa dinámica ondulada con chispas festivas (exactamente en el área destacada) -->
+        <div class="features-connector-ribbon" aria-hidden="true" data-aos="fade-up" data-aos-duration="700">
+          <svg class="ribbon-svg" viewBox="0 0 600 32" fill="none">
+            <!-- Onda principal en fucsia institucional -->
+            <path d="M15 16 C 75 4, 135 28, 195 16 C 255 4, 315 28, 375 16 C 435 4, 495 28, 585 16" stroke="#D91B5C" stroke-width="2.4" stroke-linecap="round" opacity="0.75" />
+            <!-- Onda secundaria punteada en verde naturaleza -->
+            <path d="M35 22 C 95 10, 155 30, 215 18 C 275 6, 335 28, 395 18 C 455 8, 515 28, 565 20" stroke="#009640" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3 4" opacity="0.5" />
+            <!-- Puntos de color y chispas festivas -->
+            <circle cx="95" cy="8" r="2.8" fill="#F39200" />
+            <circle cx="215" cy="24" r="3" fill="#D91B5C" />
+            <circle cx="300" cy="9" r="3.5" fill="#004B87" />
+            <circle cx="395" cy="24" r="2.8" fill="#009640" />
+            <circle cx="505" cy="10" r="3" fill="#FFB100" />
+            <!-- Destellos en cruz sutiles -->
+            <path d="M300 3 L300 15 M294 9 L306 9" stroke="#F39200" stroke-width="1.8" stroke-linecap="round" opacity="0.85" />
+            <path d="M100 20 L100 28 M96 24 L104 24" stroke="#009640" stroke-width="1.4" stroke-linecap="round" opacity="0.65" />
+            <path d="M500 20 L500 28 M496 24 L504 24" stroke="#D91B5C" stroke-width="1.4" stroke-linecap="round" opacity="0.65" />
+          </svg>
         </div>
       </section>
 
