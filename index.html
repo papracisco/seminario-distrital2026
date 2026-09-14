@@ -327,13 +327,35 @@
       font-weight: 700;
       color: var(--color-navy-light);
       letter-spacing: 0.04em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2.15rem;
     }
 
     .pillars-bullet {
       color: var(--color-green);
       font-size: 1.35rem;
       line-height: 0;
+    }
+
+    /* Logo oficial de Rotaract Distrito 4370 ubicado arriba de todo */
+    .hero-brand-logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.25rem auto 1.4rem;
+      width: 100%;
+    }
+
+    .hero-rotaract-logo-small {
+      width: clamp(155px, 20vw, 195px);
+      height: auto;
+      display: block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      filter: drop-shadow(0 2px 5px rgba(217, 27, 92, 0.08));
+    }
+
+    .hero-rotaract-logo-small:hover {
+      transform: scale(1.04);
+      filter: drop-shadow(0 4px 10px rgba(217, 27, 92, 0.16));
     }
 
     /* ==========================================================================
@@ -373,28 +395,6 @@
       max-width: 880px;
       margin: 0 auto 4rem;
       position: relative;
-    }
-
-    /* Logo pequeño de Rotaract Distrito 4370 ubicado entre los pilares y el título */
-    .hero-brand-logo-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 1rem auto 0.65rem;
-      width: 100%;
-    }
-
-    .hero-rotaract-logo-small {
-      width: clamp(140px, 18vw, 175px);
-      height: auto;
-      display: block;
-      transition: transform 0.25s ease, filter 0.25s ease;
-      filter: drop-shadow(0 2px 5px rgba(217, 27, 92, 0.08));
-    }
-
-    .hero-rotaract-logo-small:hover {
-      transform: scale(1.03);
-      filter: drop-shadow(0 3px 8px rgba(217, 27, 92, 0.14));
     }
 
     .countdown-grid {
@@ -1080,7 +1080,7 @@
       .pillars-tagline {
         font-size: 0.82rem;
         gap: 0.45rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.15rem;
       }
 
       .pillars-bullet {
@@ -1088,11 +1088,11 @@
       }
 
       .hero-brand-logo-wrap {
-        margin: 0.25rem auto 0.4rem;
+        margin: 0.1rem auto 0.75rem;
       }
 
       .hero-rotaract-logo-small {
-        width: 125px;
+        width: 135px;
       }
 
       .hero-title {
@@ -1362,30 +1362,8 @@
 
   <div class="app-container">
     <main>
-      <!-- 1. Header Badges: Badge Superior, Slogan Oficial y Pilares Institucionales -->
-      <div class="header-badges-row" data-aos="fade-down" data-aos-duration="750">
-        <div class="header-badge-location">
-          <span class="badge-dot" aria-hidden="true"></span>
-          <span>SEMINARIO DE APRENDIZAJE DISTRITAL 2026 • PREVENTA EXCLUSIVA</span>
-        </div>
-      </div>
-
-      <!-- Slogan Banner Oficial en Magenta Vibrante -->
-      <div class="slogan-banner" data-aos="fade-down" data-aos-duration="750" data-aos-delay="100">
-        “Un lugar para volver a encontrarnos”
-      </div>
-
-      <!-- Pilares Oficiales: Azul Real con puntos verdes -->
-      <div class="pillars-tagline" data-aos="fade-down" data-aos-duration="750" data-aos-delay="150">
-        <span>Formación</span>
-        <span class="pillars-bullet">•</span>
-        <span>Conexión</span>
-        <span class="pillars-bullet">•</span>
-        <span>Inspiración</span>
-      </div>
-
-      <!-- Logo Pequeño Rotaract Distrito 4370 (Limpio y directo, sin textos adicionales ni contenedor de tarjeta) -->
-      <div class="hero-brand-logo-wrap" data-aos="fade-down" data-aos-duration="750" data-aos-delay="175">
+      <!-- Logo Oficial Rotaract Distrito 4370 (Arriba de todo) -->
+      <div class="hero-brand-logo-wrap" data-aos="fade-down" data-aos-duration="750">
         <svg class="hero-rotaract-logo-small" viewBox="0 0 380 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Rotaract Distrito 4370">
           <!-- ROTARACT Wordmark -->
           <text x="4" y="66" font-family="'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="64" font-weight="800" fill="#D91B5C" letter-spacing="-0.02em">Rotaract</text>
@@ -1446,12 +1424,34 @@
         </svg>
       </div>
 
+      <!-- 1. Header Badges: Badge Superior, Slogan Oficial y Pilares Institucionales -->
+      <div class="header-badges-row" data-aos="fade-down" data-aos-duration="750" data-aos-delay="100">
+        <div class="header-badge-location">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>SEMINARIO DE APRENDIZAJE DISTRITAL 2026 • PREVENTA EXCLUSIVA</span>
+        </div>
+      </div>
+
+      <!-- Slogan Banner Oficial en Magenta Vibrante -->
+      <div class="slogan-banner" data-aos="fade-down" data-aos-duration="750" data-aos-delay="150">
+        “Un lugar para volver a encontrarnos”
+      </div>
+
+      <!-- Pilares Oficiales: Azul Real con puntos verdes -->
+      <div class="pillars-tagline" data-aos="fade-down" data-aos-duration="750" data-aos-delay="200">
+        <span>Formación</span>
+        <span class="pillars-bullet">•</span>
+        <span>Conexión</span>
+        <span class="pillars-bullet">•</span>
+        <span>Inspiración</span>
+      </div>
+
       <!-- 2. Título y Subtítulo de Gran Impacto -->
-      <h1 class="hero-title" data-aos="fade-up" data-aos-duration="850" data-aos-delay="200">
+      <h1 class="hero-title" data-aos="fade-up" data-aos-duration="850" data-aos-delay="250">
         El momento para volver a encontrarnos está cerca
       </h1>
       
-      <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="850" data-aos-delay="250">
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="850" data-aos-delay="300">
         Cuenta regresiva para la apertura oficial de la preventa de los cupos.<br />
         <span class="event-dates-highlight">Destinos y Fechas Sorpresa</span> • La sede y la información general se revelará al culminar la cuenta regresiva
       </p>
