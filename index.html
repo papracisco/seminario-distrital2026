@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seminario de Aprendizaje Distrital 2026 • Preventa Exclusiva</title>
+  <meta name="description" content="Cuenta regresiva oficial para la apertura de la preventa de los cupos del Seminario de Aprendizaje Distrital 2026. Organizado por Rotaract Distrito 4370." />
+  <meta property="og:title" content="Seminario de Aprendizaje Distrital 2026 • Preventa Exclusiva" />
+  <meta property="og:description" content="Cuenta regresiva oficial para la apertura de la preventa de los cupos del Seminario de Aprendizaje Distrital 2026. Organizado por Rotaract Distrito 4370." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Tipografía exclusiva: Open Sans (Google Fonts 300, 400, 600, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8UXYtCMfETBRfqhdefUD73gTS44Uh42PwePO2F204PQ437hFxGU6Fbl5flS4mNxHbE97Fw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ==========================================================================
+       PALETA INSTITUCIONAL OFICIAL (FONDO BLANCO & COLORES VIBRANTES)
+       - Fondo Primario: #FFFFFF / #F8FAFC
+       - Azul Marino / Azul Real Institucional: #0B2545 / #004B87
+       - Verde Naturaleza / Montañas: #009640 / #00875A
+       - Magenta / Fucsia Arquitectura: #D91B5C / #C2185B
+       - Dorado / Sol Naciente: #F39200 / #FFB100
+       ========================================================================== */
+    :root {
+      --bg-body: #FFFFFF;
+      --bg-alt: #F8FAFC;
+      --bg-card: #FFFFFF;
+      
+      --color-navy: #0B2545;
+      --color-navy-dark: #07152B;
+      --color-navy-light: #004B87;
+      --color-navy-soft: #1E3A5F;
+      
+      --color-text-title: #0B2545;
+      --color-text-body: #475569;
+      --color-text-muted: #64748B;
+      
+      --color-green: #009640;
+      --color-green-dark: #00875A;
+      --color-green-light: #DCFCE7;
+      --color-green-glow: rgba(0, 150, 64, 0.18);
+      
+      --color-magenta: #D91B5C;
+      --color-magenta-hover: #C2185B;
+      --color-magenta-light: #FCE7F3;
+      --color-magenta-glow: rgba(217, 27, 92, 0.22);
+      
+      --color-gold: #F39200;
+      --color-gold-dark: #D97706;
+      --color-gold-light: #FEF3C7;
+      --color-gold-glow: rgba(243, 146, 0, 0.2);
+
+      --color-blue: #004B87;
+      --color-blue-light: #E0F2FE;
+      
+      --border-card: #E2E8F0;
+      --border-card-hover: #CBD5E1;
+      --card-shadow: 0 10px 28px -4px rgba(11, 37, 69, 0.08), 0 4px 10px -2px rgba(11, 37, 69, 0.04);
+      --card-shadow-hover: 0 20px 38px -6px rgba(11, 37, 69, 0.14), 0 8px 16px -4px rgba(11, 37, 69, 0.08);
+    }
+
+    /* Reset y base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--color-text-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      background: radial-gradient(circle at 10% 12%, rgba(243, 146, 0, 0.06) 0%, transparent 45%),
+                  radial-gradient(circle at 90% 18%, rgba(0, 75, 135, 0.06) 0%, transparent 48%),
+                  radial-gradient(circle at 50% 65%, rgba(217, 27, 92, 0.04) 0%, transparent 52%),
+                  linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 55%, #F1F5F9 100%);
+      background-attachment: fixed;
+    }
+
+    /* Gráficos vectoriales decorativos en espacios laterales (Identidad Distrital) */
+    .bg-ambient-graphics {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .decor-item {
+      position: absolute;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    /* Animaciones suaves de flotación y brisa */
+    @keyframes floatSoft1 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(1.5deg); }
+    }
+    @keyframes floatSoft2 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(8px) rotate(-2deg); }
+    }
+    @keyframes floatSoft3 {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.03); }
+    }
+
+    /* 1. Izquierda Superior: Sol Naciente & Rayos Dorados */
+    .decor-left-sun {
+      top: 50px;
+      left: 2.2vw;
+      width: 130px;
+      height: 130px;
+      opacity: 0.7;
+      animation: floatSoft1 7.5s ease-in-out infinite;
+    }
+
+    /* 2. Izquierda Media: Silueta de Montañas & Estrella */
+    .decor-left-mountains {
+      top: 255px;
+      left: 2vw;
+      width: 160px;
+      height: 130px;
+      opacity: 0.75;
+      animation: floatSoft2 8.5s ease-in-out infinite;
+    }
+
+    /* 3. Izquierda Inferior: Flor Edelweiss con Centro Dorado */
+    .decor-left-flower {
+      top: 480px;
+      left: 2.5vw;
+      width: 140px;
+      height: 140px;
+      opacity: 0.65;
+      animation: floatSoft3 9s ease-in-out infinite;
+    }
+
+    /* 4. Derecha Superior: Flor Edelweiss en Azul Real & Dorado */
+    .decor-right-flower {
+      top: 45px;
+      right: 2.8vw;
+      width: 150px;
+      height: 150px;
+      opacity: 0.7;
+      animation: floatSoft2 8s ease-in-out infinite;
+    }
+
+    /* 5. Derecha Media: Entramado Arquitectónico (Fachwerk Magenta) */
+    .decor-right-lattice {
+      top: 255px;
+      right: 2.2vw;
+      width: 155px;
+      height: 140px;
+      opacity: 0.7;
+      animation: floatSoft1 9.5s ease-in-out infinite;
+    }
+
+    /* 6. Derecha Inferior: Cintas Onduladas & Constelación */
+    .decor-right-wave {
+      top: 490px;
+      right: 2.5vw;
+      width: 150px;
+      height: 130px;
+      opacity: 0.75;
+      animation: floatSoft3 8.2s ease-in-out infinite;
+    }
+
+    @media (max-width: 1280px) {
+      .decor-left-sun, .decor-right-flower { width: 105px; height: 105px; }
+      .decor-left-mountains, .decor-right-lattice { width: 125px; height: 110px; }
+      .decor-left-flower, .decor-right-wave { width: 115px; height: 110px; }
+    }
+
+    @media (max-width: 1024px) {
+      .decor-item {
+        opacity: 0.45;
+        transform: scale(0.8);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .decor-item {
+        display: none; /* Mantener pantalla móvil despejada y legible */
+      }
+    }
+
+    /* Ondas verdes institucionales en la parte inferior (como en la presentación oficial) */
+    .bottom-wave-decorator {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.95;
+    }
+
+    /* Contenedor central */
+    .app-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 3.25rem 1.5rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: space-between;
+    }
+
+    main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       HEADER & BADGES INSTITUCIONALES (FONDO BLANCO / ALTO IMPACTO)
+       ========================================================================== */
+    .header-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Badge superior de preventa exclusiva */
+    .header-badge-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #FFFFFF;
+      border: 1.5px solid var(--color-navy-light);
+      padding: 0.5rem 1.35rem;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      color: var(--color-navy-light);
+      text-transform: uppercase;
+      box-shadow: 0 4px 16px rgba(0, 75, 135, 0.09);
+      transition: all 0.3s ease;
+    }
+
+    .header-badge-location:hover {
+      border-color: var(--color-navy);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 75, 135, 0.14);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-magenta);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 8px var(--color-magenta);
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.35);
+        opacity: 0.7;
+      }
+    }
+
+    /* Banner Slogan Oficial en Magenta Vibrante: "UN LUGAR PARA VOLVER A ENCONTRARNOS" */
+    .slogan-banner {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, var(--color-magenta) 0%, #C2185B 100%);
+      color: #FFFFFF;
+      padding: 0.5rem 1.6rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 6px 20px var(--color-magenta-glow);
+      margin-bottom: 1.25rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .slogan-banner:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(217, 27, 92, 0.35);
+    }
+
+    /* Pilares: Formación • Conexión • Inspiración (Azul Real con puntos Verdes) */
+    .pillars-tagline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-navy-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 1.5rem;
+    }
+
+    .pillars-bullet {
+      color: var(--color-green);
+      font-size: 1.35rem;
+      line-height: 0;
+    }
+
+    /* ==========================================================================
+       TITULOS & JERARQUÍA TIPOGRÁFICA
+       ========================================================================== */
+    .hero-title {
+      font-size: clamp(2.15rem, 5.2vw, 3.65rem);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: var(--color-text-title);
+      max-width: 900px;
+      margin: 0 auto 1.15rem;
+      text-wrap: balance;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 400;
+      color: var(--color-text-body);
+      max-width: 720px;
+      margin: 0 auto 3rem;
+      line-height: 1.65;
+    }
+
+    .event-dates-highlight {
+      display: inline-block;
+      color: var(--color-navy-light);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       CONTADOR REGRESIVO (TARJETAS BLANCAS CON ACENTOS DE COLOR)
+       ========================================================================== */
+    .countdown-wrapper {
+      width: 100%;
+      max-width: 880px;
+      margin: 0 auto 4rem;
+      position: relative;
+    }
+
+    /* Logo pequeño de Rotaract Distrito 4370 ubicado entre los pilares y el título */
+    .hero-brand-logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem auto 0.65rem;
+      width: 100%;
+    }
+
+    .hero-rotaract-logo-small {
+      width: clamp(140px, 18vw, 175px);
+      height: auto;
+      display: block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+      filter: drop-shadow(0 2px 5px rgba(217, 27, 92, 0.08));
+    }
+
+    .hero-rotaract-logo-small:hover {
+      transform: scale(1.03);
+      filter: drop-shadow(0 3px 8px rgba(217, 27, 92, 0.14));
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.35rem;
+      width: 100%;
+    }
+
+    .countdown-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 2.25rem 1rem 1.85rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: var(--card-shadow);
+    }
+
+    /* Acentos superiores gruesos y elegantes para cada elemento de identidad */
+    .card-gold::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #F39200, #FFB100);
+      box-shadow: 0 1px 8px var(--color-gold-glow);
+    }
+
+    .card-green::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #009640, #00875A);
+      box-shadow: 0 1px 8px var(--color-green-glow);
+    }
+
+    .card-magenta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #D91B5C, #C2185B);
+      box-shadow: 0 1px 8px var(--color-magenta-glow);
+    }
+
+    .card-blue::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #004B87, #00A3E0);
+      box-shadow: 0 1px 8px rgba(0, 75, 135, 0.2);
+    }
+
+    .countdown-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--border-card-hover);
+    }
+
+    .countdown-num {
+      font-size: clamp(2.65rem, 6.2vw, 4.6rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--color-navy);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.015em;
+    }
+
+    .countdown-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+    }
+
+    .countdown-indicator {
+      font-size: 0.725rem;
+      font-weight: 700;
+      margin-top: 0.45rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 9999px;
+    }
+
+    .tag-gold {
+      background: var(--color-gold-light);
+      color: var(--color-gold-dark);
+    }
+
+    .tag-green {
+      background: var(--color-green-light);
+      color: var(--color-green-dark);
+    }
+
+    .tag-magenta {
+      background: var(--color-magenta-light);
+      color: var(--color-magenta);
+    }
+
+    .tag-blue {
+      background: var(--color-blue-light);
+      color: var(--color-blue);
+    }
+
+    /* Panel de preventa abierta (cuando llega a cero) */
+    .sale-active-panel {
+      display: none;
+      background: #FFFFFF;
+      border: 2px solid var(--color-green);
+      border-radius: 22px;
+      padding: 3rem 2.25rem;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(0, 150, 64, 0.15);
+      animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .sale-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--color-green-light);
+      color: var(--color-green-dark);
+      border: 1px solid rgba(0, 150, 64, 0.3);
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.35rem;
+    }
+
+    .sale-title {
+      font-size: clamp(2rem, 4.2vw, 2.75rem);
+      font-weight: 700;
+      color: var(--color-navy);
+      margin-bottom: 0.95rem;
+    }
+
+    .sale-desc {
+      color: var(--color-text-body);
+      font-size: 1.0625rem;
+      max-width: 520px;
+      margin: 0 auto 2.25rem;
+      line-height: 1.6;
+    }
+
+    .btn-sale-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, var(--color-magenta) 0%, #B31448 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 1.05rem 2.4rem;
+      border-radius: 12px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px var(--color-magenta-glow);
+      transition: all 0.3s ease;
+    }
+
+    .btn-sale-primary:hover {
+      background: linear-gradient(135deg, #EC2770 0%, var(--color-magenta) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(217, 27, 92, 0.45);
+    }
+
+    /* ==========================================================================
+       SECCIÓN DE EXPECTATIVA & PISTAS (3 TARJETAS BLANCAS CON COLORES RESALTADOS)
+       ========================================================================== */
+    .features-section {
+      width: 100%;
+      max-width: 1000px;
+      margin-bottom: 4rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.65rem;
+      text-align: left;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 2.25rem 1.85rem;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: var(--card-shadow);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-card-hover);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .feature-icon-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.35rem;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon-wrapper {
+      transform: scale(1.1);
+    }
+
+    .icon-gold {
+      background: var(--color-gold-light);
+      color: var(--color-gold-dark);
+      border: 1.5px solid rgba(243, 146, 0, 0.35);
+    }
+
+    .icon-green {
+      background: var(--color-green-light);
+      color: var(--color-green-dark);
+      border: 1.5px solid rgba(0, 150, 64, 0.35);
+    }
+
+    .icon-magenta {
+      background: var(--color-magenta-light);
+      color: var(--color-magenta);
+      border: 1.5px solid rgba(217, 27, 92, 0.35);
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text-title);
+      margin-bottom: 0.65rem;
+      line-height: 1.35;
+    }
+
+    .feature-desc {
+      font-size: 0.925rem;
+      color: var(--color-text-body);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       CITA INSPIRACIONAL INSTITUCIONAL
+       ========================================================================== */
+    .quote-section {
+      width: 100%;
+      max-width: 840px;
+      margin-bottom: 3.5rem;
+    }
+
+    .quote-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-left: 5px solid var(--color-magenta);
+      border-radius: 16px;
+      padding: 2.25rem 2.5rem;
+      position: relative;
+      box-shadow: var(--card-shadow);
+      text-align: left;
+    }
+
+    .quote-text {
+      font-size: clamp(1.15rem, 2.4vw, 1.4rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--color-navy);
+      line-height: 1.55;
+      margin-bottom: 0.85rem;
+    }
+
+    .quote-author {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-navy-light);
+    }
+
+    /* ==========================================================================
+       FOOTER DISCRETO
+       ========================================================================== */
+    footer {
+      width: 100%;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-card);
+      text-align: center;
+    }
+
+    .footer-institution {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--color-navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-sub {
+      font-size: 0.825rem;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       RESPONSIVIDAD (MOBILE & TABLET)
+       ========================================================================== */
+    @media (max-width: 840px) {
+      .app-container {
+        padding: 2.25rem 1.25rem 2.5rem;
+      }
+
+      .hero-subtitle {
+        margin-bottom: 2rem;
+      }
+
+      .countdown-wrapper {
+        margin: 0 auto 2.75rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .countdown-grid {
+        gap: 0.75rem;
+      }
+
+      .countdown-card {
+        padding: 1.65rem 0.65rem 1.35rem;
+        border-radius: 16px;
+      }
+
+      .countdown-num {
+        font-size: 2.4rem;
+      }
+
+      .countdown-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+      }
+
+      .quote-card {
+        padding: 1.75rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .app-container {
+        padding: 1.25rem 0.85rem 2rem;
+      }
+
+      .header-badges-row {
+        margin-bottom: 0.65rem;
+      }
+
+      .header-badge-location {
+        font-size: 0.68rem;
+        padding: 0.35rem 0.85rem;
+        letter-spacing: 0.06em;
+      }
+
+      .badge-dot {
+        width: 6.5px;
+        height: 6.5px;
+      }
+
+      .slogan-banner {
+        font-size: 0.72rem;
+        padding: 0.32rem 1.05rem;
+        margin-bottom: 0.6rem;
+        box-shadow: 0 4px 12px var(--color-magenta-glow);
+      }
+
+      .pillars-tagline {
+        font-size: 0.82rem;
+        gap: 0.45rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .pillars-bullet {
+        font-size: 1.1rem;
+      }
+
+      .hero-brand-logo-wrap {
+        margin: 0.25rem auto 0.4rem;
+      }
+
+      .hero-rotaract-logo-small {
+        width: 125px;
+      }
+
+      .hero-title {
+        font-size: clamp(1.45rem, 5.8vw, 1.85rem);
+        line-height: 1.18;
+        margin-bottom: 0.55rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.84rem;
+        line-height: 1.45;
+        margin-bottom: 1.15rem;
+        max-width: 95%;
+      }
+
+      .countdown-wrapper {
+        margin: 0 auto 1.85rem;
+      }
+
+      .countdown-grid {
+        gap: 0.45rem;
+      }
+
+      .countdown-card {
+        padding: 1.15rem 0.25rem 0.85rem;
+        border-radius: 14px;
+        box-shadow: 0 4px 14px rgba(11, 37, 69, 0.06);
+      }
+
+      .countdown-num {
+        font-size: 1.85rem;
+        line-height: 1;
+        margin-bottom: 0.25rem;
+      }
+
+      .countdown-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.07em;
+      }
+
+      .countdown-indicator {
+        display: none;
+      }
+
+      .features-section {
+        margin-bottom: 2.25rem;
+      }
+
+      .quote-section {
+        margin-bottom: 1.75rem;
+      }
+
+      .quote-card {
+        padding: 1.25rem 1rem;
+      }
+
+      .quote-text {
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+    }
+
+    /* Ajuste ultra-compacto para dispositivos móviles con pantallas más reducidas (<= 380px) */
+    @media (max-width: 380px) {
+      .app-container {
+        padding: 1rem 0.65rem 1.75rem;
+      }
+
+      .header-badge-location {
+        font-size: 0.62rem;
+        padding: 0.3rem 0.7rem;
+      }
+
+      .slogan-banner {
+        font-size: 0.68rem;
+        padding: 0.28rem 0.85rem;
+      }
+
+      .pillars-tagline {
+        font-size: 0.75rem;
+        gap: 0.35rem;
+      }
+
+      .hero-rotaract-logo-small {
+        width: 110px;
+      }
+
+      .hero-title {
+        font-size: 1.35rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.78rem;
+        margin-bottom: 1rem;
+      }
+
+      .countdown-card {
+        padding: 0.95rem 0.15rem 0.75rem;
+        border-radius: 10px;
+      }
+
+      .countdown-num {
+        font-size: 1.6rem;
+      }
+
+      .countdown-label {
+        font-size: 0.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fondos vectoriales decorativos en espacios laterales (Identidad Distrital) -->
+  <div class="bg-ambient-graphics" aria-hidden="true">
+    <!-- 1. Izquierda Superior: Sol Naciente con Rayos Dorados Radiantes -->
+    <svg class="decor-item decor-left-sun" viewBox="0 0 120 120" fill="none">
+      <defs>
+        <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFB100" stop-opacity="0.38" />
+          <stop offset="100%" stop-color="#F39200" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <circle cx="60" cy="60" r="38" fill="url(#sunGlow)" />
+      <!-- Rayos solares -->
+      <path d="M60 18 L60 8" stroke="#F39200" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M30 30 L22 22" stroke="#F39200" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M18 60 L8 60" stroke="#F39200" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M30 90 L22 98" stroke="#F39200" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M90 30 L98 22" stroke="#F39200" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M102 60 L112 60" stroke="#F39200" stroke-width="2.5" stroke-linecap="round" />
+      <!-- Disco y arco solar -->
+      <circle cx="60" cy="60" r="23" stroke="#F39200" stroke-width="1.8" stroke-dasharray="3 3" />
+      <circle cx="60" cy="60" r="14" fill="#FFB100" opacity="0.85" />
+      <circle cx="60" cy="60" r="6" fill="#FFFFFF" />
+      <!-- Puntos de color institucional -->
+      <circle cx="96" cy="84" r="3" fill="#009640" />
+      <circle cx="86" cy="98" r="2.2" fill="#D91B5C" />
+    </svg>
+
+    <!-- 2. Izquierda Media: Silueta de Montañas en Verde y Acentos -->
+    <svg class="decor-item decor-left-mountains" viewBox="0 0 160 130" fill="none">
+      <path d="M15 100 L58 38 L90 80 L118 48 L148 100" stroke="#009640" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M38 100 L74 54 L102 90" stroke="#00875A" stroke-width="1.5" stroke-dasharray="2 3" stroke-linecap="round" />
+      <!-- Pico estilizado -->
+      <path d="M58 38 L48 55 L68 55 Z" fill="#E0F2FE" stroke="#004B87" stroke-width="1" opacity="0.75" />
+      <!-- Destellos institucionales -->
+      <circle cx="122" cy="24" r="3.5" fill="#F39200" />
+      <circle cx="32" cy="22" r="2.2" fill="#D91B5C" />
+      <!-- Línea base ondulada sutil -->
+      <path d="M10 112 C45 104 85 118 150 108" stroke="#009640" stroke-width="1.5" stroke-linecap="round" opacity="0.45" />
+    </svg>
+
+    <!-- 3. Izquierda Inferior: Flor Edelweiss con Centro Dorado -->
+    <svg class="decor-item decor-left-flower" viewBox="0 0 120 120" fill="none">
+      <path d="M60 15 C54 34 38 40 24 42 C38 48 44 64 46 78 C54 62 70 56 84 54 C68 46 62 30 60 15 Z" stroke="#004B87" stroke-width="1.8" />
+      <path d="M32 26 C44 38 52 50 48 70 C60 56 72 48 90 42 C74 38 64 26 50 18" stroke="#D91B5C" stroke-width="1.2" opacity="0.4" stroke-dasharray="3 3" />
+      <!-- 5 Pistilos dorados oficiales -->
+      <circle cx="60" cy="48" r="5" fill="#F39200" />
+      <circle cx="55" cy="44" r="2.8" fill="#FFB100" />
+      <circle cx="65" cy="44" r="2.8" fill="#FFB100" />
+      <circle cx="55" cy="52" r="2.8" fill="#FFB100" />
+      <circle cx="65" cy="52" r="2.8" fill="#FFB100" />
+      <!-- Micro acentos -->
+      <circle cx="20" cy="85" r="2.5" fill="#009640" />
+      <circle cx="95" cy="25" r="2.2" fill="#F39200" />
+    </svg>
+
+    <!-- 4. Derecha Superior: Flor Edelweiss en Azul Real & Dorado -->
+    <svg class="decor-item decor-right-flower" viewBox="0 0 140 140" fill="none">
+      <path d="M70 20 C64 42 46 50 30 52 C46 60 54 78 56 94 C64 76 84 70 100 66 C82 58 74 38 70 20 Z" stroke="#004B87" stroke-width="1.8" />
+      <path d="M40 35 C52 48 62 60 58 84 C72 68 86 58 108 50 C88 46 76 32 60 22" stroke="#009640" stroke-width="1.25" opacity="0.45" stroke-dasharray="2 3" />
+      <!-- Centro de pistilos dorados -->
+      <circle cx="70" cy="60" r="5.5" fill="#F39200" />
+      <circle cx="64" cy="55" r="3" fill="#FFB100" />
+      <circle cx="76" cy="55" r="3" fill="#FFB100" />
+      <circle cx="64" cy="65" r="3" fill="#FFB100" />
+      <circle cx="76" cy="65" r="3" fill="#FFB100" />
+      <!-- Constelación institucional -->
+      <circle cx="118" cy="85" r="3" fill="#D91B5C" />
+      <circle cx="108" cy="105" r="2.2" fill="#009640" />
+      <circle cx="30" cy="95" r="2.5" fill="#F39200" />
+    </svg>
+
+    <!-- 5. Derecha Media: Entramado Arquitectónico (Fachwerk Magenta) -->
+    <svg class="decor-item decor-right-lattice" viewBox="0 0 140 130" fill="none">
+      <rect x="35" y="25" width="70" height="70" rx="8" stroke="#D91B5C" stroke-width="1.8" transform="rotate(45 70 60)" />
+      <line x1="70" y1="12" x2="70" y2="108" stroke="#D91B5C" stroke-width="1.5" opacity="0.6" />
+      <line x1="22" y1="60" x2="118" y2="60" stroke="#D91B5C" stroke-width="1.5" opacity="0.6" />
+      <!-- Rombo interior -->
+      <rect x="52" y="42" width="36" height="36" rx="4" stroke="#F39200" stroke-width="1.5" transform="rotate(45 70 60)" />
+      <!-- Nodos de conexión -->
+      <circle cx="70" cy="60" r="3.5" fill="#D91B5C" />
+      <circle cx="70" cy="12" r="3" fill="#FFB100" />
+      <circle cx="70" cy="108" r="3" fill="#009640" />
+      <circle cx="22" cy="60" r="3" fill="#004B87" />
+      <circle cx="118" cy="60" r="3" fill="#004B87" />
+    </svg>
+
+    <!-- 6. Derecha Inferior: Cintas Onduladas & Constelación -->
+    <svg class="decor-item decor-right-wave" viewBox="0 0 140 120" fill="none">
+      <path d="M15 45 C45 15 75 75 125 35" stroke="#009640" stroke-width="2.2" stroke-linecap="round" />
+      <path d="M25 65 C55 35 85 95 135 55" stroke="#004B87" stroke-width="1.8" stroke-linecap="round" opacity="0.6" />
+      <path d="M10 85 C40 60 70 105 120 75" stroke="#D91B5C" stroke-width="1.3" stroke-linecap="round" opacity="0.4" stroke-dasharray="3 3" />
+      <!-- Puntos de color institucional -->
+      <circle cx="112" cy="20" r="3.5" fill="#F39200" />
+      <circle cx="82" cy="15" r="2.2" fill="#009640" />
+      <circle cx="42" cy="98" r="2.5" fill="#D91B5C" />
+      <circle cx="96" cy="100" r="3" fill="#004B87" />
+    </svg>
+  </div>
+
+  <!-- Onda verde fluida inspirada en la presentación oficial -->
+  <div class="bottom-wave-decorator" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none" style="width: 100%; height: 75px; display: block;">
+      <path d="M0,70 C360,25 640,110 1020,55 C1240,25 1360,75 1440,65 L1440,120 L0,120 Z" fill="#00875A" opacity="0.45" />
+      <path d="M0,85 C420,40 720,115 1100,70 C1280,50 1380,90 1440,80 L1440,120 L0,120 Z" fill="#009640" opacity="0.6" />
+    </svg>
+  </div>
+
+  <div class="app-container">
+    <main>
+      <!-- 1. Header Badges: Badge Superior, Slogan Oficial y Pilares Institucionales -->
+      <div class="header-badges-row" data-aos="fade-down" data-aos-duration="750">
+        <div class="header-badge-location">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>SEMINARIO DE APRENDIZAJE DISTRITAL 2026 • PREVENTA EXCLUSIVA</span>
+        </div>
+      </div>
+
+      <!-- Slogan Banner Oficial en Magenta Vibrante -->
+      <div class="slogan-banner" data-aos="fade-down" data-aos-duration="750" data-aos-delay="100">
+        “Un lugar para volver a encontrarnos”
+      </div>
+
+      <!-- Pilares Oficiales: Azul Real con puntos verdes -->
+      <div class="pillars-tagline" data-aos="fade-down" data-aos-duration="750" data-aos-delay="150">
+        <span>Formación</span>
+        <span class="pillars-bullet">•</span>
+        <span>Conexión</span>
+        <span class="pillars-bullet">•</span>
+        <span>Inspiración</span>
+      </div>
+
+      <!-- Logo Pequeño Rotaract Distrito 4370 (Limpio y directo, sin textos adicionales ni contenedor de tarjeta) -->
+      <div class="hero-brand-logo-wrap" data-aos="fade-down" data-aos-duration="750" data-aos-delay="175">
+        <svg class="hero-rotaract-logo-small" viewBox="0 0 380 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Rotaract Distrito 4370">
+          <!-- ROTARACT Wordmark -->
+          <text x="4" y="66" font-family="'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="64" font-weight="800" fill="#D91B5C" letter-spacing="-0.02em">Rotaract</text>
+          
+          <!-- DISTRITO 4370 Subtitle -->
+          <text x="6" y="98" font-family="'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="300" fill="#D91B5C" letter-spacing="0.04em">Distrito 4370</text>
+
+          <!-- ROTARY WHEEL (Completamente relleno en magenta, sin cortes blancos en el engranaje) -->
+          <g id="rotaryWheelClean">
+            <!-- 1. Dientes del engranaje en base sólida magenta -->
+            <path d="M 322.25,14.04 L 323.23,7.05 L 326.77,7.05 L 327.75,14.04 L 332.37,14.65 L 335.21,8.08 L 338.63,9.00 L 338.00,16.03 L 342.34,17.76 L 346.68,12.23 L 349.75,14.00 L 347.16,20.59 L 351.04,23.19 L 356.57,18.86 L 359.08,21.36 L 354.75,26.89 L 357.34,30.77 L 363.93,28.18 L 365.71,31.25 L 360.17,35.59 L 361.90,39.93 L 368.94,39.30 L 369.86,42.72 L 363.28,45.56 L 363.90,50.18 L 370.89,51.17 L 370.89,54.70 L 363.90,55.69 L 363.28,60.31 L 369.86,63.15 L 368.94,66.57 L 361.90,65.94 L 360.17,70.28 L 365.71,74.61 L 363.93,77.69 L 357.34,75.10 L 354.75,78.98 L 359.08,84.51 L 356.57,87.01 L 351.04,82.68 L 347.16,85.28 L 349.75,91.87 L 346.68,93.64 L 342.34,88.11 L 338.00,89.84 L 338.63,96.87 L 335.21,97.79 L 332.37,91.22 L 327.75,91.83 L 326.77,98.82 L 323.23,98.82 L 322.25,91.83 L 317.63,91.22 L 314.79,97.79 L 311.37,96.87 L 312.00,89.84 L 307.66,88.11 L 303.32,93.64 L 300.25,91.87 L 302.84,85.28 L 298.96,82.68 L 293.43,87.01 L 290.92,84.51 L 295.25,78.98 L 292.66,75.10 L 286.07,77.69 L 284.29,74.61 L 289.83,70.28 L 288.10,65.94 L 281.06,66.57 L 280.14,63.15 L 286.72,60.31 L 286.10,55.69 L 279.11,54.70 L 279.11,51.17 L 286.10,50.18 L 286.72,45.56 L 280.14,42.72 L 281.06,39.30 L 288.10,39.93 L 289.83,35.59 L 284.29,31.25 L 286.07,28.18 L 292.66,30.77 L 295.25,26.89 L 290.92,21.36 L 293.43,18.86 L 298.96,23.19 L 302.84,20.59 L 300.25,14.00 L 303.32,12.23 L 307.66,17.76 L 312.00,16.03 L 311.37,9.00 L 314.79,8.08 L 317.63,14.65 Z" fill="#D91B5C" />
+            
+            <!-- 2. Corona exterior sólida en magenta (100% rellena) -->
+            <circle cx="325" cy="55" r="41" fill="#D91B5C" />
+            
+            <!-- 3. Apertura interior limpia (espacio entre corona y eje) -->
+            <circle cx="325" cy="55" r="29" fill="#FFFFFF" />
+            
+            <!-- 4. 6 Rayos sólidos en magenta -->
+            <polygon points="328.69,41.00 329.40,26.00 320.60,26.00 321.31,41.00" fill="#D91B5C" />
+            <polygon points="338.97,51.04 352.34,43.91 347.94,36.29 335.16,44.45" fill="#D91B5C" />
+            <polygon points="335.16,65.55 347.94,73.71 352.34,66.09 338.97,58.96" fill="#D91B5C" />
+            <polygon points="321.31,69.00 320.60,84.00 329.40,84.00 328.69,69.00" fill="#D91B5C" />
+            <polygon points="311.03,58.96 297.66,66.09 302.06,73.71 314.84,65.55" fill="#D91B5C" />
+            <polygon points="314.84,44.45 302.06,36.29 297.66,43.91 311.03,51.04" fill="#D91B5C" />
+            
+            <!-- 5. Cubo central sólido -->
+            <circle cx="325" cy="55" r="14" fill="#D91B5C" />
+            
+            <!-- 6. Orificio de chaveta y eje -->
+            <circle cx="325" cy="55" r="7.2" fill="#FFFFFF" />
+            <rect x="323.80" y="45.60" width="2.40" height="3.20" fill="#FFFFFF" />
+            <circle cx="325" cy="55" r="4.32" fill="#D91B5C" />
+            
+            <!-- 7. Letras ROTARY en blanco perfecto grabadas en la corona magenta -->
+            <text x="308.66" y="24.41" transform="rotate(-28.0 308.66 24.41)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="6.8" font-weight="800" fill="#FFFFFF">R</text>
+            <text x="314.53" y="21.75" transform="rotate(-17.0 314.53 21.75)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="6.8" font-weight="800" fill="#FFFFFF">O</text>
+            <text x="320.68" y="20.37" transform="rotate(-6.0 320.68 20.37)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="6.8" font-weight="800" fill="#FFFFFF">T</text>
+            <text x="327.38" y="20.48" transform="rotate(6.0 327.38 20.48)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="6.8" font-weight="800" fill="#FFFFFF">A</text>
+            <text x="333.91" y="22.14" transform="rotate(17.0 333.91 22.14)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="6.8" font-weight="800" fill="#FFFFFF">R</text>
+            <text x="339.88" y="25.04" transform="rotate(28.0 339.88 25.04)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="6.8" font-weight="800" fill="#FFFFFF">Y</text>
+            
+            <!-- 8. Letras INTERNATIONAL en blanco perfecto grabadas en la corona magenta -->
+            <text x="349.56" y="79.91" transform="rotate(-46.0 349.56 79.91)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">I</text>
+            <text x="346.72" y="82.88" transform="rotate(-38.3 346.72 82.88)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">N</text>
+            <text x="343.43" y="85.49" transform="rotate(-30.7 343.43 85.49)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">T</text>
+            <text x="339.73" y="87.71" transform="rotate(-23.0 339.73 87.71)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">E</text>
+            <text x="335.68" y="89.51" transform="rotate(-15.3 335.68 89.51)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">R</text>
+            <text x="331.35" y="90.86" transform="rotate(-7.7 331.35 90.86)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">N</text>
+            <text x="326.82" y="91.75" transform="rotate(0.0 326.82 91.75)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">A</text>
+            <text x="322.20" y="91.17" transform="rotate(7.7 322.20 91.17)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">T</text>
+            <text x="317.78" y="90.09" transform="rotate(15.3 317.78 90.09)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">I</text>
+            <text x="313.62" y="88.54" transform="rotate(23.0 313.62 88.54)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">O</text>
+            <text x="309.80" y="86.53" transform="rotate(30.7 309.80 86.53)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">N</text>
+            <text x="306.39" y="84.10" transform="rotate(38.3 306.39 84.10)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">A</text>
+            <text x="303.46" y="81.28" transform="rotate(46.0 303.46 81.28)" text-anchor="middle" dominant-baseline="central" font-family="'Open Sans', Arial, sans-serif" font-size="4.4" font-weight="800" fill="#FFFFFF">L</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 2. Título y Subtítulo de Gran Impacto -->
+      <h1 class="hero-title" data-aos="fade-up" data-aos-duration="850" data-aos-delay="200">
+        El momento para volver a encontrarnos está cerca
+      </h1>
+      
+      <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="850" data-aos-delay="250">
+        Cuenta regresiva para la apertura oficial de la preventa de los cupos.<br />
+        <span class="event-dates-highlight">Destinos y Fechas Sorpresa</span> • La sede y la información general se revelará al culminar la cuenta regresiva
+      </p>
+
+      <!-- 3. Contador Regresivo Principal (AOS zoom-in) -->
+      <section class="countdown-wrapper" aria-label="Contador regresivo para la preventa">
+        <!-- Bloques del cronómetro con tarjetas blancas y acentos de color vibrante -->
+        <div id="countdownGrid" class="countdown-grid" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+          <!-- Días: Sol Naciente (Dorado / Orange #F39200) -->
+          <article class="countdown-card card-gold" id="cardDays">
+            <span class="countdown-num" id="daysValue">--</span>
+            <span class="countdown-label">DAYS</span>
+            <span class="countdown-indicator tag-gold">Sol Naciente</span>
+          </article>
+
+          <!-- Horas: Las Montañas (Verde Esmeralda #009640) -->
+          <article class="countdown-card card-green" id="cardHours">
+            <span class="countdown-num" id="hoursValue">--</span>
+            <span class="countdown-label">HOURS</span>
+            <span class="countdown-indicator tag-green">Las Montañas</span>
+          </article>
+
+          <!-- Minutos: Arquitectura (Magenta Vibrante #D91B5C) -->
+          <article class="countdown-card card-magenta" id="cardMinutes">
+            <span class="countdown-num" id="minutesValue">--</span>
+            <span class="countdown-label">MIN</span>
+            <span class="countdown-indicator tag-magenta">Arquitectura</span>
+          </article>
+
+          <!-- Segundos: Flor Edelweiss (Azul Institucional #004B87) -->
+          <article class="countdown-card card-blue" id="cardSeconds">
+            <span class="countdown-num" id="secondsValue">--</span>
+            <span class="countdown-label">SEC</span>
+            <span class="countdown-indicator tag-blue">Flor Edelweiss</span>
+          </article>
+        </div>
+
+        <!-- Panel cuando el contador llega a cero -->
+        <div id="saleActivePanel" class="sale-active-panel" role="region" aria-live="polite">
+          <div class="sale-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Preventa Habilitada</span>
+          </div>
+          <h2 class="sale-title">¡La preventa está abierta!</h2>
+          <p class="sale-desc">
+            Las entradas para el Seminario de Aprendizaje Distrital 2026 ya están disponibles. ¡La sede y las fechas oficiales han sido reveladas!
+          </p>
+          <button id="btnBuyNow" class="btn-sale-primary" type="button">
+            <span>Acceder a la preventa oficial</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- 4. Sección de Expectativa / Pistas del Destino (Grid 3 Puntos Clave) -->
+      <section class="features-section" data-aos="fade-up" data-aos-duration="850" data-aos-delay="350" aria-label="Detalles del evento">
+        <div class="features-grid">
+          <!-- Punto 1: Destino Secreto / Pistas de Montaña y Tradición -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-gold" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="12 6 12 12 16 14"></polygon>
+              </svg>
+            </div>
+            <h3 class="feature-title">Destino Sorpresa</h3>
+            <p class="feature-desc">
+              Un lugar preparado especialmente para reencontrarnos, inspirarnos y vivir una experiencia única. La sede oficial y la información general se revelarán al culminar la cuenta regresiva.
+            </p>
+          </div>
+
+          <!-- Punto 2: Formación & Liderazgo -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-green" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Formación & Liderazgo</h3>
+            <p class="feature-desc">
+              Talleres de gestión de proyectos, dinámicas de trabajo en equipo, conferencias inspiradoras y alianzas estratégicas distritales.
+            </p>
+          </div>
+
+          <!-- Punto 3: Experiencia Exclusiva -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper icon-magenta" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="feature-title">Experiencia Exclusiva</h3>
+            <p class="feature-desc">
+              Noche cultural, dinámicas especiales, recorridos por lugares emblemáticos y beneficios reservados para la preventa.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Cita Inspiracional Institucional -->
+      <section class="quote-section" data-aos="fade-up" data-aos-duration="850" data-aos-delay="400" aria-label="Mensaje institucional">
+        <div class="quote-card">
+          <p class="quote-text">
+            “No es solo un destino, es volver a encontrarnos para seguir transformando el mundo”
+          </p>
+          <span class="quote-author">SEMINARIO DE APRENDIZAJE DISTRITAL 2026</span>
+        </div>
+      </section>
+    </main>
+
+    <!-- 6. Footer Discreto -->
+    <footer data-aos="fade-in" data-aos-duration="900">
+      <p class="footer-institution">Rotaract Distrito 4370</p>
+      <p class="footer-sub">Seminario de Aprendizaje Distrital 2026 • Todos los derechos reservados</p>
+    </footer>
+  </div>
+
+  <!-- AOS JS (Animate On Scroll) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Lógica JavaScript pura del contador regresivo -->
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. Inicialización de la librería AOS
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          once: true,
+          easing: 'ease-out-cubic',
+          offset: 35
+        });
+      }
+
+      // 2. Elementos del DOM
+      var daysEl = document.getElementById('daysValue');
+      var hoursEl = document.getElementById('hoursValue');
+      var minutesEl = document.getElementById('minutesValue');
+      var secondsEl = document.getElementById('secondsValue');
+      var countdownGridEl = document.getElementById('countdownGrid');
+      var saleActivePanelEl = document.getElementById('saleActivePanel');
+      var btnBuyNowEl = document.getElementById('btnBuyNow');
+
+      // 3. Fecha objetivo: Martes 15 de Septiembre de 2026 a las 8:00 PM (20:00:00 hora local)
+      var targetDate = new Date(2026, 8, 15, 20, 0, 0); // Mes 8 = Septiembre (base 0)
+      var timerInterval = null;
+
+      function padZero(num) {
+        return num < 10 ? '0' + num : '' + num;
+      }
+
+      function updateCountdown() {
+        var now = new Date();
+        var difference = targetDate.getTime() - now.getTime();
+
+        if (difference <= 0) {
+          showSaleOpen();
+          if (timerInterval) {
+            clearInterval(timerInterval);
+          }
+          return;
+        }
+
+        // Cálculo de días, horas, minutos y segundos
+        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        // Actualización en pantalla
+        if (daysEl) daysEl.textContent = padZero(days);
+        if (hoursEl) hoursEl.textContent = padZero(hours);
+        if (minutesEl) minutesEl.textContent = padZero(minutes);
+        if (secondsEl) secondsEl.textContent = padZero(seconds);
+      }
+
+      function showSaleOpen() {
+        if (countdownGridEl) countdownGridEl.style.display = 'none';
+        if (saleActivePanelEl) saleActivePanelEl.style.display = 'block';
+      }
+
+      // Iniciar el ciclo del reloj
+      updateCountdown();
+      timerInterval = setInterval(updateCountdown, 1000);
+
+      // Botón de preventa oficial al abrir
+      if (btnBuyNowEl) {
+        btnBuyNowEl.addEventListener('click', function () {
+          btnBuyNowEl.innerHTML = '<span>Cargando plataforma oficial...</span>';
+          setTimeout(function () {
+            btnBuyNowEl.innerHTML = '<span>Redirigiendo a preventa...</span>';
+          }, 800);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

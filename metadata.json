@@ -1,0 +1,6 @@
+{
+  "name": "Seminario de Aprendizaje Distrital 2026",
+  "description": "Landing page oficial con cuenta regresiva para la preventa exclusiva del Seminario de Aprendizaje Distrital 2026. Organizado por Rotaract Distrito 4370.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
