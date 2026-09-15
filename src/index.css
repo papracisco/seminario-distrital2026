@@ -1,1 +1,163 @@
 @import "tailwindcss";
+
+.brand-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 980px;
+  margin: 6px auto 10px;
+  padding: 0 10px;
+}
+
+.brand-logo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo-img {
+  display: block;
+  flex-shrink: 0;
+}
+
+.brand-bar-divider {
+  width: 1.5px;
+  height: 44px;
+  background-color: #CBD5E1;
+  flex-shrink: 0;
+}
+
+/* Tamaños óptimos para PC */
+.logo-event {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-distrito {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-club {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.date-venue-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(27, 54, 93, 0.06);
+  padding: 6px 18px;
+  border-radius: 24px;
+  margin: 4px auto 12px;
+  width: fit-content;
+  flex-wrap: wrap;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.date-part {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1B365D;
+}
+
+.dot-sep {
+  color: #94A3B8;
+}
+
+.venue-part {
+  font-size: 13px;
+  font-weight: 600;
+  color: #00875A;
+}
+
+/* AJUSTE PARA TELÉFONOS (Mantiene los 3 logos en una sola fila sin partirse y legibles) */
+@media (max-width: 640px) {
+  .brand-bar-container {
+    gap: 6px;
+    padding: 0 4px;
+    margin: 4px auto 8px;
+  }
+  .brand-bar-divider {
+    height: 32px;
+  }
+  .logo-event {
+    height: 48px;
+  }
+  .logo-distrito {
+    height: 32px;
+  }
+  .logo-club {
+    height: 34px;
+  }
+  .date-venue-badge {
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+  .date-part, .venue-part {
+    font-size: 11px;
+  }
+}
+
+/* ESTILOS CSS DEL CRONÓMETRO FESTIVO */
+.countdown-festive-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.card-zero {
+  flex: 1;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 10px 4px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(27, 54, 93, 0.08);
+  animation: soft-bounce 2.2s infinite ease-in-out;
+}
+
+.card-sol { border-top: 3px solid #F5A623; animation-delay: 0s; }
+.card-montana { border-top: 3px solid #00875A; animation-delay: 0.2s; }
+.card-arquitectura { border-top: 3px solid #D91B5C; animation-delay: 0.4s; }
+.card-tradicion { border-top: 3px solid #0284C7; animation-delay: 0.6s; }
+
+.num-zero {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #1B365D;
+  line-height: 1;
+}
+
+.label-zero {
+  font-size: 9px;
+  font-weight: 700;
+  color: #64748B;
+  margin-top: 3px;
+  letter-spacing: 0.5px;
+}
+
+.sub-tag {
+  font-size: 8.5px;
+  font-weight: 600;
+  color: #94A3B8;
+  margin-top: 4px;
+}
+
+@keyframes soft-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+

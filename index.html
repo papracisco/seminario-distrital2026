@@ -456,28 +456,173 @@
       line-height: 0;
     }
 
-    /* Logo Container y Logo Image (Rotaract Distrito 4370) */
-    .logo-container {
+    /* Cabecera de Logos Engridada y Responsiva (Lineamientos IP) */
+    .brand-bar-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 980px;
+      margin: 6px auto 10px;
+      padding: 0 10px;
+    }
+
+    .brand-logo-slot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo-img {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .brand-bar-divider {
+      width: 1.5px;
+      height: 44px;
+      background-color: #CBD5E1;
+      flex-shrink: 0;
+    }
+
+    /* Tamaños óptimos para PC */
+    .logo-event {
+      height: 75px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .logo-event:hover, .logo-distrito:hover, .logo-club:hover {
+      transform: scale(1.03);
+    }
+
+    .logo-distrito {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .logo-club {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .date-venue-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(27, 54, 93, 0.06);
+      padding: 6px 18px;
+      border-radius: 24px;
+      margin: 4px auto 12px;
+      width: fit-content;
+      flex-wrap: wrap;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .date-part {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1B365D;
+    }
+
+    .dot-sep {
+      color: #94A3B8;
+    }
+
+    .venue-part {
+      font-size: 13px;
+      font-weight: 600;
+      color: #00875A;
+    }
+
+    /* AJUSTE PARA TELÉFONOS (Mantiene los 3 logos en una sola fila sin partirse y legibles) */
+    @media (max-width: 640px) {
+      .brand-bar-container {
+        gap: 6px;
+        padding: 0 4px;
+        margin: 4px auto 8px;
+      }
+      .brand-bar-divider {
+        height: 32px;
+      }
+      .logo-event {
+        height: 48px;
+      }
+      .logo-distrito {
+        height: 32px;
+      }
+      .logo-club {
+        height: 34px;
+      }
+      .date-venue-badge {
+        padding: 4px 12px;
+        font-size: 11px;
+      }
+      .date-part, .venue-part {
+        font-size: 11px;
+      }
+    }
+
+    /* ESTILOS CSS DEL CRONÓMETRO FESTIVO */
+    .countdown-festive-grid {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0.15rem auto 0.85rem;
+      gap: 10px;
       width: 100%;
+      max-width: 480px;
     }
 
-    .logo-img {
-      max-width: 175px;
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      transition: transform 0.25s ease, filter 0.25s ease;
-      filter: drop-shadow(0 2px 6px rgba(217, 27, 92, 0.08));
+    .card-zero {
+      flex: 1;
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 10px 4px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(27, 54, 93, 0.08);
+      animation: soft-bounce 2.2s infinite ease-in-out;
     }
 
-    .logo-img:hover {
-      transform: scale(1.03);
-      filter: drop-shadow(0 4px 12px rgba(217, 27, 92, 0.15));
+    .card-sol { border-top: 3px solid #F5A623; animation-delay: 0s; }
+    .card-montana { border-top: 3px solid #00875A; animation-delay: 0.2s; }
+    .card-arquitectura { border-top: 3px solid #D91B5C; animation-delay: 0.4s; }
+    .card-tradicion { border-top: 3px solid #0284C7; animation-delay: 0.6s; }
+
+    .num-zero {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #1B365D;
+      line-height: 1;
+    }
+
+    .label-zero {
+      font-size: 9px;
+      font-weight: 700;
+      color: #64748B;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .sub-tag {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+
+    @keyframes soft-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
 
     /* ==========================================================================
@@ -1485,20 +1630,51 @@
 
   <div class="app-container">
     <main>
-      <!-- Logotipo principal Oficial Rotaract Distrito 4370 -->
-      <div class="logo-container" data-aos="fade-down" data-aos-duration="750">
-        <img 
-          src="/logo-rotaract.png" 
-          alt="Rotaract Distrito 4370" 
-          class="logo-img"
-        />
+      <!-- 1. BALANCE ÓPTICO DE LOS 3 LOGOS -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; max-width: 580px; margin: 4px auto 8px; padding: 0 8px;" data-aos="fade-down" data-aos-duration="750">
+        <!-- Colonia Tovar -->
+        <div style="display: flex; align-items: center; justify-content: center; flex: 1.1;">
+          <img 
+            src="/logo-evento.png" 
+            alt="Colonia Tovar 2026" 
+            style="height: 85px; width: auto; max-width: 100%; object-fit: contain; display: block;" 
+          />
+        </div>
+
+        <div style="width: 1.5px; height: 42px; background-color: #CBD5E1; flex-shrink: 0;"></div>
+
+        <!-- Distrito 4370 (reducido para igualar ópticamente) -->
+        <div style="display: flex; align-items: center; justify-content: center; flex: 1.2;">
+          <img 
+            src="/logo-rotaract.png" 
+            alt="Rotaract Distrito 4370" 
+            style="height: 44px; width: auto; max-width: 100%; object-fit: contain; display: block;" 
+          />
+        </div>
+
+        <div style="width: 1.5px; height: 42px; background-color: #CBD5E1; flex-shrink: 0;"></div>
+
+        <!-- Las Delicias -->
+        <div style="display: flex; align-items: center; justify-content: center; flex: 1.2;">
+          <img 
+            src="/logo-las-delicias.png" 
+            alt="Rotaract Las Delicias" 
+            style="height: 62px; width: auto; max-width: 100%; object-fit: contain; display: block;" 
+          />
+        </div>
       </div>
 
-      <!-- 1. Header Badges: Badge Superior, Slogan Oficial y Pilares Institucionales -->
+      <div class="date-venue-badge" data-aos="fade-down" data-aos-duration="750" data-aos-delay="100">
+        <span class="date-part">27, 28 y 29 DE NOVIEMBRE DE 2026</span>
+        <span class="dot-sep">•</span>
+        <span class="venue-part">Hotel Klein Dorf, Colonia Tovar</span>
+      </div>
+
+      <!-- 2. LIMPIEZA DE TEXTO EN EL BADGE -->
       <div class="header-badges-row" data-aos="fade-down" data-aos-duration="750" data-aos-delay="100">
         <div class="header-badge-location">
           <span class="badge-dot" aria-hidden="true"></span>
-          <span>SEMINARIO DE APRENDIZAJE DISTRITAL 2026 • PREVENTA EXCLUSIVA</span>
+          <span>SEMINARIO DE APRENDIZAJE DISTRITAL 2026</span>
         </div>
       </div>
 
@@ -1516,84 +1692,46 @@
         <span>Inspiración</span>
       </div>
 
-      <!-- 2. Título y Subtítulo de Gran Impacto -->
-      <h1 class="hero-title" data-aos="fade-up" data-aos-duration="850" data-aos-delay="250">
-        El momento para volver a encontrarnos está cerca
-      </h1>
-      
-      <p class="hero-subtitle" data-aos="fade-up" data-aos-duration="850" data-aos-delay="300">
-        Cuenta regresiva para la apertura oficial de la preventa de los cupos.<br />
-        <span class="event-dates-highlight">Destinos y Fechas Sorpresa</span> • La sede y la información general se revelará al culminar la cuenta regresiva
-      </p>
-
-      <!-- 3. Contador Regresivo Principal (AOS zoom-in) -->
-      <section class="countdown-wrapper" aria-label="Contador regresivo para la preventa">
-        <!-- Bloques del cronómetro con tarjetas blancas y acentos de color vibrante -->
-        <div id="countdownGrid" class="countdown-grid" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
-          <!-- Días: Sol Naciente (Dorado / Orange #F39200) -->
-          <article class="countdown-card card-gold" id="cardDays">
-            <span class="countdown-num" id="daysValue">--</span>
-            <span class="countdown-label">DAYS</span>
-            <span class="countdown-indicator tag-gold">Sol Naciente</span>
-          </article>
-
-          <!-- Horas: Las Montañas (Verde Esmeralda #009640) -->
-          <article class="countdown-card card-green" id="cardHours">
-            <span class="countdown-num" id="hoursValue">--</span>
-            <span class="countdown-label">HOURS</span>
-            <span class="countdown-indicator tag-green">Las Montañas</span>
-          </article>
-
-          <!-- Minutos: Arquitectura (Magenta Vibrante #D91B5C) -->
-          <article class="countdown-card card-magenta" id="cardMinutes">
-            <span class="countdown-num" id="minutesValue">--</span>
-            <span class="countdown-label">MIN</span>
-            <span class="countdown-indicator tag-magenta">Arquitectura</span>
-          </article>
-
-          <!-- Segundos: Tradición (Azul Institucional #004B87) -->
-          <article class="countdown-card card-blue" id="cardSeconds">
-            <span class="countdown-num" id="secondsValue">--</span>
-            <span class="countdown-label">SEC</span>
-            <span class="countdown-indicator tag-blue">Tradición</span>
-          </article>
+      <!-- 2. CRONÓMETRO CULMINADO EN MODO FESTIVO Y CON MOVIMIENTO -->
+      <div style="display: flex; flex-direction: column; align-items: center; margin: 10px auto 14px; width: 100%;" data-aos="fade-up" data-aos-duration="800">
+        <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(217, 27, 92, 0.1); color: #D91B5C; font-weight: 700; font-size: 12px; padding: 4px 14px; border-radius: 20px; margin-bottom: 8px;">
+          🎉 ¡TIEMPO CUMPLIDO • PREVENTA EN VIVO!
         </div>
 
-        <!-- Detalle de diseño sutil bajo el cronómetro para móvil (Línea decorativa con nodos temáticos) -->
-        <div class="countdown-mobile-decor" aria-hidden="true">
-          <svg viewBox="0 0 240 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="12" y1="8" x2="80" y2="8" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3" />
-            <circle cx="92" cy="8" r="2.8" fill="#F39200" />
-            <circle cx="106" cy="8" r="3.2" fill="#009640" />
-            <circle cx="120" cy="8" r="4.2" fill="#D91B5C" />
-            <circle cx="134" cy="8" r="3.2" fill="#004B87" />
-            <circle cx="148" cy="8" r="2.8" fill="#F39200" />
-            <line x1="160" y1="8" x2="228" y2="8" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3" />
-          </svg>
-        </div>
-
-        <!-- Panel cuando el contador llega a cero -->
-        <div id="saleActivePanel" class="sale-active-panel" role="region" aria-live="polite">
-          <div class="sale-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <span>Preventa Habilitada</span>
+        <div class="countdown-festive-grid">
+          <div class="card-zero card-sol">
+            <span class="num-zero">00</span>
+            <span class="label-zero">DAYS</span>
+            <span class="sub-tag">Sol Naciente</span>
           </div>
-          <h2 class="sale-title">¡La preventa está abierta!</h2>
-          <p class="sale-desc">
-            Las entradas para el Seminario de Aprendizaje Distrital 2026 ya están disponibles. ¡La sede y las fechas oficiales han sido reveladas!
-          </p>
-          <button id="btnBuyNow" class="btn-sale-primary" type="button">
-            <span>Acceder a la preventa oficial</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
+          <div class="card-zero card-montana">
+            <span class="num-zero">00</span>
+            <span class="label-zero">HOURS</span>
+            <span class="sub-tag">Las Montañas</span>
+          </div>
+          <div class="card-zero card-arquitectura">
+            <span class="num-zero">00</span>
+            <span class="label-zero">MIN</span>
+            <span class="sub-tag">Arquitectura</span>
+          </div>
+          <div class="card-zero card-tradicion">
+            <span class="num-zero">00</span>
+            <span class="label-zero">SEC</span>
+            <span class="sub-tag">Tradición</span>
+          </div>
         </div>
-      </section>
+      </div>
+
+      <!-- SECCIÓN INFORMATIVA -->
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin: 8px auto 18px; width: 100%; max-width: 520px; padding: 0 12px;" data-aos="fade-up" data-aos-duration="850">
+        <h1 style="font-family: 'Open Sans', sans-serif; font-size: 24px; font-weight: 800; color: #1B365D; line-height: 1.2; margin: 0 0 6px;">
+          Asegura tu lugar en la Colonia Tovar
+        </h1>
+        
+        <p style="font-family: 'Open Sans', sans-serif; font-size: 13px; color: #475569; margin: 0; lineHeight: 1.4;">
+          El registro y la preventa especial de cupos ya se encuentran disponibles por tiempo limitado.
+        </p>
+      </div>
 
       <!-- 4. Sección de Expectativa / Pistas del Destino (Grid 3 Tarjetas Dinámicas & Decoradas) -->
       <section class="features-section" data-aos="fade-up" data-aos-duration="850" data-aos-delay="350" aria-label="Detalles del evento">
@@ -1615,12 +1753,12 @@
                   <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="rgba(243, 146, 0, 0.2)"></polygon>
                 </svg>
               </div>
-              <span class="feature-badge badge-gold">✦ Revelación Sorpresa</span>
+              <span class="feature-badge badge-gold">✦ SEDE OFICIAL</span>
             </div>
 
-            <h3 class="feature-title">Destino Sorpresa</h3>
+            <h3 class="feature-title">Colonia Tovar 2026</h3>
             <p class="feature-desc">
-              Un lugar preparado especialmente para reencontrarnos, inspirarnos y vivir una experiencia única. La sede oficial y la información general se revelarán al culminar la cuenta regresiva.
+              Un destino que combina naturaleza, clima de montaña, tradición alemana y la hospitalidad del Hotel Klein Dorf. El escenario ideal para volver a encontrarnos y renovar nuestro liderazgo.
             </p>
 
             <!-- Mini etiquetas dinámicas -->
@@ -1630,21 +1768,17 @@
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <span>Sede en incógnita</span>
+                <span>📍 Hotel Klein Dorf</span>
               </span>
-              <span class="meta-tag meta-tag-gold" id="miniCountdownTag" title="Sincronizado con la cuenta regresiva oficial">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <span>Desbloqueo en <strong id="miniCountdownValue" style="font-variant-numeric: tabular-nums; font-family: inherit; font-weight: 700;">00:00:00</strong></span>
+              <span class="meta-tag meta-tag-gold">
+                <span>🌲 Clima de montaña</span>
               </span>
             </div>
 
             <!-- Indicador activo inferior -->
             <div class="card-footer-status">
               <span class="status-dot dot-gold"></span>
-              <span class="status-text">Pistas y misterio activos</span>
+              <span class="status-text">✨ Sede Confirmada</span>
             </div>
           </article>
 
