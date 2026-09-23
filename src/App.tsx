@@ -1,114 +1,79 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
+import React, { useState, useEffect } from 'react';
+import { PasswordProtection } from './components/PasswordProtection';
+import { Navbar } from './components/Navbar';
+import { HeroSection } from './components/HeroSection';
+import { EventSection } from './components/EventSection';
+import { KitsSection } from './components/KitsSection';
+import { ScheduleSection } from './components/ScheduleSection';
+import { SpeakersSection } from './components/SpeakersSection';
+import { TeamsSection } from './components/TeamsSection';
+import { ResourcesSection } from './components/ResourcesSection';
+import { FaqSection } from './components/FaqSection';
+import { RegistrationModal } from './components/RegistrationModal';
+import { Footer } from './components/Footer';
 
 export default function App() {
+  // Estado de autenticación para la pantalla de protección
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState<boolean>(false);
+
+  // Verificación de sesión previa en localStorage
+  useEffect(() => {
+    try {
+      const savedAuth = localStorage.getItem('sad2026_auth');
+      if (savedAuth === 'granted') {
+        setIsAuthenticated(true);
+      }
+    } catch (err) {
+      console.warn('LocalStorage no disponible', err);
+    }
+  }, []);
+
+  // Si no está autenticado, renderizar la pantalla de PÁGINA EN CONSTRUCCIÓN
+  if (!isAuthenticated) {
+    return <PasswordProtection onUnlock={() => setIsAuthenticated(true)} />;
+  }
+
+  // Si está autenticado, renderizar la plataforma web oficial completa
   return (
-    <>
-      {/* 1. BALANCE ÓPTICO DE LOS 3 LOGOS */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', width: '100%', maxWidth: '580px', margin: '4px auto 8px', padding: '0 8px' }}>
-        {/* Colonia Tovar */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1.1' }}>
-          <img 
-            src="/logo-evento.png" 
-            alt="Colonia Tovar 2026" 
-            style={{ height: '85px', width: 'auto', maxWidth: '100%', objectFit: 'contain', display: 'block' }} 
-          />
-        </div>
+    <div className="min-h-screen bg-white text-slate-800 font-['Open_Sans'] antialiased selection:bg-[#D91B5C] selection:text-white animate-in fade-in duration-300">
+      {/* 1. NAVBAR SUPERIOR FIJO */}
+      <Navbar onOpenRegister={() => setIsRegisterModalOpen(true)} />
 
-        <div style={{ width: '1.5px', height: '42px', backgroundColor: '#CBD5E1', flexShrink: 0 }}></div>
+      {/* 2. HERO SECTION CON SLIDER & NUEVO CONTADOR HASTA EL EVENTO */}
+      <main>
+        <HeroSection onOpenRegister={() => setIsRegisterModalOpen(true)} />
 
-        {/* Distrito 4370 (reducido para igualar ópticamente) */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1.2' }}>
-          <img 
-            src="/logo-rotaract.png" 
-            alt="Rotaract Distrito 4370" 
-            style={{ height: '44px', width: 'auto', maxWidth: '100%', objectFit: 'contain', display: 'block' }} 
-          />
-        </div>
+        {/* 3. SECCIÓN SOBRE EL EVENTO & LOS 4 PILARES (#evento) */}
+        <EventSection />
 
-        <div style={{ width: '1.5px', height: '42px', backgroundColor: '#CBD5E1', flexShrink: 0 }}></div>
+        {/* CRONOGRAMA OFICIAL (#cronograma) */}
+        <ScheduleSection />
 
-        {/* Las Delicias */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1.2' }}>
-          <img 
-            src="/logo-las-delicias.png" 
-            alt="Rotaract Las Delicias" 
-            style={{ height: '62px', width: 'auto', maxWidth: '100%', objectFit: 'contain', display: 'block' }} 
-          />
-        </div>
-      </div>
+        {/* 4. SECCIÓN DE KITS & MERCHANDISING OFICIAL (#kits) */}
+        <KitsSection onOpenRegister={() => setIsRegisterModalOpen(true)} />
 
-      {/* FECHAS Y SEDE CONFIRMADA */}
-      <div className="date-venue-badge">
-        <span className="date-part">27, 28 y 29 DE NOVIEMBRE DE 2026</span>
-        <span className="dot-sep">•</span>
-        <span className="venue-part">Hotel Klein Dorf, Colonia Tovar</span>
-      </div>
+        {/* PONENTES (#ponentes) */}
+        <SpeakersSection />
 
-      {/* 2. LIMPIEZA DE TEXTO EN EL BADGE */}
-      <div className="header-badges-row">
-        <div className="header-badge-location">
-          <span className="badge-dot" aria-hidden="true"></span>
-          <span>SEMINARIO DE APRENDIZAJE DISTRITAL 2026</span>
-        </div>
-      </div>
+        {/* EQUIPO ORGANIZADOR (#equipos) */}
+        <TeamsSection />
 
-      {/* Slogan Banner Oficial */}
-      <div className="slogan-banner">
-        “Un lugar para volver a encontrarnos”
-      </div>
+        {/* GUÍA Y RECURSOS (#recursos) */}
+        <ResourcesSection />
 
-      {/* Pilares Oficiales */}
-      <div className="pillars-tagline">
-        <span>Formación</span>
-        <span className="pillars-bullet">•</span>
-        <span>Conexión</span>
-        <span className="pillars-bullet">•</span>
-        <span>Inspiración</span>
-      </div>
+        {/* PREGUNTAS FRECUENTES (#faq) */}
+        <FaqSection />
+      </main>
 
-      {/* 2. CRONÓMETRO CULMINADO EN MODO FESTIVO Y CON MOVIMIENTO */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '10px auto 14px', width: '100%' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(217, 27, 92, 0.1)', color: '#D91B5C', fontWeight: 700, fontSize: '12px', padding: '4px 14px', borderRadius: '20px', marginBottom: '8px' }}>
-          🎉 ¡TIEMPO CUMPLIDO • PREVENTA EN VIVO!
-        </div>
+      {/* FOOTER INSTITUCIONAL */}
+      <Footer />
 
-        <div className="countdown-festive-grid">
-          <div className="card-zero card-sol">
-            <span className="num-zero">00</span>
-            <span className="label-zero">DAYS</span>
-            <span className="sub-tag">Sol Naciente</span>
-          </div>
-          <div className="card-zero card-montana">
-            <span className="num-zero">00</span>
-            <span className="label-zero">HOURS</span>
-            <span className="sub-tag">Las Montañas</span>
-          </div>
-          <div className="card-zero card-arquitectura">
-            <span className="num-zero">00</span>
-            <span className="label-zero">MIN</span>
-            <span className="sub-tag">Arquitectura</span>
-          </div>
-          <div className="card-zero card-tradicion">
-            <span className="num-zero">00</span>
-            <span className="label-zero">SEC</span>
-            <span className="sub-tag">Tradición</span>
-          </div>
-        </div>
-      </div>
-
-      {/* SECCIÓN INFORMATIVA */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', margin: '8px auto 18px', width: '100%', maxWidth: '520px', padding: '0 12px' }}>
-        <h1 style={{ fontFamily: 'Open Sans, sans-serif', fontSize: '24px', fontWeight: 800, color: '#1B365D', lineHeight: 1.2, margin: '0 0 6px' }}>
-          Asegura tu lugar en la Colonia Tovar
-        </h1>
-        
-        <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: '13px', color: '#475569', margin: '0', lineHeight: 1.4 }}>
-          El registro y la preventa especial de cupos ya se encuentran disponibles por tiempo limitado.
-        </p>
-      </div>
-    </>
+      {/* MODAL DE INSCRIPCIÓN / PREVENTA */}
+      <RegistrationModal
+        isOpen={isRegisterModalOpen}
+        onClose={() => setIsRegisterModalOpen(false)}
+      />
+    </div>
   );
 }
