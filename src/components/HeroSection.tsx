@@ -229,7 +229,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenRegister }) => {
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#D91B5C] hover:bg-[#c2185b] active:scale-98 text-white font-bold text-base shadow-lg shadow-[#D91B5C]/30 transition-all duration-200 cursor-pointer"
           >
             <Sparkles className="w-4 h-4" />
-            <span>Asegurar Mi Cupo de Preventa</span>
+            <span>Asegurar Mi Cupo</span>
           </button>
 
           <a
