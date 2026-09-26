@@ -2,28 +2,22 @@ import { PillarItem, KitItem, ScheduleDay, FAQItem, Speaker, Committee } from '.
 
 export const HERO_SLIDES = [
   {
-    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80',
-    title: 'Hotel Klein Dorf, Colonia Tovar',
-    subtitle: 'Arquitectura alpina entre la neblina y las montañas de Aragua',
+    image: '/hero-tovar-letrero.jpg',
+    title: 'Bienvenidos a la Colonia Tovar',
+    subtitle: 'El icónico letrero alpino y la tradición entre las montañas de Aragua',
+    tag: 'Destino Mágico'
+  },
+  {
+    image: '/hero-flores-tovar.jpg',
+    title: 'Flores y Paisajes de Colonia Tovar',
+    subtitle: 'Colores vibrantes, naturaleza y clima fresco de montaña',
+    tag: 'Naturaleza & Clima'
+  },
+  {
+    image: '/hero-hotel-kleindorf.jpg',
+    title: 'Hotel Klein Dorf, Sede Oficial',
+    subtitle: 'Arquitectura alpina entre la neblina para tres días inolvidables',
     tag: 'Sede Oficial 2026'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80',
-    title: 'Naturaleza y Clima de Montaña',
-    subtitle: 'El escenario perfecto para desconectarse y reencontrarnos',
-    tag: 'Entorno Natural'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80',
-    title: 'Liderazgo y Formación Distrital',
-    subtitle: 'Tres días de inspiración con los líderes del Distrito 4370',
-    tag: 'Crecimiento Rotaract'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1920&q=80',
-    title: 'Cultura, Tradición y Hermandad',
-    subtitle: 'Celebrando la hospitalidad de nuestra comunidad rotaria',
-    tag: 'Experiencia Inolvidable'
   }
 ];
 
