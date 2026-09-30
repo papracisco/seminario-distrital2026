@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PasswordProtection } from './components/PasswordProtection';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import  HeroIntro  from './components/HeroIntro';
 import { EventSection } from './components/EventSection';
 import { KitsSection } from './components/KitsSection';
 import { ScheduleSection } from './components/ScheduleSection';
@@ -40,6 +41,8 @@ export default function App() {
       {/* 1. NAVBAR SUPERIOR FIJO */}
       <Navbar onOpenRegister={() => setIsRegisterModalOpen(true)} />
 
+      <HeroIntro />
+      
       {/* 2. HERO SECTION CON SLIDER & NUEVO CONTADOR HASTA EL EVENTO */}
       <main>
         <HeroSection onOpenRegister={() => setIsRegisterModalOpen(true)} />

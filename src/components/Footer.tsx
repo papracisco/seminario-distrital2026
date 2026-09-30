@@ -14,23 +14,24 @@ export const Footer: React.FC = () => {
           
           {/* Logos institucionales en el footer */}
           <div className="md:col-span-6 flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="flex items-center gap-3 bg-white/5 p-3 rounded-2xl border border-white/10 mb-4">
-              <img
-                src="/logo-evento.png"
-                alt="Colonia Tovar 2026"
-                className="h-10 w-auto object-contain brightness-110"
-              />
-              <div className="w-[1px] h-7 bg-white/20" />
+            <div className="flex items-center gap-3 bg-white/5 px-3 rounded-2xl border border-white/10 mb-4">
+              
               <img
                 src="/logo-rotaract.png"
                 alt="Distrito 4370"
-                className="h-7 w-auto object-contain brightness-110"
+                className="h-10 w-auto object-contain brightness-110"
               />
-              <div className="w-[1px] h-7 bg-white/20" />
+              
               <img
                 src="/logo-las-delicias.png"
                 alt="Rotaract Las Delicias"
-                className="h-9 w-auto object-contain brightness-110"
+                className="h-18 w-auto object-contain brightness-110"
+              />
+              
+              <img
+                src="/logo-evento.png"
+                alt="Colonia Tovar 2026"
+                className="h-40 w-auto object-contain brightness-110"
               />
             </div>
             
