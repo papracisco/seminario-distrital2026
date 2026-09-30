@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
 return (
   <header
     id="main-navbar"
-    className={`fixed top-0 left-0 right-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 opacity-0 -translate-y-full pointer-events-none transition-all duration-300 ${
+    className={`fixed top-0 left-0 right-0 w-full max-w-full overflow-x-clip z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 opacity-0 -translate-y-full pointer-events-none transition-all duration-300 ${
       isScrolled
         ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/90 py-1.5'
         : 'bg-white/90 backdrop-blur-xs border-b border-slate-100 py-2'
@@ -102,7 +102,7 @@ return (
           </div>
         </a>
 
-        {/* 2. ENLACES DE NAVEGACIÓN (Centro - Se muestran solo en xl para evitar colisiones en md/lg) */}
+        {/* 2. ENLACES DE NAVEGACIÓN */}
         <nav className="hidden xl:flex items-center gap-1 lg:gap-1.5 flex-shrink" aria-label="Navegación principal">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
@@ -123,9 +123,8 @@ return (
           })}
         </nav>
 
-        {/* 3. BOTÓN E ÍCONO HAMBURGUESA (Derecha) */}
+        {/* 3. BOTÓN E ÍCONO HAMBURGUESA */}
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-          {/* Botón visible en sm/md/lg/xl */}
           <button
             type="button"
             onClick={onOpenRegister}
@@ -136,7 +135,6 @@ return (
             <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 hidden sm:inline-block" />
           </button>
 
-          {/* Menú Hamburguesa en móviles y tablets (< xl) */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -151,40 +149,40 @@ return (
       </div>
     </div>
 
-      {/* MENÚ MÓVIL DESPLEGABLE */}
-      {mobileMenuOpen && (
-        <div className="xl:hidden bg-white/98 backdrop-blur-md border-b border-slate-200 px-4 pt-3 pb-6 shadow-lg animate-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col space-y-1 max-w-md mx-auto">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className="px-4 py-2.5 rounded-xl text-[14px] font-semibold text-slate-700 hover:text-[#1B365D] hover:bg-slate-50 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            
-            <div className="pt-3 mt-1 border-t border-slate-100 flex flex-col gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenRegister();
-                }}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#D91B5C] text-white font-bold text-[14px] shadow-sm hover:bg-[#c2185b] transition-colors"
-              >
-                <Sparkles className="w-4 h-4" />
-                <span>Inscribirme en el Seminario</span>
-              </button>
-              <p className="text-center text-[11px] text-slate-500 font-medium">
-                27, 28 y 29 de Noviembre de 2026 • Hotel Klein Dorf
-              </p>
-            </div>
+    {/* MENÚ MÓVIL DESPLEGABLE */}
+    {mobileMenuOpen && (
+      <div className="xl:hidden bg-white/98 backdrop-blur-md border-b border-slate-200 px-4 pt-3 pb-6 shadow-lg animate-in slide-in-from-top-2 duration-200">
+        <div className="flex flex-col space-y-1 max-w-md mx-auto">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
+              className="px-4 py-2.5 rounded-xl text-[14px] font-semibold text-slate-700 hover:text-[#1B365D] hover:bg-slate-50 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+          
+          <div className="pt-3 mt-1 border-t border-slate-100 flex flex-col gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenRegister();
+              }}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#D91B5C] text-white font-bold text-[14px] shadow-sm hover:bg-[#c2185b] transition-colors"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>Inscribirme en el Seminario</span>
+            </button>
+            <p className="text-center text-[11px] text-slate-500 font-medium">
+              27, 28 y 29 de Noviembre de 2026 • Hotel Klein Dorf
+            </p>
           </div>
         </div>
-      )}
-    </header>
-  );
-};
+      </div>
+    )}
+  </header>
+);
+}
