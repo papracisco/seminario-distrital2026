@@ -2,28 +2,22 @@ import { PillarItem, KitItem, ScheduleDay, FAQItem, Speaker, Committee } from '.
 
 export const HERO_SLIDES = [
   {
-    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80',
-    title: 'Hotel Klein Dorf, Colonia Tovar',
-    subtitle: 'Arquitectura alpina entre la neblina y las montañas de Aragua',
+    image: '/hero-tovar-letrero.jpg',
+    title: 'Bienvenidos a la Colonia Tovar',
+    subtitle: 'El icónico letrero alpino y la tradición entre las montañas de Aragua',
+    tag: 'Destino Mágico'
+  },
+  {
+    image: '/hero-flores-tovar.jpg',
+    title: 'Flores y Paisajes de Colonia Tovar',
+    subtitle: 'Colores vibrantes, naturaleza y clima fresco de montaña',
+    tag: 'Naturaleza & Clima'
+  },
+  {
+    image: '/hero-hotel-kleindorf.jpg',
+    title: 'Hotel Klein Dorf, Sede Oficial',
+    subtitle: 'Arquitectura alpina entre la neblina para tres días inolvidables',
     tag: 'Sede Oficial 2026'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80',
-    title: 'Naturaleza y Clima de Montaña',
-    subtitle: 'El escenario perfecto para desconectarse y reencontrarnos',
-    tag: 'Entorno Natural'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1920&q=80',
-    title: 'Liderazgo y Formación Distrital',
-    subtitle: 'Tres días de inspiración con los líderes del Distrito 4370',
-    tag: 'Crecimiento Rotaract'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1920&q=80',
-    title: 'Cultura, Tradición y Hermandad',
-    subtitle: 'Celebrando la hospitalidad de nuestra comunidad rotaria',
-    tag: 'Experiencia Inolvidable'
   }
 ];
 
@@ -289,69 +283,6 @@ export const SPEAKERS_DATA: Speaker[] = [
   }
 ];
 
-export const COMMITTEES_DATA: Committee[] = [
-  {
-    id: 'desarrollo-web',
-    name: 'Desarrollo Web',
-    iconName: 'Code',
-    description: 'Responsable del diseño, programación, pasarela de registro y mantenimiento técnico de la plataforma oficial del evento.',
-    color: '#0284C7',
-    members: [
-      { id: 'web-1', name: 'Nombre del Miembro', role: 'Coordinador de Plataforma', initials: 'DW' },
-      { id: 'web-2', name: 'Nombre del Miembro', role: 'Desarrollador Frontend', initials: 'DW' },
-      { id: 'web-3', name: 'Nombre del Miembro', role: 'Infraestructura & Soporte', initials: 'DW' },
-      { id: 'web-4', name: 'Nombre del Miembro', role: 'Diseñador UI/UX', initials: 'DW' }
-    ]
-  },
-  {
-    id: 'imagen-publica',
-    name: 'IP (Imagen Pública)',
-    iconName: 'Megaphone',
-    description: 'Encargados de la identidad gráfica institucional, cobertura audiovisual, redes sociales, fotografía y relaciones con medios.',
-    color: '#D91B5C',
-    members: [
-      { id: 'ip-1', name: 'Nombre del Miembro', role: 'Directora de Imagen Pública', initials: 'IP' },
-      { id: 'ip-2', name: 'Nombre del Miembro', role: 'Diseñador Gráfico & Branding', initials: 'IP' },
-      { id: 'ip-3', name: 'Nombre del Miembro', role: 'Fotografía & Audiovisual', initials: 'IP' },
-      { id: 'ip-4', name: 'Nombre del Miembro', role: 'Community Manager', initials: 'IP' }
-    ]
-  },
-  {
-    id: 'tesoreria',
-    name: 'Tesorería',
-    iconName: 'Coins',
-    description: 'Administración de presupuestos, conciliación bancaria de la preventa, pagos de delegaciones y finanzas transparentes del seminario.',
-    color: '#F5A623',
-    members: [
-      { id: 'tes-1', name: 'Nombre del Miembro', role: 'Tesorero General del Evento', initials: 'TE' },
-      { id: 'tes-2', name: 'Nombre del Miembro', role: 'Control de Pagos y Facturación', initials: 'TE' },
-      { id: 'tes-3', name: 'Nombre del Miembro', role: 'Auditor Financiero', initials: 'TE' }
-    ]
-  },
-  {
-    id: 'logistica',
-    name: 'Logística',
-    iconName: 'Truck',
-    description: 'Gestión de hospedaje en Hotel Klein Dorf, alimentación, montaje técnico de salones, traslados y distribución de kits.',
-    color: '#00875A',
-    members: [
-      { id: 'log-1', name: 'Nombre del Miembro', role: 'Jefe General de Logística y Sede', initials: 'LG' },
-      { id: 'log-2', name: 'Nombre del Miembro', role: 'Coordinador de Hospedaje & Habitaciones', initials: 'LG' },
-      { id: 'log-3', name: 'Nombre del Miembro', role: 'Coordinador de Catering & Alimentación', initials: 'LG' },
-      { id: 'log-4', name: 'Nombre del Miembro', role: 'Encargado de Kits y Equipamiento', initials: 'LG' }
-    ]
-  },
-  {
-    id: 'protocolo-maceria',
-    name: 'Protocolo / Macería',
-    iconName: 'Award',
-    description: 'Cumplimiento del orden protocolar rotario, tiempos de plenarias, acreditaciones solemnes, maestros de ceremonia y homenajes.',
-    color: '#1B365D',
-    members: [
-      { id: 'prot-1', name: 'Nombre del Miembro', role: 'Maceros Oficiales del Seminario', initials: 'PM' },
-      { id: 'prot-2', name: 'Nombre del Miembro', role: 'Maestro de Ceremonias & Vocería', initials: 'PM' },
-      { id: 'prot-3', name: 'Nombre del Miembro', role: 'Acreditación y Atención a Delegados', initials: 'PM' }
-    ]
-  }
-];
+export { COMMITTEES_DATA } from './teams';
+
 
