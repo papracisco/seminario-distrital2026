@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -10,21 +10,52 @@ import logoText from '../assets/logo-evento-text.png';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroIntro() {
+  const [isFinished, setIsFinished] = useState(false);
   const containerRef = useRef(null);
   const iconRef = useRef(null);
   const textRef = useRef(null);
   const arrowRef = useRef(null);
 
   useGSAP(() => {
-    if (!iconRef.current || !textRef.current) return;
+    if (!iconRef.current || !textRef.current || isFinished) return;
 
     const isMobile = window.innerWidth < 640;
-
     const iconX = isMobile ? -76 : -120;
     const textX = isMobile ? 50 : 100;
 
-    // Timeline de la animación inicial
-    const tl = gsap.timeline();
+    // Timeline principal con callback al finalizar
+    const tl = gsap.timeline({
+      onComplete: () => {
+        // 1. Pausa de 0.5s al terminar la animación
+        gsap.delayedCall(0.5, () => {
+          // 2. Forzar la aparición inmediata del Navbar
+          const mainNav = document.getElementById('main-navbar');
+          if (mainNav) {
+            gsap.to(mainNav, {
+              opacity: 1,
+              y: 0,
+              pointerEvents: 'auto',
+              duration: 0.3,
+              ease: 'power2.out'
+            });
+          }
+
+          // 3. Autoscroll suave hacia la siguiente sección
+          const nextSection = containerRef.current?.nextElementSibling;
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+          }
+
+          // 4. Ocultar y remover la sección tras completarse el desplazamiento (800ms)
+          setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'instant' }); // Reset del viewport
+            setIsFinished(true); // Desmonta el componente del DOM
+          }, 800);
+        });
+      }
+    });
 
     tl.fromTo(
       iconRef.current,
@@ -52,55 +83,10 @@ export default function HeroIntro() {
         '-=0.2'
       );
     }
+  }, { scope: containerRef, dependencies: [isFinished] });
 
-    // ScrollTrigger infallible para el Navbar
-    if (containerRef.current) {
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: 'top top',
-        end: 'bottom 10%',
-        onLeave: () => {
-          const mainNav = document.getElementById('main-navbar');
-          if (mainNav) {
-            gsap.to(mainNav, {
-              opacity: 1,
-              y: 0,
-              pointerEvents: 'auto',
-              duration: 0.3,
-              ease: 'power2.out'
-            });
-          }
-        },
-        onEnterBack: () => {
-          const mainNav = document.getElementById('main-navbar');
-          if (mainNav) {
-            gsap.to(mainNav, {
-              opacity: 0,
-              y: '-100%',
-              pointerEvents: 'none',
-              duration: 0.3,
-              ease: 'power2.in'
-            });
-          }
-        },
-        // Respaldo de seguridad en caso de que en móvil el scroll salte rápido
-        onUpdate: (self) => {
-          const mainNav = document.getElementById('main-navbar');
-          if (!mainNav) return;
-
-          if (self.progress > 0.95) {
-            gsap.to(mainNav, {
-              opacity: 1,
-              y: 0,
-              pointerEvents: 'auto',
-              duration: 0.3,
-              ease: 'power2.out'
-            });
-          }
-        }
-      });
-    }
-  }, { scope: containerRef });
+  // Si ya terminó, no renderizamos nada (bloquea el scroll de retorno)
+  if (isFinished) return null;
 
   return (
     <section

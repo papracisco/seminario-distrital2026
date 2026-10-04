@@ -132,7 +132,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenRegister }) => {
       </div>
 
       {/* 2. CONTENIDO CENTRAL */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center pt-14">
         
         {/* Badge Superior */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-[11px] sm:text-[12.5px] uppercase tracking-wider mb-5 shadow-sm">
