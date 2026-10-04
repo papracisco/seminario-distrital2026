@@ -19,19 +19,19 @@ export const Footer: React.FC = () => {
               <img
                 src="/logo-rotaract.png"
                 alt="Distrito 4370"
-                className="h-10 w-auto object-contain brightness-110"
+                className="h-8 md:h-10 w-auto object-contain brightness-110"
               />
               
               <img
                 src="/logo-las-delicias.png"
                 alt="Rotaract Las Delicias"
-                className="h-18 w-auto object-contain brightness-110"
+                className="h-16 md:h-18 w-auto object-contain brightness-110"
               />
               
               <img
                 src="/logo-evento.png"
                 alt="Colonia Tovar 2026"
-                className="h-40 w-auto object-contain brightness-110"
+                className="h-32 md:h-40 w-auto object-contain brightness-110"
               />
             </div>
             
