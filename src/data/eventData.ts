@@ -214,8 +214,8 @@ export const FAQ_LIST: FAQItem[] = [
     category: 'General'
   },
   {
-    question: '¿Qué incluye la inscripción de preventa?',
-    answer: 'La inscripción cubre el acceso total a las conferencias y talleres los 3 días, kit de bienvenida con todos los souvenirs oficiales, certificado digital con aval distrital, alimentación programada y participación en las actividades sociales.',
+    question: '¿Qué incluye la inscripción?',
+    answer: 'La inscripción cubre el acceso total a las conferencias y talleres los 3 días, kit de bienvenida con todos los souvenirs oficiales, alimentación programada y participación en las actividades sociales.',
     category: 'Inscripción'
   },
   {

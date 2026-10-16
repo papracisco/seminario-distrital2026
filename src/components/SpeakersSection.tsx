@@ -9,7 +9,8 @@ import {
   Mail, 
   User, 
   ExternalLink,
-  CalendarCheck
+  CalendarCheck,
+  Lock
 } from 'lucide-react';
 import { SPEAKERS_DATA } from '../data/eventData';
 import { Speaker } from '../types';
@@ -41,73 +42,83 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({ speakers = SPE
           </p>
         </div>
 
-        {/* Grid de tarjetas interactivas de ponentes (Referencia: image_20.png) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {speakers.map((sp) => (
-            <div
-              key={sp.id}
-              onClick={() => setSelectedSpeaker(sp)}
-              className="group bg-[#F8FAFC] hover:bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 hover:border-slate-300 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between cursor-pointer relative"
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  setSelectedSpeaker(sp);
-                }
-              }}
-              aria-label={`Ver detalles del ponente: ${sp.name}`}
-            >
-              <div>
-                {/* Cabecera de la tarjeta: Badge temático + Icono de marcador de libro */}
-                <div className="flex items-center justify-between mb-4">
-                  <span
-                    className="text-[11px] font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider shadow-xs"
-                    style={{ backgroundColor: sp.color }}
-                  >
-                    {sp.tag}
-                  </span>
-                  <Bookmark className="w-5 h-5 text-slate-400 group-hover:text-[#1B365D] transition-colors" />
-                </div>
+        {/* Contenedor relativo con contenido bloqueado con blur y overlay Próximamente */}
+        <div className="relative">
+          {/* Grid de tarjetas interactivas de ponentes con efecto blur y deshabilitado */}
+          <div className="select-none pointer-events-none filter blur-sm opacity-40">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+              {speakers.map((sp) => (
+                <div
+                  key={sp.id}
+                  className="bg-[#F8FAFC] rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-xs flex flex-col justify-between"
+                >
+                  <div>
+                    {/* Cabecera de la tarjeta: Badge temático + Icono de marcador de libro */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span
+                        className="text-[11px] font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider shadow-xs"
+                        style={{ backgroundColor: sp.color }}
+                      >
+                        {sp.tag}
+                      </span>
+                      <Bookmark className="w-5 h-5 text-slate-400" />
+                    </div>
 
-                {/* Nombre del Ponente */}
-                <h3 className="font-['Open_Sans'] font-extrabold text-xl text-[#1B365D] mb-1 group-hover:text-[#D91B5C] transition-colors">
-                  {sp.name}
-                </h3>
+                    {/* Nombre del Ponente */}
+                    <h3 className="font-['Open_Sans'] font-extrabold text-xl text-[#1B365D] mb-1">
+                      {sp.name}
+                    </h3>
 
-                {/* Subtítulo / Organización */}
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
-                  {sp.organization || sp.role}
-                </p>
+                    {/* Subtítulo / Organización */}
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">
+                      {sp.organization || sp.role}
+                    </p>
 
-                {/* Contenedor Eje Temático */}
-                <div className="p-4 rounded-xl bg-white border border-slate-200/70 mb-4 group-hover:border-slate-300 transition-colors">
-                  <span className="text-[11px] font-bold text-[#1B365D] block mb-1">
-                    Eje Temático:
-                  </span>
-                  <p className="text-sm text-slate-700 font-medium leading-relaxed">
-                    {sp.topic}
-                  </p>
-                </div>
-              </div>
+                    {/* Contenedor Eje Temático */}
+                    <div className="p-4 rounded-xl bg-white border border-slate-200/70 mb-4">
+                      <span className="text-[11px] font-bold text-[#1B365D] block mb-1">
+                        Eje Temático:
+                      </span>
+                      <p className="text-sm text-slate-700 font-medium leading-relaxed">
+                        {sp.topic}
+                      </p>
+                    </div>
+                  </div>
 
-              {/* Pie de la tarjeta con indicación clicable */}
-              <div>
-                <div className="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-500">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#F5A623] shrink-0" />
-                    <span className="truncate">Sesiones interactivas con certificación distrital</span>
+                  {/* Pie de la tarjeta */}
+                  <div>
+                    <div className="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-500">
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-[#F5A623] shrink-0" />
+                        <span className="truncate">Sesiones interactivas con certificación distrital</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <div className="mt-2 text-right">
-                  <span className="text-[11px] font-bold text-[#00875A] group-hover:underline">
-                    Ver biografía completa →
-                  </span>
+          {/* Superposición Glassmorphism Próximamente */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-4">
+            <div className="bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-2xl rounded-2xl p-6 md:p-8 text-center max-w-md mx-4 relative overflow-hidden">
+              {/* Pulso de luz animado sutil en el fondo de la tarjeta */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#00875A]/10 via-[#F5A623]/15 to-[#1B365D]/10 rounded-2xl blur-lg animate-pulse pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#00875A]/10 text-[#00875A] border border-[#00875A]/20 font-bold text-xs uppercase tracking-wider mb-4 shadow-xs animate-pulse">
+                  <Lock className="w-3.5 h-3.5 text-[#00875A]" />
+                  <span>REVELACIÓN PRÓXIMAMENTE</span>
                 </div>
+                <h3 className="font-['Open_Sans'] font-extrabold text-xl sm:text-2xl text-[#1B365D] mb-2">
+                  Facilitadores y Líderes
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Próximamente revelaremos a los facilitadores y líderes invitados
+                </p>
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
       </div>

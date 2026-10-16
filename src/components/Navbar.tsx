@@ -125,15 +125,16 @@ return (
 
         {/* 3. BOTÓN E ÍCONO HAMBURGUESA */}
         <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-          <button
-            type="button"
-            onClick={onOpenRegister}
+          <a
+            href="https://wa.me/584243355739?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20inscripci%C3%B3n%20y%20el%20evento%20del%20Seminario%20Distrital%202026%20en%20la%20Colonia%20Tovar."
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full bg-[#D91B5C] hover:bg-[#c2185b] active:scale-98 text-white font-bold text-[12px] sm:text-[13px] md:text-[13.5px] shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer whitespace-nowrap"
           >
             <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/90" />
             <span>Inscribirme</span>
             <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 hidden sm:inline-block" />
-          </button>
+          </a>
 
           <button
             type="button"
@@ -165,17 +166,16 @@ return (
           ))}
           
           <div className="pt-3 mt-1 border-t border-slate-100 flex flex-col gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenRegister();
-              }}
+            <a
+              href="https://wa.me/584243355739?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20inscripci%C3%B3n%20y%20el%20evento%20del%20Seminario%20Distrital%202026%20en%20la%20Colonia%20Tovar."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#D91B5C] text-white font-bold text-[14px] shadow-sm hover:bg-[#c2185b] transition-colors"
             >
               <Sparkles className="w-4 h-4" />
               <span>Inscribirme en el Seminario</span>
-            </button>
+            </a>
             <p className="text-center text-[11px] text-slate-500 font-medium">
               27, 28 y 29 de Noviembre de 2026 • Hotel Klein Dorf
             </p>

@@ -28,7 +28,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
       `Club: ${clubName || 'Distrito 4370'}\n` +
       `Rol: ${role}`
     );
-    window.open(`https://wa.me/?text=${text}`, '_blank');
+    window.open(`https://wa.me/584243355739?text=${text}`, '_blank');
     onClose();
   };
 

@@ -73,12 +73,16 @@ export interface CommitteeMember {
   role: string;
   photoUrl?: string;
   initials?: string;
+  photoStyle?: {
+    objectPosition?: string;
+    scale?: number;
+  };
 }
 
 export interface Committee {
   id: string;
   name: string;
-  iconName: 'Code' | 'Megaphone' | 'Coins' | 'Truck' | 'Award';
+  iconName: 'Crown' | 'Code' | 'Megaphone' | 'Coins' | 'Truck' | 'Award' | 'Shirt' | 'HeartPulse' | 'Sparkles' | string;
   description: string;
   color: string;
   members: CommitteeMember[];

@@ -70,10 +70,10 @@ export const FaqSection: React.FC = () => {
             El comité de atención al participante está disponible para orientarte en cualquier requerimiento de tu delegación.
           </p>
           <a
-            href="https://wa.me/"
+            href="https://wa.me/584243355739?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20inscripci%C3%B3n%20y%20el%20evento%20del%20Seminario%20Distrital%202026%20en%20la%20Colonia%20Tovar."
             target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#00875A] hover:bg-[#00704a] text-white font-bold text-sm shadow-md transition-all"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#00875A] hover:bg-[#00704a] text-white font-bold text-sm shadow-md transition-all cursor-pointer"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Contactar al Comité por WhatsApp</span>

@@ -223,14 +223,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenRegister }) => {
 
         {/* Botones de Acción */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
-          <button
-            type="button"
-            onClick={onOpenRegister}
+          <a
+            href="https://wa.me/584243355739?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20inscripci%C3%B3n%20y%20el%20evento%20del%20Seminario%20Distrital%202026%20en%20la%20Colonia%20Tovar."
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[#D91B5C] hover:bg-[#c2185b] active:scale-98 text-white font-bold text-base shadow-lg shadow-[#D91B5C]/30 transition-all duration-200 cursor-pointer"
           >
             <Sparkles className="w-4 h-4" />
             <span>Asegurar Mi Cupo</span>
-          </button>
+          </a>
 
           <a
             href="#evento"

@@ -10,7 +10,10 @@ import {
   Award, 
   ChevronDown, 
   Sparkles,
-  Layers
+  Layers,
+  Crown,
+  Shirt,
+  HeartPulse
 } from 'lucide-react';
 import { COMMITTEES_DATA } from '../data/teams';
 import { Committee } from '../types';
@@ -40,6 +43,8 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
   const renderCommitteeIcon = (iconName: Committee['iconName'], color: string) => {
     const props = { className: 'w-5 h-5 sm:w-6 sm:h-6', style: { color } };
     switch (iconName) {
+      case 'Crown':
+        return <Crown {...props} />;
       case 'Code':
         return <Code {...props} />;
       case 'Megaphone':
@@ -50,6 +55,11 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
         return <Truck {...props} />;
       case 'Award':
         return <Award {...props} />;
+      case 'Shirt':
+      case 'Sparkles':
+        return <Shirt {...props} />;
+      case 'HeartPulse':
+        return <HeartPulse {...props} />;
       default:
         return <Layers {...props} />;
     }
@@ -192,7 +202,9 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                       {/* Nombre y Contador exacto de Integrantes */}
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs font-bold text-slate-400">0{index + 1}.</span>
+                          <span className="text-xs font-bold text-slate-400">
+                            {String(index + 1).padStart(2, '0')}.
+                          </span>
                           <h4 className="font-['Open_Sans'] font-bold text-base sm:text-lg text-[#1B365D]">
                             {committee.name}
                           </h4>
@@ -237,55 +249,68 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
 
                       {/* GRID DE INTEGRANTES MÁS GRANDES (Mayor protagonismo a las fotos) */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
-                        {committee.members.map((member) => (
-                          <div
-                            key={member.id}
-                            className="bg-[#F8FAFC] hover:bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 min-h-[250px] sm:min-h-[270px] border border-slate-200/90 hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-between text-center group"
-                          >
-                            {/* CONTENEDOR DE AVATAR / FOTO (Incrementado de 64px a 96px/112px con overflow hidden y object cover) */}
-                            <div className="relative mb-4 sm:mb-5">
-                              <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-slate-100 to-slate-200 border-2 sm:border-[3px] border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 overflow-hidden group-hover:scale-105 group-hover:border-slate-300 transition-all duration-300">
-                                {member.photoUrl ? (
-                                  <img 
-                                    src={member.photoUrl} 
-                                    alt={member.name}
-                                    className="w-full h-full object-cover object-top"
-                                    style={{ objectFit: 'cover', objectPosition: 'top' }}
-                                    loading="eager"
-                                  />
-                                ) : (
-                                  <div className="flex items-center justify-center w-full h-full">
-                                    <span className="font-['Open_Sans'] font-extrabold text-2xl sm:text-3xl text-slate-600 tracking-wider select-none">
-                                      {member.initials || getInitials(member.name)}
-                                    </span>
-                                  </div>
-                                )}
+                        {committee.members.map((member, memberIdx) => {
+                          const objPosition = member.photoStyle?.objectPosition || (member.photoUrl === '/jose-parada.jpg' ? 'center 20%' : 'center top');
+                          const imgScale = member.photoStyle?.scale || (member.photoUrl === '/jose-parada.jpg' ? 1.35 : 1);
+
+                          return (
+                            <div
+                              key={member.id}
+                              className="animate-stagger-fade-in bg-[#F8FAFC] hover:bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 min-h-[260px] sm:min-h-[280px] border border-slate-200/90 hover:border-[#D91B5C] hover:shadow-xl hover:shadow-[#D91B5C]/10 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between text-center group"
+                              style={{
+                                animationDelay: `${memberIdx * 0.06}s`,
+                              }}
+                            >
+                              {/* CONTENEDOR DE AVATAR / FOTO (Dimensiones fijas mínimo w-28 h-28 / 112px, con overflow hidden) */}
+                              <div className="relative mb-4 sm:mb-5">
+                                <div className="w-28 h-28 sm:w-32 sm:h-32 min-w-[112px] min-h-[112px] rounded-full bg-gradient-to-b from-slate-100 to-slate-200 border-2 sm:border-[3px] border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 overflow-hidden group-hover:scale-105 group-hover:border-[#D91B5C]/50 transition-all duration-300 shrink-0">
+                                  {member.photoUrl ? (
+                                    <img 
+                                      src={member.photoUrl} 
+                                      alt={member.name}
+                                      className="w-full h-full object-cover"
+                                      style={{ 
+                                        objectFit: 'cover', 
+                                        objectPosition: objPosition,
+                                        transform: `scale(${imgScale})`,
+                                        transformOrigin: objPosition
+                                      }}
+                                      loading="eager"
+                                    />
+                                  ) : (
+                                    <div className="flex items-center justify-center w-full h-full">
+                                      <span className="font-['Open_Sans'] font-extrabold text-2xl sm:text-3xl text-slate-600 tracking-wider select-none">
+                                        {member.initials || getInitials(member.name)}
+                                      </span>
+                                    </div>
+                                  )}
+                                </div>
+                                {/* Punto institucional con el color oficial del comité */}
+                                <div
+                                  className="absolute bottom-1 right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white shadow-xs"
+                                  style={{ backgroundColor: committee.color }}
+                                  title={`Comité: ${committee.name}`}
+                                />
                               </div>
-                              {/* Punto institucional con el color oficial del comité */}
-                              <div
-                                className="absolute bottom-1 right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white shadow-xs"
-                                style={{ backgroundColor: committee.color }}
-                                title={`Comité: ${committee.name}`}
-                              />
-                            </div>
 
-                            {/* Nombre del Miembro */}
-                            <div className="w-full mb-3">
-                              <h5 className="font-['Open_Sans'] font-extrabold text-base sm:text-lg text-[#1B365D] group-hover:text-[#D91B5C] transition-colors leading-snug">
-                                {member.name}
-                              </h5>
-                            </div>
+                              {/* Nombre del Miembro */}
+                              <div className="w-full mb-3">
+                                <h5 className="font-['Open_Sans'] font-extrabold text-base sm:text-lg text-[#1B365D] group-hover:text-[#D91B5C] transition-colors leading-snug">
+                                  {member.name}
+                                </h5>
+                              </div>
 
-                            {/* Cargo / Rol en el Comité */}
-                            <div className="w-full flex justify-center">
-                              <span 
-                                className="inline-block text-[11px] sm:text-xs font-semibold text-slate-500 leading-tight px-3 py-1 rounded-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-slate-300 transition-colors"
-                              >
-                                {member.role}
-                              </span>
+                              {/* Cargo / Rol en el Comité */}
+                              <div className="w-full flex justify-center">
+                                <span 
+                                  className="inline-block text-[11px] sm:text-xs font-semibold text-slate-500 leading-tight px-3 py-1 rounded-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-[#D91B5C]/40 group-hover:text-[#1B365D] transition-colors"
+                                >
+                                  {member.role}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
 
                     </div>

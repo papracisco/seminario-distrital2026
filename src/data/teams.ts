@@ -2,13 +2,37 @@ import { Committee } from '../types';
 
 export const COMMITTEES_DATA: Committee[] = [
   {
+    id: 'junta-distrital',
+    name: 'Junta Distrital',
+    iconName: 'Crown',
+    description: 'Liderazgo ejecutivo y directivo del Distrito 4370 que guía la visión estratégica, objetivos institucionales y desarrollo integral del seminario.',
+    color: '#1B365D',
+    members: [
+      { id: 'jd-1', name: 'Miguel Dos Santos', role: 'Junta Distrital D4370', initials: 'MD' },
+      { id: 'jd-2', name: 'Julio Sanchez', role: 'Junta Distrital D4370', initials: 'JS' },
+      { id: 'jd-3', name: 'Giovanna Camargo', role: 'Junta Distrital D4370', initials: 'GC' },
+      { id: 'jd-4', name: 'Estefany Diaz', role: 'Junta Distrital D4370', initials: 'ED' },
+      { id: 'jd-5', name: 'Julio Villamizar', role: 'Junta Distrital D4370', initials: 'JV' }
+    ]
+  },
+  {
     id: 'desarrollo-web',
     name: 'Desarrollo Web',
     iconName: 'Code',
     description: 'Responsable del diseño, programación, pasarela de registro y mantenimiento técnico de la plataforma oficial del evento.',
     color: '#0284C7',
     members: [
-      { id: 'web-1', name: 'Jose Francisco Parada', role: 'Comité de Desarrollo Web', initials: 'JP', photoUrl: '/jose-parada.jpg' },
+      { 
+        id: 'web-1', 
+        name: 'Jose Francisco Parada', 
+        role: 'Comité de Desarrollo Web', 
+        initials: 'JP', 
+        photoUrl: '/jose-parada.jpg',
+        photoStyle: {
+          objectPosition: 'center 20%',
+          scale: 1.35
+        }
+      },
       { id: 'web-2', name: 'Charles Fernandez', role: 'Comité de Desarrollo Web', initials: 'CF' },
       { id: 'web-3', name: 'Adolfo Torres', role: 'Comité de Desarrollo Web', initials: 'AT' }
     ]
@@ -22,14 +46,15 @@ export const COMMITTEES_DATA: Committee[] = [
     members: [
       { id: 'ip-1', name: 'Gabriel Hernandez', role: 'Comité de Imagen Pública', initials: 'GH' },
       { id: 'ip-2', name: 'Isabel Avendaño', role: 'Comité de Imagen Pública', initials: 'IA' },
-      { id: 'ip-3', name: 'Andrea Leon', role: 'Comité de Imagen Pública', initials: 'AL' }
+      { id: 'ip-3', name: 'Andrea Leon', role: 'Comité de Imagen Pública', initials: 'AL' },
+      { id: 'ip-4', name: 'Giovanna Pinedo', role: 'Comité de Imagen Pública', initials: 'GP' }
     ]
   },
   {
     id: 'tesoreria',
     name: 'Tesorería',
     iconName: 'Coins',
-    description: 'Administración de presupuestos, conciliación bancaria de la preventa, pagos de delegaciones y finanzas transparentes del seminario.',
+    description: 'Administración de presupuestos, conciliación bancaria de la inscripción, pagos de delegaciones y finanzas transparentes del seminario.',
     color: '#F5A623',
     members: [
       { id: 'tes-1', name: 'Jose Pong', role: 'Comité de Tesorería', initials: 'JP' },
@@ -61,6 +86,31 @@ export const COMMITTEES_DATA: Committee[] = [
       { id: 'log-2', name: 'Adolfo Torres', role: 'Comité de Logística', initials: 'AT' },
       { id: 'log-3', name: 'Gabriel Hernandez', role: 'Comité de Logística', initials: 'GH' },
       { id: 'log-4', name: 'Nicolth Romero', role: 'Comité de Logística', initials: 'NR' }
+    ]
+  },
+  {
+    id: 'dresscode',
+    name: 'Dresscode',
+    iconName: 'Shirt',
+    description: 'Diseño, coordinación y lineamientos de código de vestimenta para cada sesión, plenaria académica y gala nocturna del seminario.',
+    color: '#8B5CF6',
+    members: [
+      { id: 'dc-1', name: 'Isabel Avendaño', role: 'Comité de Dresscode', initials: 'IA' },
+      { id: 'dc-2', name: 'Sofia Perez', role: 'Comité de Dresscode', initials: 'SP' },
+      { id: 'dc-3', name: 'Victoria Becerra', role: 'Comité de Dresscode', initials: 'VB' },
+      { id: 'dc-4', name: 'Maria Eugenia Navarrete', role: 'Comité de Dresscode', initials: 'MN' }
+    ]
+  },
+  {
+    id: 'primeros-auxilios',
+    name: 'Primeros Auxilios',
+    iconName: 'HeartPulse',
+    description: 'Atención primaria de salud, prevención médica, protocolos de bienestar y respuesta rápida ante contingencias durante todo el evento.',
+    color: '#EF4444',
+    members: [
+      { id: 'pa-1', name: 'Nicolth Romero', role: 'Comité de Primeros Auxilios', initials: 'NR' },
+      { id: 'pa-2', name: 'Maria Veronica Torres', role: 'Comité de Primeros Auxilios', initials: 'MT' },
+      { id: 'pa-3', name: 'Angelo Foglia', role: 'Comité de Primeros Auxilios', initials: 'AF' }
     ]
   }
 ];

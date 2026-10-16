@@ -16,12 +16,6 @@ export const ResourcesSection: React.FC = () => {
       color: '#00875A'
     },
     {
-      title: 'Kit del Participante',
-      desc: 'Incluye libreta, bolígrafo, gorra, franela, termo y credencial oficial. Solo necesitas traer tu entusiasmo y ganas de aprender.',
-      icon: FileText,
-      color: '#F5A623'
-    },
-    {
       title: 'Normas y Convivencia',
       desc: 'El evento se rige bajo la Prueba Cuádruple y el código de conducta de Rotary International para garantizar un ambiente seguro y enriquecedor.',
       icon: Compass,
@@ -46,7 +40,7 @@ export const ResourcesSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {tips.map((tip, idx) => {
             const Icon = tip.icon;
             return (
@@ -71,7 +65,11 @@ export const ResourcesSection: React.FC = () => {
           })}
         </div>
 
-        {/* Banner de Descarga de Ficha Logística */}
+        {/* 
+          BARRA INFERIOR TEMPORALMENTE OCULTA:
+          Reactivar cuando el archivo PDF de la Guía Rápida para Delegaciones esté listo para descarga directa.
+        */}
+        {/* 
         <div className="bg-[#1B365D]/5 border border-[#1B365D]/15 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-[#1B365D] text-white flex items-center justify-center shrink-0">
@@ -96,6 +94,7 @@ export const ResourcesSection: React.FC = () => {
             <span>Solicitar Guía en WhatsApp</span>
           </a>
         </div>
+        */}
 
       </div>
     </section>
