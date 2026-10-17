@@ -27,7 +27,7 @@ export const COMMITTEES_DATA: Committee[] = [
         name: 'Jose Francisco Parada', 
         role: 'Comité de Desarrollo Web', 
         initials: 'JP', 
-        photoUrl: '/jose-parada.jpg',
+        photoUrl: '/integrantesComite/jose-parada.jpg',
         photoStyle: {
           objectPosition: 'center 20%',
           scale: 1.35
