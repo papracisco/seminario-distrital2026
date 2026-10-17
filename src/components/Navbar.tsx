@@ -74,7 +74,7 @@ return (
           className="flex items-center gap-2 sm:gap-3 flex-shrink-0 group focus:outline-none"
           title="Inicio • Seminario de Aprendizaje Distrital 2026"
         >
-          {/* Logo 1 */}
+          {/* Logo 1 *
           <div className="flex items-center justify-center flex-shrink-0">
             <img
               src="/logo-rotaract.png"
@@ -83,7 +83,7 @@ return (
             />
           </div>
 
-          {/* Logo 2 */}
+          {/* Logo 2 *
           <div className="flex items-center justify-center flex-shrink-0">
             <img
               src="/logo-las-delicias.png"
@@ -97,7 +97,7 @@ return (
             <img
               src="/logo-evento.png"
               alt="Colonia Tovar 2026"
-              className="h-[90px] sm:h-[40px] md:h-[160px] w-auto max-w-[160px] sm:max-w-[140px] object-contain transition-transform duration-200 group-hover:scale-102"
+              className="h-[140px] sm:h-[160px] md:h-[190px] w-auto max-w-[160px] sm:max-w-[190px] object-contain transition-transform duration-200 group-hover:scale-102"
             />
           </div>
         </a>
@@ -129,7 +129,11 @@ return (
             href="https://wa.me/584243355739?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20inscripci%C3%B3n%20y%20el%20evento%20del%20Seminario%20Distrital%202026%20en%20la%20Colonia%20Tovar."
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full bg-[#D91B5C] hover:bg-[#c2185b] active:scale-98 text-white font-bold text-[12px] sm:text-[13px] md:text-[13.5px] shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer whitespace-nowrap"
+            className={`hidden sm:inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 md:px-5 py-2 sm:py-2.5 rounded-full bg-[#D91B5C] hover:bg-[#c2185b] active:scale-98 text-white font-bold text-[12px] sm:text-[13px] md:text-[13.5px] shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer whitespace-nowrap ${
+              mobileMenuOpen
+                ? 'opacity-0 scale-90 pointer-events-none'
+                : 'opacity-100 scale-100 pointer-events-auto'
+            }`}
           >
             <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/90" />
             <span>Inscribirme</span>
@@ -139,50 +143,82 @@ return (
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-[#1B365D]/30 flex-shrink-0"
+            className="xl:hidden p-2.5 rounded-lg text-slate-700 hover:bg-slate-100/80 focus:outline-none flex-shrink-0 transition-all duration-200 active:scale-90 select-none"
             aria-expanded={mobileMenuOpen}
-            aria-label="Abrir menú de navegación"
+            aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6 text-[#D91B5C]" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+            {/* Contenedor flexible para las 3 líneas con tamaño agrandado */}
+            <div className="w-7 h-6 flex flex-col justify-between items-center relative">
+              {/* Barra Superior */}
+              <span
+                className={`w-full h-0.5 rounded-full transition-all duration-300 ease-in-out origin-center ${
+                  mobileMenuOpen
+                    ? 'bg-[#D91B5C] translate-y-[11px] rotate-45'
+                    : 'bg-slate-700'
+                }`}
+              />
+
+              {/* Barra Central */}
+              <span
+                className={`w-full h-0.5 rounded-full transition-all duration-300 ease-in-out ${
+                  mobileMenuOpen
+                    ? 'opacity-0 scale-x-0 bg-[#D91B5C]'
+                    : 'opacity-100 scale-x-100 bg-slate-700'
+                }`}
+              />
+
+              {/* Barra Inferior */}
+              <span
+                className={`w-full h-0.5 rounded-full transition-all duration-300 ease-in-out origin-center ${
+                  mobileMenuOpen
+                    ? 'bg-[#D91B5C] -translate-y-[11px] -rotate-45'
+                    : 'bg-slate-700'
+                }`}
+              />
+            </div>
           </button>
         </div>
 
       </div>
     </div>
 
-    {/* MENÚ MÓVIL DESPLEGABLE */}
-    {mobileMenuOpen && (
-      <div className="xl:hidden bg-white/98 backdrop-blur-md border-b border-slate-200 px-4 pt-3 pb-6 shadow-lg animate-in slide-in-from-top-2 duration-200">
-        <div className="flex flex-col space-y-1 max-w-md mx-auto">
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={link.href}
-              onClick={(e) => handleLinkClick(e, link.href)}
-              className="px-4 py-2.5 rounded-xl text-[14px] font-semibold text-slate-700 hover:text-[#1B365D] hover:bg-slate-50 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
-          
-          <div className="pt-3 mt-1 border-t border-slate-100 flex flex-col gap-2">
-            <a
-              href="https://wa.me/584243355739?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20inscripci%C3%B3n%20y%20el%20evento%20del%20Seminario%20Distrital%202026%20en%20la%20Colonia%20Tovar."
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#D91B5C] text-white font-bold text-[14px] shadow-sm hover:bg-[#c2185b] transition-colors"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Inscribirme en el Seminario</span>
-            </a>
-            <p className="text-center text-[11px] text-slate-500 font-medium">
-              27, 28 y 29 de Noviembre de 2026 • Hotel Klein Dorf
-            </p>
-          </div>
+    {/* MENÚ MÓVIL DESPLEGABLE CON ANIMACIÓN FLUIDA */}
+    <div
+      className={`xl:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-lg ${
+        mobileMenuOpen
+          ? 'max-h-[500px] opacity-100 py-3 pb-6'
+          : 'max-h-0 opacity-0 py-0 border-b-0 shadow-none'
+      }`}
+    >
+      <div className="flex flex-col space-y-1 max-w-md mx-auto px-4">
+        {navLinks.map((link) => (
+          <a
+            key={link.id}
+            href={link.href}
+            onClick={(e) => handleLinkClick(e, link.href)}
+            className="px-4 py-2.5 rounded-xl text-[14px] font-semibold text-slate-700 hover:text-[#1B365D] hover:bg-slate-50 transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+        
+        <div className="pt-3 mt-1 border-t border-slate-100 flex flex-col gap-2">
+          <a
+            href="https://wa.me/584243355739?text=%C2%A1Hola!%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20inscripci%C3%B3n%20y%20el%20evento%20del%20Seminario%20Distrital%202026%20en%20la%20Colonia%20Tovar."
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#D91B5C] text-white font-bold text-[14px] shadow-sm hover:bg-[#c2185b] transition-colors"
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Inscribirme en el Seminario</span>
+          </a>
+          <p className="text-center text-[11px] text-slate-500 font-medium">
+            27, 28 y 29 de Noviembre de 2026 • Hotel Klein Dorf
+          </p>
         </div>
       </div>
-    )}
+    </div>
   </header>
 );
 }

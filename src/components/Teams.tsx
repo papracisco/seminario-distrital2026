@@ -95,7 +95,7 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                 <img
                   src="/logo-rotaract.png"
                   alt="Rotaract Distrito 4370"
-                  className="h-10 w-auto object-contain"
+                  className="h-11 w-auto object-contain"
                 />
                 <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#1B365D]/10 text-[#1B365D]">
                   Liderazgo Distrital
@@ -125,7 +125,7 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                 <img
                   src="/logo-las-delicias.png"
                   alt="Rotaract Las Delicias"
-                  className="h-12 w-auto object-contain"
+                  className="h-11 w-auto object-contain"
                 />
                 <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#D91B5C]/10 text-[#D91B5C]">
                   Club Anfitrión
