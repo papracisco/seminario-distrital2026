@@ -17,6 +17,8 @@ import {
 } from 'lucide-react';
 import { COMMITTEES_DATA } from '../data/teams';
 import { Committee } from '../types';
+// importas todas las fotos de la carpeta como un diccionario automático:
+const memberImages = import.meta.glob('../assets/integrantesComite/*.{jpg,jpeg,png,webp}', { eager: true });
 
 interface TeamsProps {
   committees?: Committee[];
@@ -30,6 +32,17 @@ const getInitials = (name: string, fallback?: string): string => {
     return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
   }
   return (parts[0]?.slice(0, 2) || 'CT').toUpperCase();
+};
+
+// Función auxiliar para resolver la ruta de Vite dinámicamente según el archivo
+const getMemberPhoto = (photoPath?: string) => {
+  if (!photoPath) return undefined;
+  // Si en el dato guardaste algo como 'miguel-dos-santos.jpg' o una ruta parcial:
+  const fileName = photoPath.split('/').pop(); 
+  const key = `../assets/integrantesComite/${fileName}`;
+  
+  const match = memberImages[key] as { default: string } | undefined;
+  return match ? match.default : photoPath;
 };
 
 export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) => {
@@ -250,6 +263,8 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                       {/* GRID DE INTEGRANTES MÁS GRANDES (Mayor protagonismo a las fotos) */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
                         {committee.members.map((member, memberIdx) => {
+                          // Traducimos la URL para que sea compatible con src/assets mediante Vite
+                          const resolvedPhotoUrl = getMemberPhoto(member.photoUrl);
                           const objPosition = member.photoStyle?.objectPosition || (member.photoUrl === '/jose-parada.jpg' ? 'center 20%' : 'center top');
                           const imgScale = member.photoStyle?.scale || (member.photoUrl === '/jose-parada.jpg' ? 1.35 : 1);
 
@@ -264,9 +279,9 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                               {/* CONTENEDOR DE AVATAR / FOTO (Dimensiones fijas mínimo w-28 h-28 / 112px, con overflow hidden) */}
                               <div className="relative mb-4 sm:mb-5">
                                 <div className="w-28 h-28 sm:w-32 sm:h-32 min-w-[112px] min-h-[112px] rounded-full bg-gradient-to-b from-slate-100 to-slate-200 border-2 sm:border-[3px] border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 overflow-hidden group-hover:scale-105 group-hover:border-[#D91B5C]/50 transition-all duration-300 shrink-0">
-                                  {member.photoUrl ? (
+                                {resolvedPhotoUrl ? (
                                     <img 
-                                      src={member.photoUrl} 
+                                      src={resolvedPhotoUrl} // Usamos la URL procesada
                                       alt={member.name}
                                       className="w-full h-full object-cover"
                                       style={{ 
