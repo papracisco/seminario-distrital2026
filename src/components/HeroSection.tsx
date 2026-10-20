@@ -84,11 +84,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenRegister }) => {
             }`}
             style={{ transitionProperty: 'opacity, transform' }}
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover object-center filter brightness-90"
-            />
+            <picture>
+              <source srcSet={slide.image.replace(/\.(jpg|jpeg|png)$/, '.webp')} type="image/webp" />
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover object-center filter brightness-90"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             {/* Gradiente multicapa de alto contraste para máxima legibilidad tipográfica */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/75 to-[#0B2545]/60" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0B2545]/40 to-[#07152B]/90" />

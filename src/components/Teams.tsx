@@ -109,6 +109,8 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                   src="/logo-rotaract.png"
                   alt="Rotaract Distrito 4370"
                   className="h-11 w-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#1B365D]/10 text-[#1B365D]">
                   Liderazgo Distrital
@@ -139,6 +141,8 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                   src="/logo-las-delicias.png"
                   alt="Rotaract Las Delicias"
                   className="h-11 w-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#D91B5C]/10 text-[#D91B5C]">
                   Club Anfitrión
@@ -265,8 +269,9 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                         {committee.members.map((member, memberIdx) => {
                           // Traducimos la URL para que sea compatible con src/assets mediante Vite
                           const resolvedPhotoUrl = getMemberPhoto(member.photoUrl);
-                          const objPosition = member.photoStyle?.objectPosition || (member.photoUrl === '/jose-parada.jpg' ? 'center 20%' : 'center top');
-                          const imgScale = member.photoStyle?.scale || (member.photoUrl === '/jose-parada.jpg' ? 1.35 : 1);
+                          const isJose = member.name.toLowerCase().includes('jose francisco') || member.id === 'web-1';
+                          const objPosition = member.photoStyle?.objectPosition || (isJose ? 'center 18%' : 'center top');
+                          const imgScale = member.photoStyle?.scale || 1;
 
                           return (
                             <div
@@ -276,21 +281,22 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                                 animationDelay: `${memberIdx * 0.06}s`,
                               }}
                             >
-                              {/* CONTENEDOR DE AVATAR / FOTO (Dimensiones fijas mínimo w-28 h-28 / 112px, con overflow hidden) */}
+                              {/* CONTENEDOR DE AVATAR / FOTO (w-24 h-24 rounded-full overflow-hidden) */}
                               <div className="relative mb-4 sm:mb-5">
-                                <div className="w-28 h-28 sm:w-32 sm:h-32 min-w-[112px] min-h-[112px] rounded-full bg-gradient-to-b from-slate-100 to-slate-200 border-2 sm:border-[3px] border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 overflow-hidden group-hover:scale-105 group-hover:border-[#D91B5C]/50 transition-all duration-300 shrink-0">
-                                {resolvedPhotoUrl ? (
+                                <div className={`w-24 h-24 rounded-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 border-2 border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 shrink-0 group-hover:scale-105 group-hover:border-[#D91B5C]/50 transition-all duration-300 ${!isJose ? 'sm:w-28 sm:h-28' : ''}`}>
+                                  {resolvedPhotoUrl ? (
                                     <img 
-                                      src={resolvedPhotoUrl} // Usamos la URL procesada
+                                      src={resolvedPhotoUrl}
                                       alt={member.name}
-                                      className="w-full h-full object-cover"
-                                      style={{ 
+                                      className={isJose ? "w-full h-full object-cover object-[center_18%]" : "w-full h-full object-cover"}
+                                      style={!isJose ? { 
                                         objectFit: 'cover', 
                                         objectPosition: objPosition,
                                         transform: `scale(${imgScale})`,
                                         transformOrigin: objPosition
-                                      }}
-                                      loading="eager"
+                                      } : undefined}
+                                      loading="lazy"
+                                      decoding="async"
                                     />
                                   ) : (
                                     <div className="flex items-center justify-center w-full h-full">
@@ -302,7 +308,7 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                                 </div>
                                 {/* Punto institucional con el color oficial del comité */}
                                 <div
-                                  className="absolute bottom-1 right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white shadow-xs"
+                                  className="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white shadow-xs"
                                   style={{ backgroundColor: committee.color }}
                                   title={`Comité: ${committee.name}`}
                                 />

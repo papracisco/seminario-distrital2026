@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
+import { HelpCircle, ChevronDown, ChevronUp, MessageCircle, MapPin } from 'lucide-react';
 import { FAQ_LIST } from '../data/eventData';
 
 export const FaqSection: React.FC = () => {
@@ -54,6 +54,35 @@ export const FaqSection: React.FC = () => {
                 {isOpen && (
                   <div className="px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 bg-[#F8FAFC]/50">
                     <p>{faq.answer}</p>
+
+                    {/* Previa del Hotel Klein Dorf y enlace a Google Maps */}
+                    {(faq.question.includes('Hotel Klein Dorf') || faq.question.includes('ubicado')) && (
+                      <div className="mt-4 pt-4 border-t border-slate-200/60">
+                        <div className="overflow-hidden rounded-xl shadow-md border border-slate-200 max-w-xl">
+                          <picture>
+                            <source srcSet="/hero-hotel-kleindorf.webp" type="image/webp" />
+                            <img
+                              src="/hero-hotel-kleindorf.jpg.jpg"
+                              alt="Hotel Klein Dorf - Sede Oficial Colonia Tovar"
+                              className="w-full h-48 sm:h-56 object-cover hover:scale-102 transition-transform duration-300"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </picture>
+                        </div>
+                        <div className="mt-3.5 flex items-center">
+                          <a
+                            href="https://maps.google.com/?q=Hotel+Klein+Dorf+Colonia+Tovar"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1B365D] hover:bg-[#0B2545] text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+                          >
+                            <MapPin className="w-4 h-4 text-[#F5A623]" />
+                            <span>Ver ubicación en Google Maps →</span>
+                          </a>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

@@ -99,6 +99,8 @@ export default function HeroIntro() {
           src={logoIcon}
           alt="Icono Logo"
           className="w-24 sm:w-32 md:w-40 h-auto object-contain z-10"
+          loading="lazy"
+          decoding="async"
         />
 
         <img
@@ -106,6 +108,8 @@ export default function HeroIntro() {
           src={logoText}
           alt="Texto Logo"
           className="absolute w-40 sm:w-56 md:w-72 h-auto object-contain opacity-0 pointer-events-none"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

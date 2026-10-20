@@ -54,6 +54,8 @@ export const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock
               src="/logo-evento.png"
               alt="Colonia Tovar 2026"
               className="h-[36px] sm:h-[42px] w-auto max-w-[110px] object-contain"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -66,6 +68,8 @@ export const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock
               src="/logo-rotaract.png"
               alt="Rotaract Distrito 4370"
               className="h-[22px] sm:h-[26px] w-auto max-w-[85px] object-contain"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -78,6 +82,8 @@ export const PasswordProtection: React.FC<PasswordProtectionProps> = ({ onUnlock
               src="/logo-las-delicias.png"
               alt="Rotaract Las Delicias"
               className="h-[30px] sm:h-[36px] w-auto max-w-[95px] object-contain"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

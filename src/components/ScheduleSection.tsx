@@ -1,27 +1,7 @@
-import React, { useState } from 'react';
-import { Calendar, Clock, MapPin, Tag } from 'lucide-react';
-import { SCHEDULE_DAYS } from '../data/eventData';
+import React from 'react';
+import { Calendar, Clock, Lock } from 'lucide-react';
 
 export const ScheduleSection: React.FC = () => {
-  const [activeDayIndex, setActiveDayIndex] = useState(0);
-
-  const activeDay = SCHEDULE_DAYS[activeDayIndex];
-
-  const getTypeBadgeStyle = (type: string) => {
-    switch (type) {
-      case 'Formación':
-        return 'bg-[#00875A]/10 text-[#00875A] border-[#00875A]/20';
-      case 'Conexión':
-        return 'bg-[#F5A623]/10 text-[#9A5B00] border-[#F5A623]/30';
-      case 'Protocolar':
-        return 'bg-[#1B365D]/10 text-[#1B365D] border-[#1B365D]/20';
-      case 'Social':
-        return 'bg-[#D91B5C]/10 text-[#D91B5C] border-[#D91B5C]/20';
-      default:
-        return 'bg-slate-100 text-slate-700 border-slate-200';
-    }
-  };
-
   return (
     <section id="cronograma" className="py-20 sm:py-28 bg-[#F8FAFC] border-t border-slate-200/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,93 +19,50 @@ export const ScheduleSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Contenedor relativo con contenido bloqueado con blur y overlay Próximamente */}
+        {/* Contenedor relativo con bloqueo visual y privacidad total (sin textos preliminares en el DOM) */}
         <div className="relative">
-          {/* Selector y Actividades con efecto blur y deshabilitadas */}
-          <div className="select-none pointer-events-none filter blur-sm opacity-40">
-            {/* Selector de Días */}
-            <div className="flex justify-center gap-2 sm:gap-4 mb-10">
-              {SCHEDULE_DAYS.map((day, idx) => (
-                <button
-                  key={day.day}
-                  type="button"
-                  tabIndex={-1}
-                  className={`px-4 sm:px-8 py-3 rounded-2xl font-bold text-xs sm:text-sm flex flex-col items-center ${
-                    activeDayIndex === idx
-                      ? 'bg-[#1B365D] text-white shadow-md -translate-y-0.5'
-                      : 'bg-white text-slate-600 border border-slate-200'
-                  }`}
-                >
-                  <span className="uppercase text-[11px] tracking-wider opacity-80">{day.day}</span>
-                  <span className="font-extrabold text-sm sm:text-base">{day.date.split(' de ')[0]}</span>
-                </button>
-              ))}
+          {/* Skeleton puramente decorativo con efecto blur y sin datos sensibles */}
+          <div className="filter blur-sm opacity-50 pointer-events-none select-none">
+            {/* Skeleton botones selector de días */}
+            <div className="flex justify-center gap-2 sm:gap-4 mb-8">
+              <div className="h-14 w-28 sm:w-36 bg-slate-200/80 rounded-2xl animate-pulse" />
+              <div className="h-14 w-28 sm:w-36 bg-slate-200/60 rounded-2xl animate-pulse" />
+              <div className="h-14 w-28 sm:w-36 bg-slate-200/60 rounded-2xl animate-pulse" />
             </div>
 
-            {/* Resumen del Día Seleccionado */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm mb-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-100 gap-2">
-                <div>
-                  <h3 className="font-['Open_Sans'] font-bold text-xl text-[#1B365D]">
-                    {activeDay.day}: {activeDay.date}
-                  </h3>
-                  <p className="text-sm text-slate-600 mt-1">{activeDay.summary}</p>
-                </div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#00875A]/10 text-[#00875A] self-start sm:self-auto">
-                  Hotel Klein Dorf
-                </span>
+            {/* Skeleton tarjeta principal de actividades */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm max-w-4xl mx-auto">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-100 gap-3">
+                <div className="h-7 w-48 bg-slate-200/80 rounded-lg animate-pulse" />
+                <div className="h-6 w-32 bg-slate-200/60 rounded-full animate-pulse" />
               </div>
 
-              {/* Lista de Actividades */}
-              <div className="space-y-4">
-                {activeDay.activities.map((act, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl bg-[#F8FAFC] border border-slate-200/60 gap-3"
-                  >
-                    <div className="flex items-start sm:items-center gap-3">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-[#1B365D] bg-white px-3 py-1.5 rounded-lg border border-slate-200 shrink-0">
-                        <Clock className="w-3.5 h-3.5 text-[#D91B5C]" />
-                        <span>{act.time}</span>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-sm sm:text-base text-slate-800">
-                          {act.title}
-                        </h4>
-                        <div className="flex items-center gap-2 mt-1 text-xs text-slate-500">
-                          <MapPin className="w-3 h-3 text-[#00875A]" />
-                          <span>{act.location}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <span
-                      className={`text-[11px] font-bold px-3 py-1 rounded-full border self-start sm:self-auto ${getTypeBadgeStyle(act.type)}`}
-                    >
-                      {act.type}
-                    </span>
-                  </div>
-                ))}
+              {/* Bloques esqueleto de actividades */}
+              <div className="space-y-3">
+                <div className="h-14 w-full bg-slate-200/60 rounded-xl mb-3 animate-pulse" />
+                <div className="h-14 w-full bg-slate-200/60 rounded-xl mb-3 animate-pulse" />
+                <div className="h-14 w-full bg-slate-200/60 rounded-xl mb-3 animate-pulse" />
+                <div className="h-14 w-full bg-slate-200/60 rounded-xl mb-3 animate-pulse" />
+                <div className="h-14 w-full bg-slate-200/60 rounded-xl mb-3 animate-pulse" />
               </div>
             </div>
           </div>
 
-          {/* Superposición Glassmorphism Próximamente */}
+          {/* Capa superior centrada glassmorphism */}
           <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-4">
-            <div className="bg-white/85 backdrop-blur-md border border-slate-200/80 shadow-2xl rounded-2xl p-6 md:p-8 text-center max-w-md mx-4 relative overflow-hidden">
-              {/* Pulso de luz animado sutil en el fondo de la tarjeta */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#1B365D]/10 via-[#F5A623]/15 to-[#D91B5C]/10 rounded-2xl blur-lg animate-pulse pointer-events-none" />
+            <div className="bg-white/90 backdrop-blur-md rounded-2xl p-8 max-w-lg overflow-visible leading-relaxed shadow-xl border border-slate-200 text-center mx-4 relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#1B365D]/10 via-[#00875A]/15 to-[#D91B5C]/10 rounded-2xl blur-lg animate-pulse pointer-events-none" />
 
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1B365D]/10 text-[#1B365D] border border-[#1B365D]/20 font-bold text-xs uppercase tracking-wider mb-4 shadow-xs animate-pulse">
-                  <Clock className="w-3.5 h-3.5 text-[#D91B5C]" />
+                  <Lock className="w-3.5 h-3.5 text-[#D91B5C]" />
                   <span>REVELACIÓN PRÓXIMAMENTE</span>
                 </div>
                 <h3 className="font-['Open_Sans'] font-extrabold text-xl sm:text-2xl text-[#1B365D] mb-2">
                   Agenda en Preparación
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Estamos afinando los detalles de la agenda académica y actividades protocolares
+                  Estamos afinando los detalles de la agenda académica, conferencias magistrales y actividades protocolares del Seminario 2026.
                 </p>
               </div>
             </div>
@@ -136,3 +73,5 @@ export const ScheduleSection: React.FC = () => {
     </section>
   );
 };
+
+export default ScheduleSection;

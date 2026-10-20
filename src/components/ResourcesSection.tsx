@@ -1,28 +1,7 @@
 import React from 'react';
-import { FileText, Compass, ThermometerSnowflake, MapPin, Download, Check } from 'lucide-react';
+import { Compass, Lock } from 'lucide-react';
 
 export const ResourcesSection: React.FC = () => {
-  const tips = [
-    {
-      title: 'Clima de Montaña y Vestimenta',
-      desc: 'Temperaturas habituales de 12°C a 20°C. Se aconseja vestimenta abrigada (chaqueta, suéter institucional) para la noche y calzado cómodo para caminar.',
-      icon: ThermometerSnowflake,
-      color: '#0284C7'
-    },
-    {
-      title: 'Ubicación & Acceso',
-      desc: 'Hotel Klein Dorf, Sector El Molino, Colonia Tovar. Acceso por carretera desde La Victoria (Aragua) o El Junquito (Caracas). Se emitirán rutas recomendadas.',
-      icon: MapPin,
-      color: '#00875A'
-    },
-    {
-      title: 'Normas y Convivencia',
-      desc: 'El evento se rige bajo la Prueba Cuádruple y el código de conducta de Rotary International para garantizar un ambiente seguro y enriquecedor.',
-      icon: Compass,
-      color: '#D91B5C'
-    }
-  ];
-
   return (
     <section id="recursos" className="py-20 sm:py-28 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,63 +19,50 @@ export const ResourcesSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {tips.map((tip, idx) => {
-            const Icon = tip.icon;
-            return (
+        {/* Contenedor relativo con bloqueo visual y privacidad total (sin textos preliminares en el DOM) */}
+        <div className="relative mb-12">
+          {/* Grid esqueleto decorativo puramente visual */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 filter blur-sm opacity-50 pointer-events-none select-none">
+            {[1, 2, 3].map((item) => (
               <div
-                key={idx}
-                className="bg-[#F8FAFC] rounded-2xl p-6 border border-slate-200/80 hover:shadow-md transition-all duration-300"
+                key={item}
+                className="bg-[#F8FAFC] rounded-2xl p-6 sm:p-7 border border-slate-200/80 shadow-xs flex flex-col justify-between"
               >
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: `${tip.color}15`, color: tip.color }}
-                >
-                  <Icon className="w-6 h-6" />
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-slate-200/70 mb-4 animate-pulse" />
+                  <div className="h-6 w-3/4 bg-slate-200/70 rounded-md mb-4 animate-pulse" />
+                  <div className="h-14 w-full bg-slate-200/60 rounded-xl mb-3 animate-pulse" />
+                  <div className="h-14 w-full bg-slate-200/60 rounded-xl mb-3 animate-pulse" />
                 </div>
-                <h3 className="font-['Open_Sans'] font-bold text-lg text-[#1B365D] mb-2">
-                  {tip.title}
+                <div className="h-4 w-1/2 bg-slate-200/50 rounded mt-4 animate-pulse" />
+              </div>
+            ))}
+          </div>
+
+          {/* Capa superior centrada glassmorphism sin cortes de texto */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-20 p-4">
+            <div className="bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-2xl rounded-2xl p-8 max-w-lg overflow-visible leading-relaxed text-center mx-4 relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#0284C7]/15 via-[#F5A623]/15 to-[#D91B5C]/15 rounded-2xl blur-lg animate-pulse pointer-events-none" />
+
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0284C7]/10 text-[#0284C7] border border-[#0284C7]/20 font-bold text-xs uppercase tracking-wider mb-4 shadow-xs animate-pulse">
+                  <Lock className="w-3.5 h-3.5 text-[#0284C7]" />
+                  <span>REVELACIÓN PRÓXIMAMENTE</span>
+                </div>
+                <h3 className="font-['Open_Sans'] font-extrabold text-xl sm:text-2xl text-[#1B365D] mb-3">
+                  Guías & Material de Viaje
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {tip.desc}
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Próximamente revelaremos la guía completa de recomendaciones climáticas, traslados, normativas distritales y material descargable para delegaciones.
                 </p>
               </div>
-            );
-          })}
-        </div>
-
-        {/* 
-          BARRA INFERIOR TEMPORALMENTE OCULTA:
-          Reactivar cuando el archivo PDF de la Guía Rápida para Delegaciones esté listo para descarga directa.
-        */}
-        {/* 
-        <div className="bg-[#1B365D]/5 border border-[#1B365D]/15 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-[#1B365D] text-white flex items-center justify-center shrink-0">
-              <FileText className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="font-['Open_Sans'] font-bold text-base sm:text-lg text-[#1B365D]">
-                Guía Rápida para Delegaciones (PDF Informativo)
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600">
-                Información de hospedaje, recomendaciones de traslados y protocolo distrital.
-              </p>
             </div>
           </div>
-          <a
-            href="https://wa.me/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1B365D] hover:bg-[#0B2545] text-white font-bold text-xs sm:text-sm transition-colors shrink-0"
-          >
-            <Download className="w-4 h-4" />
-            <span>Solicitar Guía en WhatsApp</span>
-          </a>
         </div>
-        */}
 
       </div>
     </section>
   );
 };
+
+export default ResourcesSection;

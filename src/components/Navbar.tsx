@@ -14,7 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['inicio', 'evento', 'cronograma', 'ponentes', 'equipos', 'kits', 'recursos', 'faq'];
+      const sections = ['inicio', 'evento', 'cronograma', 'ponentes', 'equipos', 'galeria', 'kits', 'recursos', 'faq'];
       const scrollPos = window.scrollY + 120;
 
       for (const section of sections) {
@@ -23,7 +23,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
+            setActiveSection(section === 'kits' ? 'galeria' : section);
             break;
           }
         }
@@ -39,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
     { href: '#cronograma', label: 'Cronograma', id: 'cronograma' },
     { href: '#ponentes', label: 'Ponentes', id: 'ponentes' },
     { href: '#equipos', label: 'Equipos', id: 'equipos' },
-    { href: '#kits', label: 'Kits & Merch', id: 'kits' },
+    { href: '#galeria', label: 'Galería', id: 'galeria' },
     { href: '#recursos', label: 'Recursos', id: 'recursos' },
     { href: '#faq', label: 'Preguntas', id: 'faq' },
   ];
@@ -98,6 +98,8 @@ return (
               src="/logo-evento.png"
               alt="Colonia Tovar 2026"
               className="h-[140px] sm:h-[160px] md:h-[190px] w-auto max-w-[160px] sm:max-w-[190px] object-contain transition-transform duration-200 group-hover:scale-102"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </a>
@@ -182,12 +184,12 @@ return (
       </div>
     </div>
 
-    {/* MENÚ MÓVIL DESPLEGABLE CON ANIMACIÓN FLUIDA */}
+    {/* MENÚ MÓVIL DESPLEGABLE CON ANIMACIÓN SUAVE FADE DOWN */}
     <div
-      className={`xl:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-lg ${
+      className={`xl:hidden overflow-hidden transition-all duration-300 ease-out bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-lg transform ${
         mobileMenuOpen
-          ? 'max-h-[500px] opacity-100 py-3 pb-6'
-          : 'max-h-0 opacity-0 py-0 border-b-0 shadow-none'
+          ? 'max-h-[500px] opacity-100 translate-y-0 py-3 pb-6 pointer-events-auto'
+          : 'max-h-0 opacity-0 -translate-y-2.5 py-0 border-b-0 shadow-none pointer-events-none'
       }`}
     >
       <div className="flex flex-col space-y-1 max-w-md mx-auto px-4">

@@ -215,7 +215,7 @@ export const FAQ_LIST: FAQItem[] = [
   },
   {
     question: '¿Qué incluye la inscripción?',
-    answer: 'La inscripción cubre el acceso total a las conferencias y talleres los 3 días, kit de bienvenida con todos los souvenirs oficiales, alimentación programada y participación en las actividades sociales.',
+    answer: 'La inscripción cubre el acceso total a las conferencias y talleres los 3 días, kit de bienvenida con todos los souvenirs oficiales, alimentación programada, traslado y participación en las actividades sociales.',
     category: 'Inscripción'
   },
   {

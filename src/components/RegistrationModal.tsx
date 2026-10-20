@@ -168,14 +168,21 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
               Hola <strong>{fullName}</strong>, para completar tu reserva y coordinar la modalidad de pago de la preventa con tu club ({clubName}), haz clic abajo para comunicarte directamente con el comité organizador:
             </p>
 
-            <button
-              type="button"
-              onClick={handleWhatsAppRedirect}
+            <a
+              href={`https://wa.me/584243355739?text=${encodeURIComponent(
+                `¡Hola! Deseo inscribirme en la preventa del Seminario Distrital Colonia Tovar 2026.\n` +
+                `Nombre: ${fullName || 'Participante'}\n` +
+                `Club: ${clubName || 'Distrito 4370'}\n` +
+                `Rol: ${role}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => onClose()}
               className="w-full py-3.5 px-6 rounded-full bg-[#00875A] hover:bg-[#00704a] text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mb-3 cursor-pointer"
             >
               <MessageSquare className="w-4 h-4" />
               <span>Contactar al Comité por WhatsApp</span>
-            </button>
+            </a>
 
             <button
               type="button"

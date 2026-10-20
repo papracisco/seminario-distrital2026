@@ -13,29 +13,35 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col items-center text-center gap-6 w-full lg:grid grid-cols-12 gap-8 pb-12 border-b border-white/10 items-center">
           
           {/* Logos institucionales en el footer */}
-          <div className=" flex flex-col items-center text-center lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Contenedor de logos escalado responsivamente y con ajuste flex-wrap por seguridad */}
-            <div className="flex items-center flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 px-3 rounded-2xl mb-4 max-w-full">
+          <div className="flex flex-col items-center text-center lg:col-span-6 lg:items-start lg:text-left">
+            {/* Contenedor sin fondo oscuro, en móvil/medianas en columna centrada, y en md:flex-row */}
+            <div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:gap-6 mb-5">
               
               {/* Logo 1: Distrito 4370 */}
               <img
                 src="/logo-rotaract.png"
                 alt="Distrito 4370"
-                className="h-8 sm:h-12 md:h-13 w-auto object-contain brightness-110 flex-shrink-0"
+                className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
+                loading="lazy"
+                decoding="async"
               />
               
               {/* Logo 2: Rotaract Las Delicias */}
               <img
                 src="/logo-las-delicias.png"
                 alt="Rotaract Las Delicias"
-                className="h-8 sm:h-12 md:h-13 w-auto object-contain brightness-110 flex-shrink-0 ml-2"
+                className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
+                loading="lazy"
+                decoding="async"
               />
               
-              {/* Logo 3: Colonia Tovar 2026 (Reducido en móvil de h-32 a h-12/h-14 para que no desborde) */}
+              {/* Logo 3: Colonia Tovar 2026 */}
               <img
                 src="/logo-evento.png"
                 alt="Colonia Tovar 2026"
-                className="h-24 sm:h-36 md:h-45 w-auto object-contain brightness-110 flex-shrink-0"
+                className="h-20 sm:h-24 md:h-28 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             
@@ -53,7 +59,7 @@ export const Footer: React.FC = () => {
             <a href="#cronograma" className="hover:text-[#F5A623] transition-colors">Cronograma</a>
             <a href="#ponentes" className="hover:text-[#F5A623] transition-colors">Ponentes</a>
             <a href="#equipos" className="hover:text-[#F5A623] transition-colors">Equipos</a>
-            <a href="#kits" className="hover:text-[#F5A623] transition-colors">Kits & Merch</a>
+            <a href="#galeria" className="hover:text-[#F5A623] transition-colors">Galería</a>
             <a href="#recursos" className="hover:text-[#F5A623] transition-colors">Recursos</a>
             <a href="#faq" className="hover:text-[#F5A623] transition-colors">Preguntas</a>
           </div>

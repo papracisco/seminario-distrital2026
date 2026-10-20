@@ -153,6 +153,8 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({ speakers = SPE
                       src={selectedSpeaker.photoUrl} 
                       alt={selectedSpeaker.name} 
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="flex flex-col items-center justify-center p-4 text-center">
