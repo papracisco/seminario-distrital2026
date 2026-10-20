@@ -1,4 +1,5 @@
 import { Committee } from '../types';
+import estefanyImg from '../assets/integrantesComite/estefany diaz.jpg';
 
 export const COMMITTEES_DATA: Committee[] = [
   {
@@ -11,7 +12,7 @@ export const COMMITTEES_DATA: Committee[] = [
       { id: 'jd-1', name: 'Miguel Dos Santos', role: 'Junta Distrital D4370', initials: 'MD', photoUrl: 'miguel dos santos.jpeg' },
       { id: 'jd-2', name: 'Julio Sanchez', role: 'Junta Distrital D4370', initials: 'JS', photoUrl: 'julio sanchez.jpeg' },
       { id: 'jd-3', name: 'Giovanna Camargo', role: 'Junta Distrital D4370', initials: 'GC', photoUrl: 'Giovanna Camargo.jpeg' },
-      { id: 'jd-4', name: 'Estefany Diaz', role: 'Junta Distrital D4370', initials: 'ED', photoUrl: 'estefany diaz.jpeg' },
+      { id: 'jd-4', name: 'Estefany Diaz', role: 'Junta Distrital D4370', initials: 'ED', photoUrl: estefanyImg },
       { id: 'jd-5', name: 'Julio Villamizar', role: 'Junta Distrital D4370', initials: 'JV', photoUrl: 'julio villamizar.jpeg' }
     ]
   },
@@ -44,7 +45,19 @@ export const COMMITTEES_DATA: Committee[] = [
     description: 'Encargados de la identidad gráfica institucional, cobertura audiovisual, redes sociales, fotografía y relaciones con medios.',
     color: '#D91B5C',
     members: [
-      { id: 'ip-1', name: 'Gabriel Hernandez', role: 'Comité de Imagen Pública', initials: 'GH',   photoUrl: 'gabriel.jpeg' },
+      { 
+        id: 'ip-1', 
+        name: 'Gabriel Hernandez', 
+        role: 'Comité de Imagen Pública', 
+        initials: 'GH', 
+        photoUrl: 'gabriel.jpeg',
+        photoStyle: {
+          rotate: -90,
+          scale: 1.4,
+          transform: 'translateY(20%) rotate(-90deg) scale(1.4)',
+          objectPosition: 'center center'
+        }
+      },
       { id: 'ip-2', name: 'Isabel Avendaño', role: 'Comité de Imagen Pública', initials: 'IA', photoUrl: 'isa.jpeg' },
       { id: 'ip-3', name: 'Andrea Leon', role: 'Comité de Imagen Pública', initials: 'AL', photoUrl: 'andrea.jpeg' },
       { id: 'ip-4', name: 'Giovanna Pineda', role: 'Comité de Imagen Pública', initials: 'GP', photoUrl: 'giovanna.jpeg' }

@@ -76,6 +76,8 @@ export interface CommitteeMember {
   photoStyle?: {
     objectPosition?: string;
     scale?: number;
+    rotate?: number | string;
+    transform?: string;
   };
 }
 

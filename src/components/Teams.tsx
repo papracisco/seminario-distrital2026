@@ -37,8 +37,11 @@ const getInitials = (name: string, fallback?: string): string => {
 // Función auxiliar para resolver la ruta de Vite dinámicamente según el archivo
 const getMemberPhoto = (photoPath?: string) => {
   if (!photoPath) return undefined;
-  // Si en el dato guardaste algo como 'miguel-dos-santos.jpg' o una ruta parcial:
-  const fileName = photoPath.split('/').pop(); 
+  // Si ya es una ruta resuelta directamente por un import de Vite:
+  if (photoPath.startsWith('data:') || photoPath.startsWith('blob:') || photoPath.includes('/assets/') || photoPath.includes('/@fs/')) {
+    return photoPath;
+  }
+  const fileName = photoPath.split('/').pop()?.split('?')[0]; 
   const key = `../assets/integrantesComite/${fileName}`;
   
   const match = memberImages[key] as { default: string } | undefined;
@@ -274,8 +277,29 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                           // Traducimos la URL para que sea compatible con src/assets mediante Vite
                           const resolvedPhotoUrl = getMemberPhoto(member.photoUrl);
                           const isJose = member.name.toLowerCase().includes('jose francisco') || member.id === 'web-1';
-                          const objPosition = member.photoStyle?.objectPosition || (isJose ? 'center 18%' : 'center top');
-                          const imgScale = member.photoStyle?.scale || 1;
+                          const isGabriel = member.name.toLowerCase().includes('gabriel') || member.id === 'ip-1';
+
+                          // Corrección de rotación y escala para fotos
+                          const rotateVal = member.photoStyle?.rotate 
+                            ? (typeof member.photoStyle.rotate === 'number' ? `${member.photoStyle.rotate}deg` : member.photoStyle.rotate)
+                            : (isGabriel ? '-90deg' : undefined);
+                          const imgScale = member.photoStyle?.scale || (isGabriel ? 1.35 : 1);
+                          
+                          let transformStyle: string | undefined = undefined;
+                          if (isGabriel) {
+                            transformStyle = member.photoStyle?.transform || 'translateY(20%) rotate(-90deg) scale(1.4)';
+                          } else if (member.photoStyle?.transform) {
+                            transformStyle = member.photoStyle.transform;
+                          } else if (rotateVal) {
+                            transformStyle = `rotate(${rotateVal}) scale(${imgScale})`;
+                          } else if (imgScale !== 1) {
+                            transformStyle = `scale(${imgScale})`;
+                          }
+
+                          const objPosition = isGabriel 
+                            ? 'center center' 
+                            : (member.photoStyle?.objectPosition || (isJose ? 'center 18%' : 'center top'));
+                          const transformOrigin = isGabriel ? 'center center' : objPosition;
 
                           return (
                             <div
@@ -298,8 +322,8 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                                       style={!isJose ? { 
                                         objectFit: 'cover', 
                                         objectPosition: objPosition,
-                                        transform: `scale(${imgScale})`,
-                                        transformOrigin: objPosition
+                                        transform: transformStyle,
+                                        transformOrigin: transformOrigin
                                       } : undefined}
                                       loading="lazy"
                                       decoding="async"
