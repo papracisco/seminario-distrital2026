@@ -76,29 +76,39 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenRegister }) => {
       
       {/* 1. SLIDER / CARRUSEL DE FONDO CON FOTOGRAFÍAS ALPINAS & DE MONTAÑA */}
       <div className="absolute inset-0 z-0 bg-[#07152B]">
-        {HERO_SLIDES.map((slide, index) => (
-          <div
-            key={slide.image}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
-            }`}
-            style={{ transitionProperty: 'opacity, transform' }}
-          >
-            <picture>
-              <source srcSet={slide.image.replace(/\.(jpg|jpeg|png)$/, '.webp')} type="image/webp" />
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full h-full object-cover object-center filter brightness-90"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-            {/* Gradiente multicapa de alto contraste para máxima legibilidad tipográfica */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/75 to-[#0B2545]/60" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0B2545]/40 to-[#07152B]/90" />
-          </div>
-        ))}
+        {HERO_SLIDES.map((slide, index) => {
+          const isFirstSlide = index === 0;
+          const webpSrc = slide.image.replace(/\.(jpg|jpeg|png)$/, '.webp');
+          const fallbackSrc = `${slide.image}.jpg`;
+
+          return (
+            <div
+              key={slide.image}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+              }`}
+              style={{ transitionProperty: 'opacity, transform' }}
+            >
+              <picture className="w-full h-full block">
+                <source srcSet={webpSrc} type="image/webp" />
+                <source srcSet={slide.image} type="image/jpeg" />
+                <img
+                  src={fallbackSrc}
+                  alt={slide.title}
+                  className="w-full h-full object-cover object-center filter brightness-90"
+                  width={1920}
+                  height={1080}
+                  loading={isFirstSlide ? 'eager' : 'lazy'}
+                  decoding={isFirstSlide ? 'sync' : 'async'}
+                  fetchPriority={isFirstSlide ? 'high' : 'low'}
+                />
+              </picture>
+              {/* Gradiente multicapa de alto contraste para máxima legibilidad tipográfica */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2545] via-[#0B2545]/75 to-[#0B2545]/60" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0B2545]/40 to-[#07152B]/90" />
+            </div>
+          );
+        })}
       </div>
 
       {/* Controles de navegación del slider */}

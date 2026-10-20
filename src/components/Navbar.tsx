@@ -97,7 +97,9 @@ return (
             <img
               src="/logo-evento.png"
               alt="Colonia Tovar 2026"
-              className="h-[140px] sm:h-[160px] md:h-[190px] w-auto max-w-[160px] sm:max-w-[190px] object-contain transition-transform duration-200 group-hover:scale-102"
+              width={190}
+              height={190}
+              className="h-[140px] sm:h-[160px] md:h-[190px] w-auto max-w-[160px] sm:max-w-[190px] object-contain aspect-square transition-transform duration-200 group-hover:scale-102"
               loading="lazy"
               decoding="async"
             />

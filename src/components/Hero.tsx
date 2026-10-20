@@ -118,13 +118,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister }) => {
             {/* Imagen optimizada con picture y webp para alto rendimiento */}
             <picture className="w-full h-full block">
               <source srcSet={slide.url.replace(/\.(jpg|jpeg|png)$/, '.webp')} type="image/webp" />
+              <source srcSet={slide.url} type="image/jpeg" />
               <img
-                src={slide.url}
+                src={slide.url.endsWith('.jpg') ? `${slide.url}.jpg` : slide.url}
                 alt={slide.alt}
+                width={1920}
+                height={1080}
                 className="w-full h-full object-cover object-center"
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
-                loading="lazy"
-                decoding="async"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding={index === 0 ? 'sync' : 'async'}
+                fetchPriority={index === 0 ? 'high' : 'low'}
               />
             </picture>
           </div>

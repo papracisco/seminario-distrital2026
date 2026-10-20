@@ -108,7 +108,9 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                 <img
                   src="/logo-rotaract.png"
                   alt="Rotaract Distrito 4370"
-                  className="h-11 w-auto object-contain"
+                  width={180}
+                  height={44}
+                  className="h-11 w-auto object-contain aspect-[180/44]"
                   loading="lazy"
                   decoding="async"
                 />
@@ -140,7 +142,9 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                 <img
                   src="/logo-las-delicias.png"
                   alt="Rotaract Las Delicias"
-                  className="h-11 w-auto object-contain"
+                  width={180}
+                  height={44}
+                  className="h-11 w-auto object-contain aspect-[180/44]"
                   loading="lazy"
                   decoding="async"
                 />
@@ -288,7 +292,9 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                                     <img 
                                       src={resolvedPhotoUrl}
                                       alt={member.name}
-                                      className={isJose ? "w-full h-full object-cover object-[center_18%]" : "w-full h-full object-cover"}
+                                      width={112}
+                                      height={112}
+                                      className={isJose ? "w-full h-full object-cover object-[center_18%] aspect-square" : "w-full h-full object-cover aspect-square"}
                                       style={!isJose ? { 
                                         objectFit: 'cover', 
                                         objectPosition: objPosition,

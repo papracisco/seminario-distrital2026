@@ -152,7 +152,9 @@ export const SpeakersSection: React.FC<SpeakersSectionProps> = ({ speakers = SPE
                     <img 
                       src={selectedSpeaker.photoUrl} 
                       alt={selectedSpeaker.name} 
-                      className="w-full h-full object-cover"
+                      width={208}
+                      height={208}
+                      className="w-full h-full object-cover aspect-square"
                       loading="lazy"
                       decoding="async"
                     />

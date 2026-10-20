@@ -98,6 +98,8 @@ export default function HeroIntro() {
           ref={iconRef}
           src={logoIcon}
           alt="Icono Logo"
+          width={160}
+          height={160}
           className="w-24 sm:w-32 md:w-40 h-auto object-contain z-10"
           loading="lazy"
           decoding="async"
@@ -107,6 +109,8 @@ export default function HeroIntro() {
           ref={textRef}
           src={logoText}
           alt="Texto Logo"
+          width={288}
+          height={90}
           className="absolute w-40 sm:w-56 md:w-72 h-auto object-contain opacity-0 pointer-events-none"
           loading="lazy"
           decoding="async"

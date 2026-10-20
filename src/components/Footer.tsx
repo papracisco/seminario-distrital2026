@@ -21,6 +21,8 @@ export const Footer: React.FC = () => {
               <img
                 src="/logo-rotaract.png"
                 alt="Distrito 4370"
+                width={180}
+                height={48}
                 className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
                 loading="lazy"
                 decoding="async"
@@ -30,6 +32,8 @@ export const Footer: React.FC = () => {
               <img
                 src="/logo-las-delicias.png"
                 alt="Rotaract Las Delicias"
+                width={180}
+                height={48}
                 className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
                 loading="lazy"
                 decoding="async"
@@ -39,6 +43,8 @@ export const Footer: React.FC = () => {
               <img
                 src="/logo-evento.png"
                 alt="Colonia Tovar 2026"
+                width={220}
+                height={110}
                 className="h-20 sm:h-24 md:h-28 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
                 loading="lazy"
                 decoding="async"

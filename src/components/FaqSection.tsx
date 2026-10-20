@@ -64,7 +64,9 @@ export const FaqSection: React.FC = () => {
                             <img
                               src="/hero-hotel-kleindorf.jpg.jpg"
                               alt="Hotel Klein Dorf - Sede Oficial Colonia Tovar"
-                              className="w-full h-48 sm:h-56 object-cover hover:scale-102 transition-transform duration-300"
+                              width={600}
+                              height={338}
+                              className="w-full h-48 sm:h-56 object-cover aspect-video hover:scale-102 transition-transform duration-300"
                               loading="lazy"
                               decoding="async"
                             />

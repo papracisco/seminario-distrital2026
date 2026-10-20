@@ -9,9 +9,12 @@ export default defineConfig(() => {
     plugins: [react(),
        tailwindcss(),
        ViteImageOptimizer({
+          exclude: /\.svg$/i,
           png: { quality: 80 },
-          jpeg: { quality: 80 },
+          jpeg: { quality: 80, progressive: true },
+          jpg: { quality: 80, progressive: true },
           webp: { quality: 80 },
+          avif: { quality: 75 },
         }),
       ],
     resolve: {
