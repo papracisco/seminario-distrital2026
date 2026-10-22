@@ -13,16 +13,17 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col items-center text-center gap-6 w-full lg:grid grid-cols-12 gap-8 pb-12 border-b border-white/10 items-center">
           
           {/* Logos institucionales en el footer */}
-          <div className=" flex flex-col items-center text-center lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Contenedor de logos escalado responsivamente y con ajuste flex-wrap por seguridad */}
-            <div className="flex items-center flex-wrap justify-center pb-4 lg:justify-start gap-2 sm:gap-3 px-3 rounded-2xl mb-4 max-w-full">
-              
+          <div className="flex flex-col items-center text-center lg:col-span-6 lg:items-start lg:text-left">
+            {/* Contenedor sin fondo oscuro, en móvil/medianas en columna centrada, y en md:flex-row */}
+            <div className="flex flex-col items-center gap-4 md:flex-row md:items-center md:gap-6 mb-5">
               
               {/* Logo 1: Distrito 4370 */}
               <img
                 src="/logo-rotaract.png"
                 alt="Distrito 4370"
-                className="h-6 sm:h-10 md:h-14 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
+                width={180}
+                height={48}
+                className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
                 loading="lazy"
                 decoding="async"
               />
@@ -31,16 +32,20 @@ export const Footer: React.FC = () => {
               <img
                 src="/logo-las-delicias.png"
                 alt="Rotaract Las Delicias"
-                className="h-6 sm:h-10 md:h-14 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
+                width={180}
+                height={48}
+                className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
                 loading="lazy"
                 decoding="async"
               />
               
               {/* Logo 3: Colonia Tovar 2026 */}
               <img
-                src="/logo-evento-negativo.png"
+                src="/logo-evento.png"
                 alt="Colonia Tovar 2026"
-                className="h-9 sm:h-14 md:h-18 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
+                width={220}
+                height={110}
+                className="h-20 sm:h-24 md:h-28 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity flex-shrink-0"
                 loading="lazy"
                 decoding="async"
               />

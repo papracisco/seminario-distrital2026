@@ -102,20 +102,6 @@ export const COMMITTEES_DATA: Committee[] = [
     ]
   },
   {
-    id: 'dresscode',
-    name: 'Dresscode',
-    iconName: 'Shirt',
-    description: 'Diseño, coordinación y lineamientos de código de vestimenta para cada sesión, plenaria académica y gala nocturna del seminario.',
-    color: '#8B5CF6',
-    members: [
-      { id: 'dc-1', name: 'Isabel Avendaño', role: 'Comité de Dresscode', initials: 'IA' ,photoUrl: 'isa.jpeg' },
-      { id: 'dc-2', name: 'Sofia Perez', role: 'Comité de Dresscode', initials: 'SP' ,photoUrl: 'sofi.jpeg' },
-      { id: 'dc-3', name: 'Victoria Becerra', role: 'Comité de Dresscode', initials: 'VB' ,photoUrl: 'victoria.jpeg' },
-      { id: 'dc-4', name: 'Maria Eugenia Navarrete', role: 'Comité de Dresscode', initials: 'MN' ,photoUrl: 'maru.jpeg' },
-      { id: 'dc-5', name: 'Giovanna Camargo', role: 'Comité de Dresscode', initials: 'GC', photoUrl: 'Giovanna Camargo.jpeg'}
-    ]
-  },
-  {
     id: 'primeros-auxilios',
     name: 'Primeros Auxilios',
     iconName: 'HeartPulse',

@@ -193,7 +193,7 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
             </p>
           </div>
 
-          {/* LISTA DE LOS 5 COMITÉS OPERATIVOS */}
+          {/* LISTA DE COMITÉS OPERATIVOS */}
           <div className="space-y-4">
             {committees.map((committee, index) => {
               const isOpen = openCommitteeId === committee.id;
