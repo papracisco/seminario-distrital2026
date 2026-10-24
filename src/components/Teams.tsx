@@ -274,32 +274,29 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                       {/* GRID DE INTEGRANTES MÁS GRANDES (Mayor protagonismo a las fotos) */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
                         {committee.members.map((member, memberIdx) => {
-                          // Traducimos la URL para que sea compatible con src/assets mediante Vite
                           const resolvedPhotoUrl = getMemberPhoto(member.photoUrl);
-                          const isJose = member.name.toLowerCase().includes('jose francisco') || member.id === 'web-1';
-                          const isGabriel = member.name.toLowerCase().includes('gabriel') || member.id === 'ip-1';
 
-                          // Corrección de rotación y escala para fotos
+                          // 1. Posición del encuadre (por defecto 'center top' para retratos)
+                          const objPosition = member.photoStyle?.objectPosition || 'center top';
+
+                          // 2. Escala / Zoom (por defecto 1 = 100%)
+                          const imgScale = member.photoStyle?.scale || 1;
+
+                          // 3. Rotación (por defecto 0deg)
                           const rotateVal = member.photoStyle?.rotate 
                             ? (typeof member.photoStyle.rotate === 'number' ? `${member.photoStyle.rotate}deg` : member.photoStyle.rotate)
-                            : (isGabriel ? '-90deg' : undefined);
-                          const imgScale = member.photoStyle?.scale || (isGabriel ? 1.35 : 1);
-                          
-                          let transformStyle: string | undefined = undefined;
-                          if (isGabriel) {
-                            transformStyle = member.photoStyle?.transform || 'translateY(20%) rotate(-90deg) scale(1.4)';
-                          } else if (member.photoStyle?.transform) {
-                            transformStyle = member.photoStyle.transform;
-                          } else if (rotateVal) {
-                            transformStyle = `rotate(${rotateVal}) scale(${imgScale})`;
-                          } else if (imgScale !== 1) {
-                            transformStyle = `scale(${imgScale})`;
+                            : undefined;
+
+                          // 4. Transform combinado
+                          let transformStyle = member.photoStyle?.transform;
+                          if (!transformStyle) {
+                            if (rotateVal) {
+                              transformStyle = `rotate(${rotateVal}) scale(${imgScale})`;
+                            } else if (imgScale !== 1) {
+                              transformStyle = `scale(${imgScale})`;
+                            }
                           }
 
-                          const objPosition = isGabriel 
-                            ? 'center center' 
-                            : (member.photoStyle?.objectPosition || (isJose ? 'center 18%' : 'center top'));
-                          const transformOrigin = isGabriel ? 'center center' : objPosition;
 
                           return (
                             <div
@@ -311,20 +308,19 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                             >
                               {/* CONTENEDOR DE AVATAR / FOTO (w-24 h-24 rounded-full overflow-hidden) */}
                               <div className="relative mb-4 sm:mb-5">
-                                <div className={`w-24 h-24 rounded-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 border-2 border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 shrink-0 group-hover:scale-105 group-hover:border-[#D91B5C]/50 transition-all duration-300 ${!isJose ? 'sm:w-28 sm:h-28' : ''}`}>
+                                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 border-2 border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 shrink-0 group-hover:scale-105 group-hover:border-[#D91B5C]/50 transition-all duration-300">
                                   {resolvedPhotoUrl ? (
                                     <img 
                                       src={resolvedPhotoUrl}
                                       alt={member.name}
                                       width={112}
                                       height={112}
-                                      className={isJose ? "w-full h-full object-cover object-[center_18%] aspect-square" : "w-full h-full object-cover aspect-square"}
-                                      style={!isJose ? { 
+                                      className="w-full h-full object-cover aspect-square"
+                                      style={{ 
                                         objectFit: 'cover', 
                                         objectPosition: objPosition,
-                                        transform: transformStyle,
-                                        transformOrigin: transformOrigin
-                                      } : undefined}
+                                        transform: transformStyle
+                                      }}
                                       loading="lazy"
                                       decoding="async"
                                     />
