@@ -106,19 +106,19 @@ export const COMMITTEES_DATA: Committee[] = [
   },
   {
     id: 'protocolo-maceria',
-    name: 'Protocolo y Macería',
+    name: 'Protocolo ',
     iconName: 'Award',
     description: 'Cumplimiento del orden protocolar rotario, tiempos de plenarias, acreditaciones solemnes, maestros de ceremonia y homenajes.',
     color: '#1B365D',
     members: [
-      { id: 'prot-1', name: 'Omar Sanchez', role: 'Comité de Protocolo y Macería', initials: 'OS' ,photoUrl: 'omar.jpeg', photoStyle: { 
+      { id: 'prot-1', name: 'Omar Sanchez', role: 'Comité de Protocolo', initials: 'OS' ,photoUrl: 'omar.jpeg', photoStyle: { 
           scale: 1.8,
         } },
-      { id: 'prot-2', name: 'Elias Bermudez', role: 'Comité de Protocolo y Macería', initials: 'EB' ,photoUrl: 'elias.jpeg', photoStyle: { 
+      { id: 'prot-2', name: 'Elias Bermudez', role: 'Comité de Protocolo', initials: 'EB' ,photoUrl: 'elias.jpeg', photoStyle: { 
           scale: 1.1,
           objectPosition: 'center 20%'
         } },
-      { id: 'prot-3', name: 'Andrew Barrios', role: 'Comité de Protocolo y Macería', initials: 'AB' ,photoUrl: 'andrew.jpeg', photoStyle: { 
+      { id: 'prot-3', name: 'Andrew Barrios', role: 'Comité de Protocolo', initials: 'AB' ,photoUrl: 'andrew.jpeg', photoStyle: { 
           scale: 1.1,
         } }
     ]
