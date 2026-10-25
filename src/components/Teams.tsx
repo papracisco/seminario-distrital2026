@@ -52,8 +52,25 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
   // Estado para el comité activo en el acordeón (por defecto todos cerrados)
   const [openCommitteeId, setOpenCommitteeId] = useState<string | null>(null);
 
-  const toggleCommittee = (id: string) => {
-    setOpenCommitteeId((prev) => (prev === id ? null : id));
+  const toggleCommittee = (committeeId: string) => {
+    const isOpening = openCommitteeId !== committeeId;
+    
+    // Cambiamos el estado
+    setOpenCommitteeId(isOpening ? committeeId : null);
+
+    // Si se está abriendo, hacemos el autoscroll hacia el centro
+    if (isOpening) {
+      // Damos un pequeño respiro de 100ms para que el DOM empiece a renderizar
+      setTimeout(() => {
+        const element = document.getElementById(`committee-card-${committeeId}`);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' // Esto lo "pinea" o centra exactamente en el medio de la pantalla
+          });
+        }
+      }, 100);
+    }
   };
 
   const renderCommitteeIcon = (iconName: Committee['iconName'], color: string) => {
@@ -260,108 +277,106 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                     </div>
                   </button>
 
-                  {/* CONTENEDOR DESPLEGABLE CON GRID DE MIEMBROS MÁS GRANDES */}
-                  {isOpen && (
-                    <div 
-                      id={`committee-panel-${committee.id}`}
-                      className="px-5 sm:px-8 py-7 border-t border-slate-100 bg-white animate-in slide-in-from-top-2 duration-250"
-                    >
-                      {/* Misión del Comité */}
-                      <div className="text-xs sm:text-sm text-slate-600 mb-6 sm:mb-8 bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80 leading-relaxed shadow-2xs">
-                        <strong className="text-[#1B365D] font-bold">Misión del Comité:</strong> {committee.description}
-                      </div>
+                  {/* CONTENEDOR DESPLEGABLE CON ANIMACIÓN FLUIDA */}
+                  <div 
+                    id={`committee-panel-${committee.id}`}
+                    className={`grid transition-all duration-300 ease-in-out ${
+                      isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-5 sm:px-8 py-7 border-t border-slate-100 bg-white">
+                        
+                        {/* Misión del Comité */}
+                        <div className="text-xs sm:text-sm text-slate-600 mb-6 sm:mb-8 bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80 leading-relaxed shadow-2xs">
+                          <strong className="text-[#1B365D] font-bold">Misión del Comité:</strong> {committee.description}
+                        </div>
 
-                      {/* GRID DE INTEGRANTES MÁS GRANDES (Mayor protagonismo a las fotos) */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
-                        {committee.members.map((member, memberIdx) => {
-                          const resolvedPhotoUrl = getMemberPhoto(member.photoUrl);
+                        {/* GRID DE INTEGRANTES MÁS GRANDES */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
+                          {committee.members.map((member, memberIdx) => {
+                            const isOpen = openCommitteeId === committee.id; 
+                            const membersCount = committee.members.length;
 
-                          // 1. Posición del encuadre (por defecto 'center top' para retratos)
-                          const objPosition = member.photoStyle?.objectPosition || 'center top';
+                            const resolvedPhotoUrl = getMemberPhoto(member.photoUrl);
+                            const objPosition = member.photoStyle?.objectPosition || 'center top';
+                            const imgScale = member.photoStyle?.scale || 1;
+                            
+                            const rotateVal = member.photoStyle?.rotate 
+                              ? (typeof member.photoStyle.rotate === 'number' ? `${member.photoStyle.rotate}deg` : member.photoStyle.rotate)
+                              : undefined;
 
-                          // 2. Escala / Zoom (por defecto 1 = 100%)
-                          const imgScale = member.photoStyle?.scale || 1;
-
-                          // 3. Rotación (por defecto 0deg)
-                          const rotateVal = member.photoStyle?.rotate 
-                            ? (typeof member.photoStyle.rotate === 'number' ? `${member.photoStyle.rotate}deg` : member.photoStyle.rotate)
-                            : undefined;
-
-                          // 4. Transform combinado
-                          let transformStyle = member.photoStyle?.transform;
-                          if (!transformStyle) {
-                            if (rotateVal) {
-                              transformStyle = `rotate(${rotateVal}) scale(${imgScale})`;
-                            } else if (imgScale !== 1) {
-                              transformStyle = `scale(${imgScale})`;
+                            let transformStyle = member.photoStyle?.transform;
+                            if (!transformStyle) {
+                              if (rotateVal) {
+                                transformStyle = `rotate(${rotateVal}) scale(${imgScale})`;
+                              } else if (imgScale !== 1) {
+                                transformStyle = `scale(${imgScale})`;
+                              }
                             }
-                          }
 
-
-                          return (
-                            <div
-                              key={member.id}
-                              className="animate-stagger-fade-in bg-[#F8FAFC] hover:bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 min-h-[260px] sm:min-h-[280px] border border-slate-200/90 hover:border-[#D91B5C] hover:shadow-xl hover:shadow-[#D91B5C]/10 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between text-center group"
-                              style={{
-                                animationDelay: `${memberIdx * 0.06}s`,
-                              }}
-                            >
-                              {/* CONTENEDOR DE AVATAR / FOTO (w-24 h-24 rounded-full overflow-hidden) */}
-                              <div className="relative mb-4 sm:mb-5">
-                                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 border-2 border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 shrink-0 group-hover:scale-105 group-hover:border-[#D91B5C]/50 transition-all duration-300">
-                                  {resolvedPhotoUrl ? (
-                                    <img 
-                                      src={resolvedPhotoUrl}
-                                      alt={member.name}
-                                      width={112}
-                                      height={112}
-                                      className="w-full h-full object-cover aspect-square"
-                                      style={{ 
-                                        objectFit: 'cover', 
-                                        objectPosition: objPosition,
-                                        transform: transformStyle
-                                      }}
-                                      loading="lazy"
-                                      decoding="async"
-                                    />
-                                  ) : (
-                                    <div className="flex items-center justify-center w-full h-full">
-                                      <span className="font-['Open_Sans'] font-extrabold text-2xl sm:text-3xl text-slate-600 tracking-wider select-none">
-                                        {member.initials || getInitials(member.name)}
-                                      </span>
-                                    </div>
-                                  )}
+                            return (
+                              <div
+                                key={member.id}
+                                id={`committee-card-${committee.id}`} // ID único para cada tarjeta de miembro,para el togglecomite
+                                className="animate-stagger-fade-in bg-[#F8FAFC] hover:bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 min-h-[260px] sm:min-h-[280px] border border-slate-200/90 hover:border-[#D91B5C] hover:shadow-xl hover:shadow-[#D91B5C]/10 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between text-center group"
+                                style={{ animationDelay: `${memberIdx * 0.06}s` }}
+                              >
+                                {/* CONTENEDOR DE AVATAR / FOTO */}
+                                <div className="relative mb-4 sm:mb-5">
+                                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200 border-2 border-slate-200/90 shadow-sm flex items-center justify-center text-slate-600 shrink-0 group-hover:scale-105 group-hover:border-[#D91B5C]/50 transition-all duration-300">
+                                    {resolvedPhotoUrl ? (
+                                      <img 
+                                        src={resolvedPhotoUrl}
+                                        alt={member.name}
+                                        width={112}
+                                        height={112}
+                                        className="w-full h-full object-cover aspect-square"
+                                        style={{ 
+                                          objectFit: 'cover', 
+                                          objectPosition: objPosition,
+                                          transform: transformStyle
+                                        }}
+                                        loading="lazy"
+                                        decoding="async"
+                                      />
+                                    ) : (
+                                      <div className="flex items-center justify-center w-full h-full">
+                                        <span className="font-['Open_Sans'] font-extrabold text-2xl sm:text-3xl text-slate-600 tracking-wider select-none">
+                                          {member.initials || getInitials(member.name)}
+                                        </span>
+                                      </div>
+                                    )}
+                                  </div>
+                                  {/* Punto institucional */}
+                                  <div
+                                    className="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white shadow-xs"
+                                    style={{ backgroundColor: committee.color }}
+                                    title={`Comité: ${committee.name}`}
+                                  />
                                 </div>
-                                {/* Punto institucional con el color oficial del comité */}
-                                <div
-                                  className="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white shadow-xs"
-                                  style={{ backgroundColor: committee.color }}
-                                  title={`Comité: ${committee.name}`}
-                                />
-                              </div>
 
-                              {/* Nombre del Miembro */}
-                              <div className="w-full mb-3">
-                                <h5 className="font-['Open_Sans'] font-extrabold text-base sm:text-lg text-[#1B365D] group-hover:text-[#D91B5C] transition-colors leading-snug">
-                                  {member.name}
-                                </h5>
-                              </div>
+                                {/* Nombre del Miembro */}
+                                <div className="w-full mb-3">
+                                  <h5 className="font-['Open_Sans'] font-extrabold text-base sm:text-lg text-[#1B365D] group-hover:text-[#D91B5C] transition-colors leading-snug">
+                                    {member.name}
+                                  </h5>
+                                </div>
 
-                              {/* Cargo / Rol en el Comité */}
-                              <div className="w-full flex justify-center">
-                                <span 
-                                  className="inline-block text-[11px] sm:text-xs font-semibold text-slate-500 leading-tight px-3 py-1 rounded-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-[#D91B5C]/40 group-hover:text-[#1B365D] transition-colors"
-                                >
-                                  {member.role}
-                                </span>
+                                {/* Cargo / Rol en el Comité */}
+                                <div className="w-full flex justify-center">
+                                  <span className="inline-block text-[11px] sm:text-xs font-semibold text-slate-500 leading-tight px-3 py-1 rounded-full bg-white border border-slate-200/90 shadow-2xs group-hover:border-[#D91B5C]/40 group-hover:text-[#1B365D] transition-colors">
+                                    {member.role}
+                                  </span>
+                                </div>
                               </div>
-                            </div>
-                          );
-                        })}
+                            );
+                          })}
+                        </div>
+
                       </div>
-
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}
