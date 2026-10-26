@@ -72,7 +72,7 @@ export const COMMITTEES_DATA: Committee[] = [
         photoUrl: 'gabriel.jpeg',
         photoStyle: { 
           scale: 1.1,
-          objectPosition: 'center top'
+          objectPosition: 'center 20%'
         }
       },
       { id: 'ip-2', name: 'Isabel Avendaño', role: 'Comité de Imagen Pública', initials: 'IA', photoUrl: 'isa.jpeg' },
@@ -132,7 +132,10 @@ export const COMMITTEES_DATA: Committee[] = [
     members: [
       { id: 'log-1', name: 'Isabel Avendaño', role: 'Comité de Logística', initials: 'IA' ,photoUrl: 'isa.jpeg' },
       { id: 'log-2', name: 'Adolfo Torres', role: 'Comité de Logística', initials: 'AT' ,photoUrl: 'adolfo.jpg' },
-      { id: 'log-3', name: 'Gabriel Hernandez', role: 'Comité de Logística', initials: 'GH' ,photoUrl: 'gabriel.jpeg' },
+      { id: 'log-3', name: 'Gabriel Hernandez', role: 'Comité de Logística', initials: 'GH' ,photoUrl: 'gabriel.jpeg', photoStyle: { 
+          scale: 1.1,
+          objectPosition: 'center 20%'
+        } },
       { id: 'log-4', name: 'Nicolth Romero', role: 'Comité de Logística', initials: 'NR' ,photoUrl: 'nico.jpeg' }
     ]
   },
