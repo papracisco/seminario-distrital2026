@@ -331,13 +331,13 @@ export const Teams: React.FC<TeamsProps> = ({ committees = COMMITTEES_DATA }) =>
                                         alt={member.name}
                                         width={112}
                                         height={112}
-                                        className="w-full h-full object-cover aspect-square"
+                                        className="w-full h-full object-cover aspect-square animate-fade-in"
                                         style={{ 
                                           objectFit: 'cover', 
                                           objectPosition: objPosition,
                                           transform: transformStyle
                                         }}
-                                        loading="lazy"
+                                        loading="eager"
                                         decoding="async"
                                       />
                                     ) : (

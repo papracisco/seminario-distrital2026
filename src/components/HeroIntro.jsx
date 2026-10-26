@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -15,6 +15,11 @@ export default function HeroIntro() {
   const iconRef = useRef(null);
   const textRef = useRef(null);
   const arrowRef = useRef(null);
+
+  // Asegurarnos de que al montar o recargar, la ventana esté siempre arriba del todo
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useGSAP(() => {
     if (!iconRef.current || !textRef.current || isFinished) return;
