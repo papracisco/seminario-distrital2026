@@ -8,11 +8,25 @@ export const COMMITTEES_DATA: Committee[] = [
     description: 'Liderazgo ejecutivo y directivo del Distrito 4370 que guía la visión estratégica, objetivos institucionales y desarrollo integral del seminario.',
     color: '#1B365D',
     members: [
-      { id: 'jd-1', name: 'Miguel Dos Santos', role: 'Junta Distrital D4370', initials: 'MD', photoUrl: 'miguel dos santos.jpeg' },
-      { id: 'jd-2', name: 'Julio Sanchez', role: 'Junta Distrital D4370', initials: 'JS', photoUrl: 'julio sanchez.jpeg' },
-      { id: 'jd-3', name: 'Giovanna Camargo', role: 'Junta Distrital D4370', initials: 'GC', photoUrl: 'Giovanna Camargo.jpeg' },
-      { id: 'jd-4', name: 'Estefany Diaz', role: 'Junta Distrital D4370', initials: 'ED', photoUrl: 'estefany diaz.jpg' },
-      { id: 'jd-5', name: 'Julio Villamizar', role: 'Junta Distrital D4370', initials: 'JV', photoUrl: 'julio villamizar.jpeg' }
+      { id: 'jd-1', name: 'Miguel Dos Santos', role: 'Junta Distrital D4370', initials: 'MD', photoUrl: 'miguel dos santos.jpeg', photoStyle: {
+        objectPosition: 'center top', 
+        scale: 1.1                   
+      } },
+      { id: 'jd-2', name: 'Julio Sanchez', role: 'Junta Distrital D4370', initials: 'JS', photoUrl: 'julio sanchez.jpeg', photoStyle: {
+        objectPosition: 'center top', 
+        scale: 1.1                   
+      } },
+      { id: 'jd-3', name: 'Giovanna Camargo', role: 'Junta Distrital D4370', initials: 'GC', photoUrl: 'Giovanna Camargo.jpeg', photoStyle: {
+        objectPosition: 'center top', 
+        scale: 1.1                   
+      } },
+      { id: 'jd-4', name: 'Estefany Diaz', role: 'Junta Distrital D4370', initials: 'ED', photoUrl: 'estefany diaz.jpg', photoStyle: {
+        objectPosition: 'center top', 
+        scale: 1.1                   
+      } },
+      { id: 'jd-5', name: 'Julio Villamizar', role: 'Junta Distrital D4370', initials: 'JV', photoUrl: 'julio villamizar.jpeg', photoStyle: {
+        objectPosition: 'center top', 
+      } }
     ]
   },
   {
@@ -29,12 +43,18 @@ export const COMMITTEES_DATA: Committee[] = [
         initials: 'JP', 
         photoUrl: '/jose-parada.jpg',
         photoStyle: {
-          objectPosition: 'center 20%',
-          scale: 1.35
+          objectPosition: 'center top', 
+          scale: 1.1                   
         }
       },
-      { id: 'web-2', name: 'Charles Fernández', role: 'Comité de Desarrollo Web', initials: 'CF', photoUrl: 'chars.jpeg' },
-      { id: 'web-3', name: 'Adolfo Torres', role: 'Comité de Desarrollo Web', initials: 'AT', photoUrl: 'adolfo.jpg' }
+      { id: 'web-2', name: 'Charles Fernández', role: 'Comité de Desarrollo Web', initials: 'CF', photoUrl: 'chars.jpeg', photoStyle: {
+        objectPosition: 'center top',
+        scale: 1.1
+      } },
+      { id: 'web-3', name: 'Adolfo Torres', role: 'Comité de Desarrollo Web', initials: 'AT', photoUrl: 'adolfo.jpg', photoStyle: {
+        objectPosition: 'center top',
+        scale: 1.1
+      } }
     ]
   },
   {
@@ -50,18 +70,18 @@ export const COMMITTEES_DATA: Committee[] = [
         role: 'Comité de Imagen Pública', 
         initials: 'GH', 
         photoUrl: 'gabriel.jpeg',
-        photoStyle: {
-          rotate: -90,
-          scale: 1.4,
-          transform: 'translateY(20%) rotate(-90deg) scale(1.4)',
-          objectPosition: 'center center'
+        photoStyle: { 
+          scale: 1.1,
+          objectPosition: 'center top'
         }
       },
       { id: 'ip-2', name: 'Isabel Avendaño', role: 'Comité de Imagen Pública', initials: 'IA', photoUrl: 'isa.jpeg' },
       { id: 'ip-3', name: 'Andrea Leon', role: 'Comité de Imagen Pública', initials: 'AL', photoUrl: 'andrea.jpeg' },
       { id: 'ip-4', name: 'Giovanna Pineda', role: 'Comité de Imagen Pública', initials: 'GP', photoUrl: 'giovanna.jpeg' },
-      { id: 'ip-5', name: 'Samyra Madero', role: 'Comité de Imagen Pública', initials: 'SM', photoUrl: 'samyra.jpeg' }
-    ]
+      { id: 'ip-5', name: 'Samyra Madero', role: 'Comité de Imagen Pública', initials: 'SM', photoUrl: 'samyra.jpeg', photoStyle: { 
+          scale: 1.1,
+        } }
+    ] 
   },
   {
     id: 'tesoreria',
@@ -70,22 +90,37 @@ export const COMMITTEES_DATA: Committee[] = [
     description: 'Administración de presupuestos, conciliación bancaria de la inscripción, pagos de delegaciones y finanzas transparentes del seminario.',
     color: '#F5A623',
     members: [
-      { id: 'tes-1', name: 'Jose Pong', role: 'Comité de Tesorería', initials: 'JP' ,photoUrl: 'pong.jpeg' },
-      { id: 'tes-2', name: 'Omar Sanchez', role: 'Comité de Tesorería', initials: 'OS' ,photoUrl: 'omar.jpeg' },
+      { id: 'tes-1', name: 'Jose Pong', role: 'Comité de Tesorería', initials: 'JP' ,photoUrl: 'pong.jpeg', photoStyle: { 
+          scale: 1.5,
+          objectPosition: 'center bottom'
+        } },
+      { id: 'tes-2', name: 'Omar Sanchez', role: 'Comité de Tesorería', initials: 'OS' ,photoUrl: 'omar.jpeg', photoStyle: { 
+          scale: 1.8,
+        } },
       { id: 'tes-3', name: 'Maria Fernanda Leañez', role: 'Comité de Tesorería', initials: 'ML' ,photoUrl: 'mafer.png' },
-      { id: 'tes-4', name: 'Maria Eugenia Navarrete', role: 'Comité de Tesorería', initials: 'MN' ,photoUrl: 'maru.jpeg' }
+      { id: 'tes-4', name: 'Maria Eugenia Navarrete', role: 'Comité de Tesorería', initials: 'MN' ,photoUrl: 'maru.jpeg', photoStyle: { 
+          scale: 1.1,
+          objectPosition: 'center 20%'
+        } }
     ]
   },
   {
     id: 'protocolo-maceria',
-    name: 'Protocolo y Macería',
+    name: 'Protocolo ',
     iconName: 'Award',
     description: 'Cumplimiento del orden protocolar rotario, tiempos de plenarias, acreditaciones solemnes, maestros de ceremonia y homenajes.',
     color: '#1B365D',
     members: [
-      { id: 'prot-1', name: 'Omar Sanchez', role: 'Comité de Protocolo y Macería', initials: 'OS' ,photoUrl: 'omar.jpeg' },
-      { id: 'prot-2', name: 'Elias Bermudez', role: 'Comité de Protocolo y Macería', initials: 'EB' ,photoUrl: 'elias.jpeg' },
-      { id: 'prot-3', name: 'Andrew Barrios', role: 'Comité de Protocolo y Macería', initials: 'AB' ,photoUrl: 'andrew.jpeg' }
+      { id: 'prot-1', name: 'Omar Sanchez', role: 'Comité de Protocolo', initials: 'OS' ,photoUrl: 'omar.jpeg', photoStyle: { 
+          scale: 1.8,
+        } },
+      { id: 'prot-2', name: 'Elias Bermudez', role: 'Comité de Protocolo', initials: 'EB' ,photoUrl: 'elias.jpeg', photoStyle: { 
+          scale: 1.1,
+          objectPosition: 'center 20%'
+        } },
+      { id: 'prot-3', name: 'Andrew Barrios', role: 'Comité de Protocolo', initials: 'AB' ,photoUrl: 'andrew.jpeg', photoStyle: { 
+          scale: 1.1,
+        } }
     ]
   },
   {

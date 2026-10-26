@@ -37,9 +37,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenRegister }) => {
   const navLinks = [
     { href: '#evento', label: 'El Evento', id: 'evento' },
     { href: '#cronograma', label: 'Cronograma', id: 'cronograma' },
+    { href: '#galeria', label: 'Galería', id: 'galeria' },
     { href: '#ponentes', label: 'Ponentes', id: 'ponentes' },
     { href: '#equipos', label: 'Equipos', id: 'equipos' },
-    { href: '#galeria', label: 'Galería', id: 'galeria' },
     { href: '#recursos', label: 'Recursos', id: 'recursos' },
     { href: '#faq', label: 'Preguntas', id: 'faq' },
   ];
@@ -117,8 +117,8 @@ return (
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={`px-3 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'bg-[#1B365D]/8 text-[#1B365D] font-bold'
-                    : 'text-slate-600 hover:text-[#1B365D] hover:bg-slate-100/70'
+                    ? 'bg-[#D91B5C]/80 text-[#FFFFFF] font-bold'
+                    : 'text-slate-600 hover:text-[#D91B5C] hover:bg-slate-100/70'
                 }`}
               >
                 {link.label}
@@ -200,7 +200,7 @@ return (
             key={link.id}
             href={link.href}
             onClick={(e) => handleLinkClick(e, link.href)}
-            className="px-4 py-2.5 rounded-xl text-[14px] font-semibold text-slate-700 hover:text-[#1B365D] hover:bg-slate-50 transition-colors"
+            className="px-4 py-2.5 rounded-xl text-[14px] font-semibold text-slate-700 hover:text-[#D91B5C] hover:bg-slate-50 transition-colors"
           >
             {link.label}
           </a>

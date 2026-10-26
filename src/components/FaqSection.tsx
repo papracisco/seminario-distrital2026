@@ -38,55 +38,68 @@ export const FaqSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => toggleFaq(index)}
-                  className="w-full text-left px-6 py-4.5 flex items-center justify-between gap-4 font-['Open_Sans'] font-bold text-base sm:text-lg text-[#1B365D] hover:text-[#D91B5C] transition-colors focus:outline-none"
+                  className="w-full text-left px-6 py-4.5 flex items-center justify-between gap-4 font-['Open_Sans'] font-bold text-base sm:text-lg text-[#1B365D] hover:text-[#D91B5C] transition-colors focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span>{faq.question}</span>
-                  <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
-                    {isOpen ? (
-                      <ChevronUp className="w-4 h-4 text-[#D91B5C]" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 text-slate-500" />
-                    )}
+                  {/* Ícono de Chevron con rotación y cambio de color cuando está activo */}
+                  <div 
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                      isOpen ? 'bg-[#D91B5C]/10' : 'bg-slate-100'
+                    }`}
+                  >
+                    <ChevronDown 
+                      className={`w-4 h-4 transition-all duration-300 ${
+                        isOpen ? 'rotate-180 text-[#D91B5C]' : 'text-slate-500'
+                      }`} 
+                    />
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 bg-[#F8FAFC]/50">
-                    <p>{faq.answer}</p>
+                {/* CONTENEDOR ANIMADO NATIVO */}
+                <div 
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-6 pb-6 pt-1 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 bg-[#F8FAFC]/50">
+                      <p>{faq.answer}</p>
 
-                    {/* Previa del Hotel Klein Dorf y enlace a Google Maps */}
-                    {(faq.question.includes('Hotel Klein Dorf') || faq.question.includes('ubicado')) && (
-                      <div className="mt-4 pt-4 border-t border-slate-200/60">
-                        <div className="overflow-hidden rounded-xl shadow-md border border-slate-200 max-w-xl">
-                          <picture>
-                            <source srcSet="/hero-hotel-kleindorf.webp" type="image/webp" />
-                            <img
-                              src="/hero-hotel-kleindorf.jpg.jpg"
-                              alt="Hotel Klein Dorf - Sede Oficial Colonia Tovar"
-                              width={600}
-                              height={338}
-                              className="w-full h-48 sm:h-56 object-cover aspect-video hover:scale-102 transition-transform duration-300"
-                              loading="lazy"
-                              decoding="async"
-                            />
-                          </picture>
+                      {/* Previa del Hotel Klein Dorf y enlace a Google Maps */}
+                      {(faq.question.includes('Hotel Klein Dorf') || faq.question.includes('ubicado')) && (
+                        <div className="mt-4 pt-4 border-t border-slate-200/60">
+                          <div className="overflow-hidden rounded-xl shadow-md border border-slate-200 max-w-xl">
+                            <picture>
+                              <source srcSet="/hero-hotel-kleindorf.webp" type="image/webp" />
+                              <img
+                                src="/hero-hotel-kleindorf.jpg.jpg"
+                                alt="Hotel Klein Dorf - Sede Oficial Colonia Tovar"
+                                width={600}
+                                height={338}
+                                className="w-full h-48 sm:h-56 object-cover aspect-video hover:scale-102 transition-transform duration-300"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </picture>
+                          </div>
+                          <div className="mt-3.5 flex items-center">
+                            <a
+                              href="https://maps.google.com/?q=Hotel+Klein+Dorf+Colonia+Tovar"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1B365D] hover:bg-[#0B2545] text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
+                            >
+                              <MapPin className="w-4 h-4 text-[#F5A623]" />
+                              <span>Ver ubicación en Google Maps →</span>
+                            </a>
+                          </div>
                         </div>
-                        <div className="mt-3.5 flex items-center">
-                          <a
-                            href="https://maps.google.com/?q=Hotel+Klein+Dorf+Colonia+Tovar"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#1B365D] hover:bg-[#0B2545] text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
-                          >
-                            <MapPin className="w-4 h-4 text-[#F5A623]" />
-                            <span>Ver ubicación en Google Maps →</span>
-                          </a>
-                        </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
-                )}
+                </div>
+
               </div>
             );
           })}
